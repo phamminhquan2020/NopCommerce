@@ -37,7 +37,7 @@
 		</layout>
 	</appender>
 
-	<category name="com.bizuni.order.Order_03_FreeOrder">
+	<category name="com.bizuni.testcase.order.Order_03_FreeOrder">
 		<priority value="all" />
 		<appender-ref ref="console" />
 		<appender-ref ref="logfile" />

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import commonUIs.UserAbstractPageUI;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -582,4 +583,16 @@ public abstract class AbstractPage {
 		return sortedList.equals(arrayList);
 	}
 
+	//start common function of user page
+	public void clickToRegisterLink(WebDriver driver) {
+		waitElementClickable(driver, UserAbstractPageUI.REGISTER_LINK);
+		clickToElement(driver, UserAbstractPageUI.REGISTER_LINK);
+	}
+
+
+	//end of common function of user page
+
+	//start common function of testcase.admin page
+
+	//end of common function of testcase.admin page
 }

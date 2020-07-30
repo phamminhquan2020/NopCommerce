@@ -23,9 +23,9 @@
 <!-- 		<test name="Run on IE11">
 		<parameter name="browser" value="ie11" />
 		<classes>
-			<class name="com.bizuni.order.Order_01_NormalOrder"/>
-			<class name="com.bizuni.order.Order_02_BookOrder"/>
-			<class name="com.bizuni.order.Order_03_FreeOrder"/>
+			<class name="com.bizuni.testcase.order.Order_01_NormalOrder"/>
+			<class name="com.bizuni.testcase.order.Order_02_BookOrder"/>
+			<class name="com.bizuni.testcase.order.Order_03_FreeOrder"/>
 			<class name="com.bizuni.student.Student_01_Bizuni_Student"/>
 		</classes>
 	</test> -->
