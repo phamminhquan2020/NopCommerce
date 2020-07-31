@@ -1,5 +1,6 @@
 package commonFunctions;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -22,12 +23,13 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.annotations.BeforeSuite;
 import reportConfig.VerificationFailures;
 
 public abstract class AbstractTest {
     protected final Log log;
 
-    protected AbstractTest() {
+    public AbstractTest() {
         log = LogFactory.getLog(getClass());
     }
 
@@ -61,7 +63,7 @@ public abstract class AbstractTest {
         return rand.nextInt(99999);
     }
 
-    public void printCurentTime() {
+    public void printCurrentTime() {
         DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
         Date dateobj = new Date();
         System.out.println(df.format(dateobj));
@@ -167,4 +169,30 @@ public abstract class AbstractTest {
         return Instant.now().getEpochSecond();
     }
 
+    @BeforeSuite
+    public void deleteAllFilesInReportNGScreenshot() {
+       log.info("-----START delete file in folder-----");
+        String workingDir = System.getProperty("user.dir");
+        String pathFolderDownload = workingDir + "\\ReportNGScreenshots";
+        deleteAllFileInFolder(pathFolderDownload);
+        log.info("-----END delete file in folder-----");
+    }
+
+    public void deleteAllFileInFolder(String pathFolderDownload) {
+        try {
+            File file = new File(pathFolderDownload);
+            File[] listOfFiles = file.listFiles();
+            for (int i = 0;i< listOfFiles.length;i++) {
+                if (listOfFiles[i].isFile()) {
+                    new File(listOfFiles[i].toString()).delete();
+                }
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+    }
+
+    public WebDriver getDriver(){
+        return driver;
+    }
 }

@@ -1,4 +1,4 @@
-package testcase.register;
+package testcases.register;
 
 import commonFunctions.AbstractTest;
 import commonFunctions.GlobalConstants;
@@ -6,6 +6,7 @@ import commonFunctions.PageGeneratorManager;
 import driverFactory.BrowserDriverManager;
 import driverFactory.DriverFactoryManager;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.HomeUserPageObject;
 import pageObjects.RegisterUserPageObject;
@@ -22,8 +23,9 @@ public class Register extends AbstractTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        driverManager = DriverFactoryManager.getDriverManager(browser);
-        driver = driverManager.getDriver();
+//        driverManager = DriverFactoryManager.getDriverManager(browser);
+//        driver = driverManager.getDriver();
+        driver = getBrowserDriver(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
 
         data = DataHelper.getData();
@@ -44,8 +46,9 @@ public class Register extends AbstractTest {
 
     @Test
     public void Register_01_empty_data() {
-        //homeUserPage.clickToRegisterLink(driver);
-        registerUserPage = PageGeneratorManager.getRegisterUserPage(driver);
+        homeUserPage.clickToRegisterLink(driver);
+        Assert.assertTrue(false);
+/*        registerUserPage = PageGeneratorManager.getRegisterUserPage(driver);
         registerUserPage.clickMaleGender();
         registerUserPage.inputFirstName(firstname);
         registerUserPage.inputLastName(lastname);
@@ -56,9 +59,8 @@ public class Register extends AbstractTest {
         registerUserPage.inputCompanyName(companyName);
         registerUserPage.inputPassword(password);
         registerUserPage.inputConfirmPassword(password);
-        registerUserPage.clickRegisterButton2();
-        registerUserPage.clickRegisterButton3();
-        registerUserPage.clickRegisterButton4();
+        registerUserPage.clickRegisterButton();*/
+
     }
 
     @AfterClass

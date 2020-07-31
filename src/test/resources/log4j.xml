@@ -37,7 +37,14 @@
         </layout>
     </appender>
 
-    <category name="com.bizuni.testcase.order.Order_03_FreeOrder">
+    <category name="testcases.register.Register">
+        <priority value="all"/>
+        <appender-ref ref="console"/>
+        <appender-ref ref="logfile"/>
+        <appender-ref ref="file"/>
+        <appender-ref ref="testng"/>
+    </category>
+    <category name="reportConfig.ReportNGListener">
         <priority value="all"/>
         <appender-ref ref="console"/>
         <appender-ref ref="logfile"/>

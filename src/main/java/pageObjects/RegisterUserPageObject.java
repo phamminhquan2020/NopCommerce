@@ -31,40 +31,27 @@ public class RegisterUserPageObject extends AbstractPage {
     }
 
     public void selectYear(String year) {
+        //todo
     }
 
     public void inputEmail(String email) {
+        //todo
     }
 
     public void inputCompanyName(String companyName) {
+        //todo
     }
 
     public void inputPassword(String password) {
+        //todo
     }
 
     public void inputConfirmPassword(String password) {
+        //todo
     }
 
-    public void newMethod() {
-
-    }
-    
-
-    @Override
-    public boolean isPageLoaded(String pageUrl) {
-        return super.isPageLoaded(pageUrl);
-        //TOTO
-    }
-
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public void clickRegisterButton2() {
+    public void clickRegisterButton() {
+        //todo
     }
 }
-}
+

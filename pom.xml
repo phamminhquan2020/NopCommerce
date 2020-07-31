@@ -142,10 +142,13 @@
                 <version>2.22.2</version>
                 <configuration>
                     <!-- Disabling default listeners of TestNG -->
-                    <property>
-                        <name>usedefaultlisteners</name>
-                        <value>false</value>
-                    </property>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                    </properties>
+
 
                     <!-- Run TestNG xml file -->
                     <suiteXmlFiles>
