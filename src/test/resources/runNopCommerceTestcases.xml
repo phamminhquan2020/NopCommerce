@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="bizuni" parallel="tests" thread-count="5">
-	<listeners>
-		<listener class-name="reportConfig.MethodListener" />
-		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-<!-- 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" /> -->
-	</listeners>
+    <listeners>
+        <listener class-name="reportConfig.MethodListener"/>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <!-- 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" /> -->
+    </listeners>
 
-<test name="Run on Chrome">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="com.bizuni.order.Order_03_FreeOrder"/>
-		</classes>
-	</test>
-	
-		<test name="Run on Firefox">
-		<parameter name="browser" value="firefox" />
-		<classes>
-			<class name="com.bizuni.order.Order_03_FreeOrder"/>
-		</classes>
-	</test>
-	
-<!-- 		<test name="Run on IE11">
-		<parameter name="browser" value="ie11" />
-		<classes>
-			<class name="com.bizuni.testcase.order.Order_01_NormalOrder"/>
-			<class name="com.bizuni.testcase.order.Order_02_BookOrder"/>
-			<class name="com.bizuni.testcase.order.Order_03_FreeOrder"/>
-			<class name="com.bizuni.student.Student_01_Bizuni_Student"/>
-		</classes>
-	</test> -->
-	
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.bizuni.order.Order_03_FreeOrder"/>
+        </classes>
+    </test>
+
+    <test name="Run on Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.bizuni.order.Order_03_FreeOrder"/>
+        </classes>
+    </test>
+
+    <!-- 		<test name="Run on IE11">
+            <parameter name="browser" value="ie11" />
+            <classes>
+                <class name="com.bizuni.testcase.order.Order_01_NormalOrder"/>
+                <class name="com.bizuni.testcase.order.Order_02_BookOrder"/>
+                <class name="com.bizuni.testcase.order.Order_03_FreeOrder"/>
+                <class name="com.bizuni.student.Student_01_Bizuni_Student"/>
+            </classes>
+        </test> -->
+
 
 </suite>

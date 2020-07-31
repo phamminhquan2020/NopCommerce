@@ -36,10 +36,12 @@ public class Register extends AbstractTest {
         companyName = data.getCompany();
         password = data.getPassword();
     }
+
     @BeforeMethod
     public void beforeMethod() {
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
     }
+
     @Test
     public void Register_01_empty_data() {
         //homeUserPage.clickToRegisterLink(driver);
@@ -54,8 +56,11 @@ public class Register extends AbstractTest {
         registerUserPage.inputCompanyName(companyName);
         registerUserPage.inputPassword(password);
         registerUserPage.inputConfirmPassword(password);
-        registerUserPage.clickRegisterButton();
+        registerUserPage.clickRegisterButton2();
+        registerUserPage.clickRegisterButton3();
+        registerUserPage.clickRegisterButton4();
     }
+
     @AfterClass
     public void afterClass() {
         closeBrowserAndDriver(driver);

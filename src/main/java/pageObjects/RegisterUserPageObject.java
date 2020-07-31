@@ -45,6 +45,26 @@ public class RegisterUserPageObject extends AbstractPage {
     public void inputConfirmPassword(String password) {
     }
 
-    public void clickRegisterButton() {
+    public void newMethod() {
+
     }
+    
+
+    @Override
+    public boolean isPageLoaded(String pageUrl) {
+        return super.isPageLoaded(pageUrl);
+        //TOTO
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void clickRegisterButton2() {
+    }
+}
 }
