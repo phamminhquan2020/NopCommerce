@@ -1,9 +1,8 @@
 package commonFunctions;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import commonUIs.UserAbstractPageUI;
@@ -155,7 +154,9 @@ public abstract class AbstractPage {
             clickToElementByJS(driver, xpathValue);
             sleepInSecond(5);
         } else {
-            find(driver, xpathValue).click();
+            WebElement element = find(driver, xpathValue);
+            System.out.println(element.getText());
+            element.click();
         }
     }
 
@@ -424,7 +425,7 @@ public abstract class AbstractPage {
 
     public void scrollToElementAtCenter(WebDriver driver, String xpathValue) {
         jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].scrollIntoView({behavior: 'auto',block: 'center',inline: 'center'});", find(driver, xpathValue));
+        jsExecutor.executeScript("arguments[0].scrollIntoView({behavior: 'smooth',block: 'center',inline: 'center'});", find(driver, xpathValue));
 
     }
 
@@ -477,8 +478,10 @@ public abstract class AbstractPage {
     }
 
     public void waitElementClickable(WebDriver driver, String xpathValue) {
+        System.out.println("Start wait: " + GlobalConstants.LONG_TIME_OUT);
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
         explicitWait.until(ExpectedConditions.elementToBeClickable(byXpath(xpathValue)));
+        System.out.println("End wait");
     }
 
     public void waitElementClickable(WebDriver driver, String xpathValue, String... values) {
@@ -589,7 +592,11 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.REGISTER_LINK);
     }
 
-
+    public void printCurrentTime() {
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SSS");
+        Date dateobj = new Date();
+        System.out.println(df.format(dateobj));
+    }
     //end of common function of user page
 
     //start common function of testcase.admin page

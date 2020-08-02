@@ -195,3 +195,529 @@
 2020-07-31 23:19:12,856 INFO  testcases.register.Register - OS name = windows 10
 2020-07-31 23:19:13,672 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
 2020-07-31 23:19:13,674 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 12:46:57,727 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 12:46:57,747 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 12:46:57,747 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 12:47:08,776 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 12:47:39,040 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 12:47:39,040 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 12:47:39,041 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 12:47:39,041 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (79ada31c9200e536e0e3a0a932a5adb1)
+2020-08-02 12:47:39,420 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 12:47:40,377 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 12:47:40,379 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 12:49:36,747 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 12:49:36,748 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 12:49:36,749 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 12:49:46,840 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 12:50:17,176 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 12:50:17,177 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 12:50:17,177 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 12:50:17,178 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (35a61f4dbe6ae288d5c233fd99b9d900)
+2020-08-02 12:50:17,558 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 12:50:18,421 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 12:50:18,422 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 12:52:02,221 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 12:52:02,222 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 12:52:02,223 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 12:52:12,481 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 12:52:42,746 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 12:52:42,747 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 12:52:42,747 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 12:52:42,747 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (fbd8550920754d3d9f227fada8538f80)
+2020-08-02 12:52:43,117 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 12:55:22,255 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 12:55:22,256 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 12:55:22,256 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 12:55:32,402 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 12:55:32,885 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 12:55:32,886 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:01:05,544 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:01:05,545 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:01:05,545 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:01:15,934 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:01:57,095 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:01:57,096 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:01:57,096 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:02:07,388 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:02:37,838 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:02:37,839 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:02:37,839 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:02:37,839 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (02633393b7667a66edcedcd34cc58a8f)
+2020-08-02 13:02:40,302 INFO  reportConfig.ReportNGListener - ---------- Register_02_empty_data STARTED test case----------
+2020-08-02 13:02:40,661 INFO  reportConfig.ReportNGListener - ---------- Register_02_empty_data SUCCESS test case----------
+2020-08-02 13:02:40,662 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:03:50,464 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:03:50,465 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:03:50,466 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:04:00,767 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:04:31,181 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:04:31,182 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:04:31,182 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:04:31,183 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (586befee6bee44fb4343ed3c4f0b8a0f)
+2020-08-02 13:04:34,753 INFO  reportConfig.ReportNGListener - ---------- Register_02_empty_data STARTED test case----------
+2020-08-02 13:05:05,134 INFO  reportConfig.ReportNGListener - ---------- Register_02_empty_data FAILED test case----------
+2020-08-02 13:05:05,135 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:05:05,135 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:05:05,136 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (586befee6bee44fb4343ed3c4f0b8a0f)
+2020-08-02 13:05:05,547 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:06:03,351 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:06:03,352 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:06:03,352 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:06:13,751 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:06:14,138 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:06:16,116 INFO  reportConfig.ReportNGListener - ---------- Register_02_empty_data STARTED test case----------
+2020-08-02 13:06:16,421 INFO  reportConfig.ReportNGListener - ---------- Register_02_empty_data SUCCESS test case----------
+2020-08-02 13:06:16,422 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:07:50,605 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:07:50,606 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:07:50,606 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:08:00,826 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:08:31,281 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:08:31,282 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:08:31,282 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:08:31,282 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (a561036ee6caf348386afe93a040b638)
+2020-08-02 13:08:34,771 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:09:05,095 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:09:05,095 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:09:05,096 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:09:05,096 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (a561036ee6caf348386afe93a040b638)
+2020-08-02 13:09:05,492 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:10:05,689 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:10:05,691 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:10:05,691 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:10:15,831 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:10:17,255 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:10:19,665 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:10:21,019 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:10:21,020 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:11:01,948 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:11:01,949 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:11:01,949 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:11:12,559 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:11:14,106 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:11:16,131 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:11:17,488 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:11:17,489 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:15:28,056 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:15:28,057 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:15:28,057 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:15:38,290 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:15:47,799 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:15:49,001 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:16:02,466 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:16:02,466 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:16:02,466 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:16:02,467 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (ad33c0973b20c69403aaf5b0a8251a7e)
+2020-08-02 13:16:02,801 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:18:33,943 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:18:33,944 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:18:33,944 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:18:43,855 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:18:44,243 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:18:46,135 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:18:46,419 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:18:46,421 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:19:22,428 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:19:22,429 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:19:22,430 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:19:32,598 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:19:33,021 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:19:35,031 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:19:35,376 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:19:35,377 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:20:33,161 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:20:33,162 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:20:33,163 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:20:43,349 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:20:43,790 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:20:45,810 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:20:46,175 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:20:46,177 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:23:05,331 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:23:05,332 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:23:05,333 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:23:15,818 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:23:45,989 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:23:45,990 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:23:45,990 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:23:45,990 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (19d7618ffd77d0634009e9ccc62b9fa7)
+2020-08-02 13:23:49,709 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:23:50,139 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:23:50,140 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:24:14,765 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:24:14,766 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:24:14,766 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:24:25,400 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:24:55,584 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:24:55,584 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:24:55,584 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:24:55,585 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (bd7de8125a6347e3d3ee98a3d320766a)
+2020-08-02 13:24:58,457 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:24:59,249 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:24:59,251 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:26:28,581 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:26:28,582 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:26:28,582 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:26:38,416 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:27:08,602 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:27:08,602 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:27:08,602 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:27:08,603 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (2af0c505135403c9b312af870dbb2438)
+2020-08-02 13:27:11,251 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:27:41,532 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:27:41,532 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:27:41,532 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:27:41,532 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (2af0c505135403c9b312af870dbb2438)
+2020-08-02 13:27:41,930 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:29:57,884 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:29:57,886 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:29:57,886 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:30:08,411 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:30:38,609 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:30:38,609 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:30:38,609 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:30:38,609 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (182d9bc0fbb0a02c2a1268edc34675d8)
+2020-08-02 13:30:42,109 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:30:42,477 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:30:42,478 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:32:28,257 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:32:28,259 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:32:28,259 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:32:38,249 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:32:48,563 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:32:51,625 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:33:22,268 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:33:22,268 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:33:22,268 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:33:22,268 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (f75f3c4aa9ec7439d76ce847c29d486c)
+2020-08-02 13:33:22,276 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:33:22,276 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:33:22,276 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:33:22,276 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (f75f3c4aa9ec7439d76ce847c29d486c)
+2020-08-02 13:33:22,283 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:33:32,637 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:33:32,637 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:33:32,638 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:33:43,213 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:34:13,376 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:34:13,377 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:34:13,377 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:34:13,377 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (3a02f98ace7eee65c2a1e26205ca9fce)
+2020-08-02 13:34:16,771 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:34:47,070 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:34:47,070 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:34:47,071 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:34:47,071 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (3a02f98ace7eee65c2a1e26205ca9fce)
+2020-08-02 13:34:47,462 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:38:37,349 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:38:37,350 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:38:37,350 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:38:47,536 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:39:17,692 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:39:17,692 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:39:17,693 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:39:17,693 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (84c8957771e96eab1efa64e17f93d687)
+2020-08-02 13:39:21,270 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:39:51,507 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:39:51,507 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:39:51,508 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:39:51,508 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (84c8957771e96eab1efa64e17f93d687)
+2020-08-02 13:39:51,874 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:42:13,629 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:42:13,630 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:42:13,630 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:42:23,966 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:42:54,295 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 13:42:54,295 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:42:54,295 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:42:54,295 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (e0849c1323e04ddf75516f9b2b9d1891)
+2020-08-02 13:42:56,365 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:42:56,789 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:42:56,790 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:42:56,790 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:42:56,790 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (e0849c1323e04ddf75516f9b2b9d1891)
+2020-08-02 13:42:57,138 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:47:41,810 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:47:41,811 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:47:41,812 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:47:48,220 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:48:14,149 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:48:14,149 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:48:47,627 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 13:48:47,628 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:48:47,628 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:48:47,628 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (021746aca1a57179e677fe0d452e0e9c)
+2020-08-02 13:48:48,078 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:53:47,681 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:53:47,681 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:53:47,681 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:53:54,119 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:53:59,205 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:53:59,205 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:54:02,519 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:54:02,520 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:55:15,995 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:55:15,995 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:55:15,995 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:55:22,472 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 13:55:25,707 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 13:55:25,707 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 13:55:29,050 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 13:55:29,051 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:57:32,038 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:57:32,039 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:57:32,039 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:57:42,031 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 13:58:12,728 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data FAILED test case----------
+2020-08-02 13:58:12,728 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 13:58:12,729 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 13:58:12,729 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (90d215317b3f433c4c1dd6af044d0fb7)
+2020-08-02 13:58:13,141 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:58:36,212 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:58:36,214 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:58:36,214 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 13:58:46,308 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 13:58:47,717 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 13:58:47,719 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 13:59:50,030 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 13:59:50,030 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 13:59:50,031 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:00:00,518 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:00:01,945 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:00:01,947 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:01:06,181 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:01:06,181 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:01:06,182 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:01:16,213 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:01:17,536 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:01:17,538 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:02:13,029 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:02:13,030 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:02:13,030 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:02:23,031 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:02:24,386 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:02:24,387 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:04:03,606 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:04:03,607 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:04:03,607 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:04:12,808 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:04:14,231 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:04:14,232 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:06:49,801 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:06:49,802 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:06:49,802 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:06:59,087 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:07:02,471 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:07:02,485 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:07:22,001 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:07:22,002 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:07:22,003 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:07:32,110 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:07:33,296 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:07:33,298 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:09:12,170 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:09:12,171 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:09:12,171 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:09:22,218 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:09:23,405 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:09:23,406 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:12:22,104 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:12:22,104 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:12:22,104 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:12:32,292 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:12:33,548 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:12:33,550 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:13:41,272 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:13:41,272 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:15:52,197 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:15:52,197 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:15:52,197 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:16:00,260 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:16:04,718 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:16:04,718 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:16:50,297 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:16:50,297 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:16:50,312 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:17:00,648 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:17:02,098 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:17:02,100 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:18:48,717 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:18:48,717 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:18:48,717 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:18:57,912 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data STARTED test case----------
+2020-08-02 14:18:59,245 INFO  reportConfig.ReportNGListener - ---------- Register_06_empty_data SUCCESS test case----------
+2020-08-02 14:18:59,246 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:23:50,534 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:23:50,534 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:23:50,534 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:24:17,402 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:24:47,518 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 14:24:47,518 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:24:47,518 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:24:47,518 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (abe93f3dda294219dd808a15009892a9)
+2020-08-02 14:24:50,274 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:25:20,474 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 14:25:20,474 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:25:20,474 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:25:20,474 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (abe93f3dda294219dd808a15009892a9)
+2020-08-02 14:25:20,875 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:27:30,671 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:27:30,671 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:27:30,671 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:27:41,471 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:27:41,924 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 14:27:44,148 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:27:44,376 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 14:27:44,377 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:28:55,938 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:28:55,938 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:28:55,938 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:29:06,330 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:29:36,515 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 14:29:36,515 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:29:36,515 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:29:36,515 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (e4386b08bc2efc65e0a6e54210c0d30d)
+2020-08-02 14:29:39,287 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:30:10,620 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 14:30:10,620 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:30:10,620 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:30:10,620 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (e4386b08bc2efc65e0a6e54210c0d30d)
+2020-08-02 14:30:22,442 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:30:22,442 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:30:22,442 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:30:32,459 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:31:02,534 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:31:02,534 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:31:02,534 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:31:11,956 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:31:12,518 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 14:31:15,455 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:31:16,388 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 14:31:16,388 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:31:17,504 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:31:17,504 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:34:09,782 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:34:09,782 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:34:09,782 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:34:18,993 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:34:19,610 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 14:34:22,618 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:34:23,574 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 14:34:23,574 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:34:24,636 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:34:24,636 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:36:09,589 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:36:09,589 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:36:09,589 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:36:17,731 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:36:18,720 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 14:36:22,011 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:36:23,018 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 14:36:23,018 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:36:24,020 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:36:24,020 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:37:56,307 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:37:56,307 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:37:56,307 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:38:05,656 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:38:06,242 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 14:38:08,310 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:38:09,266 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 14:38:09,266 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:38:10,253 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:38:10,253 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:38:35,679 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:38:35,679 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:38:35,679 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:38:45,779 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:38:46,194 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data SUCCESS test case----------
+2020-08-02 14:38:48,446 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:38:48,685 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email SUCCESS test case----------
+2020-08-02 14:38:48,685 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:38:49,481 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:38:49,481 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:39:06,418 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:39:06,418 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:39:06,418 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:39:16,824 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:39:46,996 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 14:39:46,996 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:39:47,011 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:39:47,011 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (9b462f70ba6f13cbb286a678dbc93300)
+2020-08-02 14:39:49,900 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:39:50,196 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 14:39:50,197 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:39:50,197 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:39:50,197 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (9b462f70ba6f13cbb286a678dbc93300)
+2020-08-02 14:39:50,544 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:39:51,425 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:39:51,425 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:43:15,904 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:43:15,904 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:43:15,904 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:43:26,143 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:43:56,341 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 14:43:56,341 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:43:56,341 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:43:56,341 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (1579fa977bcf6a1f6ca07fc3f55ae843)
+2020-08-02 14:43:59,113 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:44:29,378 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 14:44:29,378 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:44:29,378 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:44:29,378 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (1579fa977bcf6a1f6ca07fc3f55ae843)
+2020-08-02 14:44:29,769 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:44:30,649 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:44:30,649 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:47:12,655 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:47:12,670 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:47:12,670 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:47:22,714 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:47:52,796 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 14:47:52,797 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:47:52,798 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:47:52,798 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (b0789d6e3f38621a2f2e6ff43fedd4be)
+2020-08-02 14:47:55,576 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:48:25,738 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 14:48:25,739 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:48:25,739 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:48:25,740 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (b0789d6e3f38621a2f2e6ff43fedd4be)
+2020-08-02 14:48:26,128 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:48:26,908 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:48:26,909 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 14:56:45,631 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 14:56:45,632 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 14:56:45,632 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 14:56:56,143 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 14:57:26,389 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 14:57:26,389 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:57:26,389 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:57:26,389 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (94c48283ccb66ace7e24a8429ecbe050)
+2020-08-02 14:57:30,143 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 14:58:00,413 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 14:58:00,414 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 14:58:00,414 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 14:58:00,415 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (94c48283ccb66ace7e24a8429ecbe050)
+2020-08-02 14:58:00,810 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 14:58:01,621 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:58:01,622 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 15:01:06,390 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 15:01:06,392 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 15:01:06,392 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 15:01:15,606 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------
+2020-08-02 15:01:45,784 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data FAILED test case----------
+2020-08-02 15:01:45,784 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 15:01:45,784 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 15:01:45,784 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (b61f77ab978830d1cb81b4efecfc00b4)
+2020-08-02 15:01:49,335 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email STARTED test case----------
+2020-08-02 15:02:19,604 INFO  reportConfig.ReportNGListener - ---------- Register_02_invalid_email FAILED test case----------
+2020-08-02 15:02:19,604 INFO  reportConfig.ReportNGListener - 1
+2020-08-02 15:02:19,605 INFO  reportConfig.ReportNGListener - testcases.register.Register@9660f4e
+2020-08-02 15:02:19,606 INFO  reportConfig.ReportNGListener - ChromeDriver: chrome on WINDOWS (b61f77ab978830d1cb81b4efecfc00b4)
+2020-08-02 15:02:19,950 INFO  testcases.register.Register - OS name = windows 10
+2020-08-02 15:02:20,894 INFO  testcases.register.Register - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 15:02:20,896 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome FINISHED test class----------
+2020-08-02 15:07:15,091 INFO  testcases.register.Register - -----START delete file in folder-----
+2020-08-02 15:07:15,093 INFO  testcases.register.Register - -----END delete file in folder-----
+2020-08-02 15:07:15,093 INFO  reportConfig.ReportNGListener - ---------- Run on Chrome STARTED test class----------
+2020-08-02 15:07:25,158 INFO  reportConfig.ReportNGListener - ---------- Register_01_empty_data STARTED test case----------

@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -39,9 +40,7 @@ public abstract class AbstractTest {
     public WebDriver getBrowserDriver(String browser) {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
-            option = new ChromeOptions();
-            // option.addArguments("headless");
-            driver = new ChromeDriver(option);
+            driver = new ChromeDriver();
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
@@ -55,6 +54,7 @@ public abstract class AbstractTest {
             System.out.println("Please select your browser");
         }
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
         return driver;
     }
 
@@ -64,7 +64,7 @@ public abstract class AbstractTest {
     }
 
     public void printCurrentTime() {
-        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SSS");
         Date dateobj = new Date();
         System.out.println(df.format(dateobj));
     }
