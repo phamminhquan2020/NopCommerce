@@ -90,15 +90,28 @@ public class RegisterUserPageObject extends AbstractPage {
         return getElementText(driver, RegisterUserPageUI.EMAIL_ERROR_MSG);
     }
 
-    public String getPasswordRequiredErrorMsg() {
+    public String getPasswordErrorMsg() {
         waitElementVisible(driver, RegisterUserPageUI.PASSWORD_REQUIRED_ERROR_MSG);
         return getElementText(driver, RegisterUserPageUI.PASSWORD_REQUIRED_ERROR_MSG);
     }
 
-    public String getConfirmPasswordRequiredErrorMsg() {
+    public String getConfirmPasswordErrorMsg() {
         waitElementVisible(driver, RegisterUserPageUI.CONFIRM_PASSWORD_REQUIRED_ERROR_MSG);
         return getElementText(driver, RegisterUserPageUI.CONFIRM_PASSWORD_REQUIRED_ERROR_MSG);
     }
 
+    public String getSuccessMsg() {
+        waitElementVisible(driver, RegisterUserPageUI.SUCCESS_MSG);
+       return getElementText(driver, RegisterUserPageUI.SUCCESS_MSG);
+    }
+
+    public void clickContinueButton() {
+        waitElementClickable(driver, RegisterUserPageUI.CONTINUE_BUTTON);
+        clickToElement(driver, RegisterUserPageUI.CONTINUE_BUTTON);
+    }
+
+    public boolean isEmailAlreadyExistMsgDisplayed() {
+        return isElementDisplayed(driver, RegisterUserPageUI.EMAIL_ALREADY_EXIST_MSG);
+    }
 }
 

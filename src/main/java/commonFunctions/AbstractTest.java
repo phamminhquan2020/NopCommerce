@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import driverFactory.BrowserDriverManager;
+import driverFactory.DriverFactoryManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -29,6 +31,7 @@ import reportConfig.VerificationFailures;
 
 public abstract class AbstractTest {
     protected final Log log;
+    BrowserDriverManager driverManager;
 
     public AbstractTest() {
         log = LogFactory.getLog(getClass());
@@ -36,6 +39,12 @@ public abstract class AbstractTest {
 
     private WebDriver driver;
     ChromeOptions option;
+
+
+    public WebDriver getBrowserDriverFromFactory(String browser){
+        driverManager = DriverFactoryManager.getDriverManager(browser);
+        return driver = driverManager.getDriver();
+    }
 
     public WebDriver getBrowserDriver(String browser) {
         if (browser.equals("chrome")) {
@@ -195,7 +204,7 @@ public abstract class AbstractTest {
     public WebDriver getDriver(){
         return driver;
     }
-    public void sleepInSecond(long timeout) {
+    public static void sleepInSecond(long timeout) {
         try {
             Thread.sleep(timeout * 1000);
         } catch (InterruptedException e) {

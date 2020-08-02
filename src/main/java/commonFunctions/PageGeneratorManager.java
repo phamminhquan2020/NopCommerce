@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomeUserPageObject;
 import pageObjects.RegisterUserPageObject;
 
-public class PageGeneratorManager {
+public class PageGeneratorManager extends AbstractTest {
 
 
     public static HomeUserPageObject getHomeUserPage(WebDriver driver) {
