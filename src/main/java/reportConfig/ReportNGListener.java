@@ -19,12 +19,12 @@ public class ReportNGListener extends AbstractTest implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-      log.info("---------- " + context.getName() + " STARTED test class----------");
+      log.info("---------- " + context.getName() + " STARTED test----------");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        log.info("---------- " + context.getName() + " FINISHED test class----------");
+        log.info("---------- " + context.getName() + " FINISHED test----------");
     }
 
     @Override
@@ -41,7 +41,6 @@ public class ReportNGListener extends AbstractTest implements ITestListener {
     public void onTestFailure(ITestResult result) {
         log.info("---------- " + result.getName() + " FAILED test case----------");
         System.setProperty("org.uncommons.reportng.escape-output", "false");
-        log.info("1");
 
         Object testClass = result.getInstance();
         log.info(testClass.toString());

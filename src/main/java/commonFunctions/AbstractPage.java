@@ -479,10 +479,8 @@ public abstract class AbstractPage {
     }
 
     public void waitElementClickable(WebDriver driver, String xpathValue) {
-        System.out.println("Start wait: " + GlobalConstants.LONG_TIME_OUT);
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
         explicitWait.until(ExpectedConditions.elementToBeClickable(byXpath(xpathValue)));
-        System.out.println("End wait");
     }
 
     public void waitElementClickable(WebDriver driver, String xpathValue, String... values) {
@@ -587,16 +585,24 @@ public abstract class AbstractPage {
         return sortedList.equals(arrayList);
     }
 
+
+    public void printCurrentTime() {
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SSS");
+        Date dateobj = new Date();
+        System.out.println(df.format(dateobj));
+    }
+
     //start common function of user page
     public void clickToRegisterLink(WebDriver driver) {
         waitElementClickable(driver, UserAbstractPageUI.REGISTER_LINK);
         clickToElement(driver, UserAbstractPageUI.REGISTER_LINK);
     }
 
-    public void printCurrentTime() {
-        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SSS");
-        Date dateobj = new Date();
-        System.out.println(df.format(dateobj));
+
+    public void clickToLoginLink(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.LOGIN_LINK);
+        clickToElement(driver, UserAbstractPageUI.LOGIN_LINK);
+
     }
     //end of common function of user page
 

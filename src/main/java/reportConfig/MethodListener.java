@@ -17,7 +17,6 @@ public class MethodListener implements IInvokedMethodListener {
 
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult result) {
-        log.info("test");
          log.debug("After invocation of " + method.getTestMethod().getMethodName());
         Reporter.setCurrentTestResult(result);
         if (method.isTestMethod()) {

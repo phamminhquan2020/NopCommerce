@@ -31,15 +31,20 @@ public class Register extends AbstractTest {
         email = data.getEmail();
         companyName = data.getCompany();
         password = data.getPassword();
-        emailExist = "automationfc.vn@gmail.com";
+        emailExist = "leo2020@gmail.com";
     }
 
     @BeforeMethod
     public void beforeMethod() {
+        log.info("Navigate to User Home Page");
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
         homeUserPage.clickToRegisterLink(driver);
         registerUserPage = PageGeneratorManager.getRegisterUserPage(driver);
 
+    }
+    @AfterMethod
+    public void afterMethod() {
+        driver.manage().deleteAllCookies();
     }
 
     @Test
@@ -64,9 +69,7 @@ public class Register extends AbstractTest {
     @Test
     public void register_03_existing_email() {
         registerUserPage.clickMaleGender();
-        System.out.println("firstname: " + firstname);
         registerUserPage.inputFirstName(firstname);
-        System.out.println("firstname: " + lastname);
         registerUserPage.inputLastName(lastname);
         registerUserPage.selectDay(day);
         registerUserPage.selectMonth(month);
@@ -77,8 +80,6 @@ public class Register extends AbstractTest {
         registerUserPage.inputConfirmPassword(password);
         registerUserPage.clickRegisterButton();
         verifyTrue(registerUserPage.isEmailAlreadyExistMsgDisplayed());
-
-
     }
 
     @Test
@@ -86,7 +87,6 @@ public class Register extends AbstractTest {
         registerUserPage.inputPassword("123");
         registerUserPage.clickRegisterButton();
         verifyTrue(registerUserPage.getPasswordErrorMsg().contains("Password must meet the following rules:") && registerUserPage.getPasswordErrorMsg().contains("must have at least 6 characters"));
-
     }
 
     @Test
@@ -98,11 +98,9 @@ public class Register extends AbstractTest {
     }
 
     @Test
-    public void register_06_empty_data() {
+    public void register_06_register_success() {
         registerUserPage.clickMaleGender();
-        System.out.println("firstname: " + firstname);
         registerUserPage.inputFirstName(firstname);
-        System.out.println("firstname: " + lastname);
         registerUserPage.inputLastName(lastname);
         registerUserPage.selectDay(day);
         registerUserPage.selectMonth(month);

@@ -69,9 +69,7 @@ public class RegisterUserPageObject extends AbstractPage {
     }
 
     public void clickRegisterButton() {
-        //scrollToElement(driver, RegisterUserPageUI.REGISTER_BUTTON);
         waitElementClickable(driver, RegisterUserPageUI.REGISTER_BUTTON);
-        //sleepInSecond(1);
         clickToElement(driver, RegisterUserPageUI.REGISTER_BUTTON);
     }
 
