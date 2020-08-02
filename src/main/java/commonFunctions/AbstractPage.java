@@ -35,6 +35,7 @@ public abstract class AbstractPage {
         if (driver.toString().contains("internet explorer")) {
             sleepInSecond(5);
         }
+        sleepInSecond(1);
     }
 
     public void setImplicitWait(WebDriver driver) {

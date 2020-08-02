@@ -195,4 +195,11 @@ public abstract class AbstractTest {
     public WebDriver getDriver(){
         return driver;
     }
+    public void sleepInSecond(long timeout) {
+        try {
+            Thread.sleep(timeout * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
