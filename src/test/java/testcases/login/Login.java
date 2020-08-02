@@ -7,16 +7,25 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageObjects.HomeUserPageObject;
 import pageObjects.LoginUserPageObject;
+import testdata.helper.DataHelper;
 
 public class Login extends AbstractTest {
     WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
+    DataHelper data;
+    String newEmail, existEmail, password;
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+        data = DataHelper.getData();
+        newEmail = data.getEmail();
+        password = data.getPassword();
+        existEmail = "leo2020@gmail.com";
+
 }
     @BeforeMethod
     public void beforeMethod() {
@@ -42,6 +51,26 @@ public class Login extends AbstractTest {
         loginUserPage.inputToEmailTextBox("qwert@yopmail.com");
         loginUserPage.clickToLoginButton();
         verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("No customer account found"));
+    }
+    @Test
+    public void login_04_empty_password() {
+        loginUserPage.inputToEmailTextBox(existEmail);
+        loginUserPage.clickToLoginButton();
+        verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
+    }
+    @Test
+    public void login_05_wrong_password() {
+        loginUserPage.inputToEmailTextBox(existEmail);
+        loginUserPage.inputToPasswordTextBox(password);
+        loginUserPage.clickToLoginButton();
+        verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
+    }
+    @Test
+    public void login_06_login_success() {
+        loginUserPage.inputToEmailTextBox(existEmail);
+        loginUserPage.inputToPasswordTextBox("123456");
+        loginUserPage.clickToLoginButton();
+        verifyEquals(loginUserPage.getPageUrl(driver), GlobalConstants.USER_URL);
     }
 
     @AfterClass(alwaysRun = true)

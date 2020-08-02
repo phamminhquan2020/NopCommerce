@@ -30,4 +30,9 @@ public class LoginUserPageObject extends AbstractPage {
         waitElementVisible(driver, LoginUserPageUI.EMAIL_TEXTBOX);
         sendkeyToElement(driver, LoginUserPageUI.EMAIL_TEXTBOX, email);
     }
+
+    public void inputToPasswordTextBox(String password) {
+        waitElementVisible(driver, LoginUserPageUI.PASSWORD_TEXTBOX);
+        sendkeyToElement(driver, LoginUserPageUI.PASSWORD_TEXTBOX, password);
+    }
 }

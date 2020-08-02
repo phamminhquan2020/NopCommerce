@@ -3,6 +3,7 @@ package commonFunctions;
 import org.openqa.selenium.WebDriver;
 import pageObjects.HomeUserPageObject;
 import pageObjects.LoginUserPageObject;
+import pageObjects.CustomerInfoMyAccountUserPageObject;
 import pageObjects.RegisterUserPageObject;
 
 
@@ -22,5 +23,10 @@ public class PageGeneratorManager extends AbstractTest {
     public static LoginUserPageObject getLoginUserPage(WebDriver driver) {
         sleepInSecond(1);
         return new LoginUserPageObject(driver);
+    }
+
+    public static CustomerInfoMyAccountUserPageObject getMyAccountUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new CustomerInfoMyAccountUserPageObject(driver);
     }
 }

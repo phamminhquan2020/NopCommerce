@@ -253,6 +253,11 @@ public abstract class AbstractPage {
         return find(driver, xpathValue).getAttribute(attributeName);
     }
 
+    public String getElementTextByJS(WebDriver driver, String xpathValue) {
+        jsExecutor = (JavascriptExecutor) driver;
+        return (String) jsExecutor.executeScript("return arguments[0].value", find(driver, xpathValue));
+    }
+
     public String getElementText(WebDriver driver, String xpathValue) {
         return find(driver, xpathValue).getText();
     }
@@ -604,6 +609,13 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.LOGIN_LINK);
 
     }
+
+    public void clickToMyAccountLink(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.MY_ACCOUNT_LINK);
+        clickToElement(driver, UserAbstractPageUI.MY_ACCOUNT_LINK);
+    }
+
+    ;
     //end of common function of user page
 
     //start common function of testcase.admin page

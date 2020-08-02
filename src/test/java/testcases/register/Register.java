@@ -14,7 +14,7 @@ public class Register extends AbstractTest {
     HomeUserPageObject homeUserPage;
     RegisterUserPageObject registerUserPage;
     DataHelper data;
-    String firstname, lastname, day, month, year, email, companyName, password, emailExist;
+    String firstname, lastname, day, month, year, email, companyName, password;
 
     @Parameters("browser")
     @BeforeClass
@@ -28,10 +28,9 @@ public class Register extends AbstractTest {
         day = "15";
         month = "June";
         year = "2000";
-        email = data.getEmail();
+        email = "automationfc.vn@gmail.com";
         companyName = data.getCompany();
         password = data.getPassword();
-        emailExist = "leo2020@gmail.com";
     }
 
     @BeforeMethod
@@ -74,7 +73,7 @@ public class Register extends AbstractTest {
         registerUserPage.selectDay(day);
         registerUserPage.selectMonth(month);
         registerUserPage.selectYear(year);
-        registerUserPage.inputEmail(emailExist);
+        registerUserPage.inputEmail(email);
         registerUserPage.inputCompanyName(companyName);
         registerUserPage.inputPassword(password);
         registerUserPage.inputConfirmPassword(password);
@@ -105,10 +104,10 @@ public class Register extends AbstractTest {
         registerUserPage.selectDay(day);
         registerUserPage.selectMonth(month);
         registerUserPage.selectYear(year);
-        registerUserPage.inputEmail(email);
+        registerUserPage.inputEmail(GlobalConstants.USER_EMAIL);
         registerUserPage.inputCompanyName(companyName);
-        registerUserPage.inputPassword(password);
-        registerUserPage.inputConfirmPassword(password);
+        registerUserPage.inputPassword(GlobalConstants.USER_PASSWORD);
+        registerUserPage.inputConfirmPassword(GlobalConstants.USER_PASSWORD);
         registerUserPage.clickRegisterButton();
         verifyEquals(registerUserPage.getSuccessMsg(), "Your registration completed");
         registerUserPage.clickContinueButton();
