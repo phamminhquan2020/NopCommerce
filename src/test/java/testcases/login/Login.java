@@ -14,7 +14,7 @@ public class Login extends AbstractTest {
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     DataHelper data;
-    String newEmail, existEmail, password;
+    String newEmail, password;
 
     @Parameters("browser")
     @BeforeClass
@@ -24,7 +24,6 @@ public class Login extends AbstractTest {
         data = DataHelper.getData();
         newEmail = data.getEmail();
         password = data.getPassword();
-        existEmail = "leo2020@gmail.com";
 
 }
     @BeforeMethod
@@ -39,7 +38,6 @@ public class Login extends AbstractTest {
         loginUserPage.clickToLoginButton();
         verifyEquals(loginUserPage.getEmailErrorMsg(), "Please enter your email");
     }
-
     @Test
     public void login_02_invalid_email() {
         loginUserPage.inputToEmailTextBox("qwert");
@@ -54,21 +52,21 @@ public class Login extends AbstractTest {
     }
     @Test
     public void login_04_empty_password() {
-        loginUserPage.inputToEmailTextBox(existEmail);
+        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
         loginUserPage.clickToLoginButton();
         verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
     }
     @Test
     public void login_05_wrong_password() {
-        loginUserPage.inputToEmailTextBox(existEmail);
+        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
         loginUserPage.inputToPasswordTextBox(password);
         loginUserPage.clickToLoginButton();
         verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
     }
     @Test
     public void login_06_login_success() {
-        loginUserPage.inputToEmailTextBox(existEmail);
-        loginUserPage.inputToPasswordTextBox("123456");
+        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
+        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
         loginUserPage.clickToLoginButton();
         verifyEquals(loginUserPage.getPageUrl(driver), GlobalConstants.USER_URL);
     }
