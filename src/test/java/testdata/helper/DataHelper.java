@@ -39,5 +39,17 @@ public class DataHelper {
     public String getPassword() {
         return faker.internet().password();
     }
+
+    public String getCity() {
+        return faker.address().cityName();
+    }
+
+    public String getZipcode() {
+        return faker.address().zipCode();
+    }
+
+    public String getFaxNumber() {
+        return faker.phoneNumber().phoneNumber();
+    }
 }
  

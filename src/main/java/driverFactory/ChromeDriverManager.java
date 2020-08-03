@@ -1,7 +1,7 @@
 package driverFactory;
 
 import java.io.File;
-import java.util.Collections;
+import java.util.*;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,17 +15,28 @@ public class ChromeDriverManager extends BrowserDriverManager {
     protected void createDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        List<String> args = new ArrayList<String>() ;
         String path = GlobalConstants.EXTENSION_FOLDER + "/extension_6_1_7_0.crx";
         File file = new File(path);
+
         options.addExtensions(file);
-        options.addArguments("--disable-notifications");
-        options.addArguments("--disable-geolocation");
-        options.addArguments("--disable-extensions");
-        options.addArguments("-lang=vi");
+
+        args.add("--disable-notifications");
+        args.add("--disable-geolocation");
+        args.add("--disable-extensions");
+        args.add("-lang=vi");
+        options.addArguments(args);
+
         System.setProperty("webdriver.chrome.args", "--disable-logging");
         System.setProperty("webdriver.chrome.silentOutput", "true");
+
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        options.setExperimentalOption("prefs", prefs);
+
         driver = new ChromeDriver(options);
     }
 

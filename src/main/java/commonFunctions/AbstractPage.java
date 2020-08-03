@@ -603,7 +603,6 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.REGISTER_LINK);
     }
 
-
     public void clickToLoginLink(WebDriver driver) {
         waitElementClickable(driver, UserAbstractPageUI.LOGIN_LINK);
         clickToElement(driver, UserAbstractPageUI.LOGIN_LINK);
@@ -615,7 +614,10 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.MY_ACCOUNT_LINK);
     }
 
-    ;
+    public void clickToDynamicMyAccountMenu(WebDriver driver, String menu) {
+        waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);
+        clickToElement(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);
+    }
     //end of common function of user page
 
     //start common function of testcase.admin page
