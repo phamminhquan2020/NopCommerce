@@ -32,6 +32,26 @@ public class PageGeneratorManager extends AbstractTest {
         return new AddressMyAccountUserPageObject(driver);
     }
 
+    public static ChangePasswordMyAccountUserPageObject getChangePasswordMyAccountUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new ChangePasswordMyAccountUserPageObject(driver);
+    }
+
+    public static ProductDetailUserPageObject getProductDetailUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new ProductDetailUserPageObject(driver);
+    }
+
+    public static ProductReviewUserPageObject getProductReviewUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new ProductReviewUserPageObject(driver);
+    }
+
+    public static MyProductReviewMyAccountUserPageObject getMyProductReviewMyAccountPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new MyProductReviewMyAccountUserPageObject(driver);
+    }
+
     public static SearchUserPageObject getSearchUserPage(WebDriver driver) {
         sleepInSecond(1);
         return new SearchUserPageObject(driver);

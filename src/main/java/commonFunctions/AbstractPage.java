@@ -300,8 +300,10 @@ public abstract class AbstractPage {
     }
 
     public boolean isElementDisplayed(WebDriver driver, String xpathValue, String... values) {
+        xpathValue = castToRestParam(xpathValue, values);
+        System.out.println("xpathValue: " + xpathValue);
         try {
-            return find(driver, castToRestParam(xpathValue, values)).isDisplayed();
+            return find(driver, xpathValue).isDisplayed();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -623,6 +625,20 @@ public abstract class AbstractPage {
         waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);
     }
+
+    public  void clickToLogoutLink(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.LOGOUT_LINK);
+        clickToElement(driver, UserAbstractPageUI.LOGOUT_LINK);
+
+    };
+
+    public void clickToDynamicProductTitle(WebDriver driver, String productTitle) {
+        waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
+        clickToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
+    };
+
+
+
     //end of common function of user page
 
     //start common function of testcase.admin page

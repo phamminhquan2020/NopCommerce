@@ -5,10 +5,7 @@ import commonFunctions.GlobalConstants;
 import commonFunctions.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.AddressMyAccountUserPageObject;
-import pageObjects.HomeUserPageObject;
-import pageObjects.LoginUserPageObject;
-import pageObjects.CustomerInfoMyAccountUserPageObject;
+import pageObjects.*;
 import testdata.helper.DataHelper;
 
 public class MyAccount extends AbstractTest {
@@ -17,10 +14,14 @@ public class MyAccount extends AbstractTest {
     LoginUserPageObject loginUserPage;
     CustomerInfoMyAccountUserPageObject customerInfoMyAccountUserPage;
     AddressMyAccountUserPageObject addressMyAccountUserPage;
+    ChangePasswordMyAccountUserPageObject changePasswordMyAccountUserPage;
+    ProductDetailUserPageObject productDetailUserPage;
+    ProductReviewUserPageObject productReviewUserPage;
+    MyProductReviewMyAccountUserPageObject myProductReviewMyAccountUserPage;
     DataHelper data;
     String firstname, lastname, day, month, year, company;
     String add_firstname, add_lastname, add_email, add_company, add_country, add_state, add_city, add_address1, add_address2, add_zipcode, add_phone, add_fax;
-
+    String productTitle, reviewTitle, reviewText, ratingValue;
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
@@ -44,25 +45,38 @@ public class MyAccount extends AbstractTest {
         add_zipcode = data.getZipcode();
         add_phone = data.getPhoneNumber();
         add_fax = data.getFaxNumber();
+
+        productTitle = "Apple MacBook Pro 13-inch";
+        reviewTitle = "This is best Macbook" + randomNumber();
+        reviewText = "It's have lots of valuable upgrades from previous version";
+        ratingValue = "5";
+
+
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+
+
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
         loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
         loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
         loginUserPage.clickToLoginButton();
-        homeUserPage.clickToMyAccountLink(driver);
-        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
     }
 
-    @BeforeMethod
-    public void beforeMethod() {
-
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod() {
+        driver.manage().deleteAllCookies();
     }
 
     @Test
     public void myAccount_01_update_customer_info() {
+        homeUserPage.clickToMyAccountLink(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToFemaleRadio();
         customerInfoMyAccountUserPage.inputFirstName(firstname);
         customerInfoMyAccountUserPage.inputLastName(lastname);
@@ -82,6 +96,8 @@ public class MyAccount extends AbstractTest {
 
     @Test
     public void myAccount_02_add_address() {
+        homeUserPage.clickToMyAccountLink(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Addresses");
         addressMyAccountUserPage = PageGeneratorManager.getAddressMyAccountUserPage(driver);
         addressMyAccountUserPage.clickToAddButton();
@@ -114,6 +130,55 @@ public class MyAccount extends AbstractTest {
 
     }
 
+
+    public void myAccount_03_change_password() {
+        homeUserPage.clickToMyAccountLink(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Change password");
+        changePasswordMyAccountUserPage = PageGeneratorManager.getChangePasswordMyAccountUserPage(driver);
+        changePasswordMyAccountUserPage.inputOldPassword(GlobalConstants.USER_PASSWORD);
+        changePasswordMyAccountUserPage.inputNewPassword(GlobalConstants.CHANGED_USER_PASSWORD);
+        changePasswordMyAccountUserPage.inputConfirmNewPassword(GlobalConstants.CHANGED_USER_PASSWORD);
+        changePasswordMyAccountUserPage.clickChangePasswordButton();
+        verifyEquals(changePasswordMyAccountUserPage.getResultMsg(), "Password was changed");
+        changePasswordMyAccountUserPage.clickToLogoutLink(driver);
+        changePasswordMyAccountUserPage.clickToLoginLink(driver);
+        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
+        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.clickToLoginButton();
+        verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
+        loginUserPage.inputToPasswordTextBox(GlobalConstants.CHANGED_USER_PASSWORD);
+        loginUserPage.clickToLoginButton();
+        verifyEquals(loginUserPage.getPageUrl(driver), GlobalConstants.USER_URL);
+    }
+
+    @Test
+    public void myAccount_04_review_product() {
+        homeUserPage.clickToDynamicProductTitle(driver, productTitle);
+        productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
+        productDetailUserPage.clickAddYourReviewLink();
+        productReviewUserPage = PageGeneratorManager.getProductReviewUserPage(driver);
+        productReviewUserPage.inputReviewTitleTextbox(reviewTitle);
+        productReviewUserPage.inputReviewTextTextbox(reviewText);
+        productReviewUserPage.clickToDynamicRatingOption(ratingValue);
+        productReviewUserPage.clickSubmitReviewButton();
+        verifyEquals(productReviewUserPage.getResultReviewMsg(), "Product review is successfully added.");
+        productReviewUserPage.clickToMyAccountLink(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "My product reviews");
+        myProductReviewMyAccountUserPage = PageGeneratorManager.getMyProductReviewMyAccountPage(driver);
+        verifyTrue(myProductReviewMyAccountUserPage.isReviewTitleDisplayed(reviewTitle));
+        verifyEquals(myProductReviewMyAccountUserPage.getReviewTextByTitle(reviewTitle), reviewText);
+        verifyTrue(myProductReviewMyAccountUserPage.isReviewRatingDisplayedCorrectly(reviewTitle, ratingValue));
+        verifyTrue(myProductReviewMyAccountUserPage.getReviewInfoByTitle(reviewTitle).contains(productTitle));
+
+
+
+
+
+
+
+    }
     @AfterClass(alwaysRun = true)
     public void afterClass() {
         closeBrowserAndDriver(driver);

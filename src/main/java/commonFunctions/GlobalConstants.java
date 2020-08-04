@@ -12,5 +12,6 @@ public class GlobalConstants {
 
     public static final String USER_URL = "https://demo.nopcommerce.com/";
     public static final String USER_EMAIL = "leo2020@gmail.com";
-    public static final String USER_PASSWORD = "123456";
+    public static final String USER_PASSWORD = "12345678";
+    public static final String CHANGED_USER_PASSWORD = "123456789";
 }
