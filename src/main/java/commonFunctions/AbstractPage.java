@@ -614,6 +614,11 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.MY_ACCOUNT_LINK);
     }
 
+    public void clickToSearchLink(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.SEARCH_LINK);
+        clickToElement(driver, UserAbstractPageUI.SEARCH_LINK);
+    }
+
     public void clickToDynamicMyAccountMenu(WebDriver driver, String menu) {
         waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);

@@ -31,4 +31,9 @@ public class PageGeneratorManager extends AbstractTest {
         sleepInSecond(1);
         return new AddressMyAccountUserPageObject(driver);
     }
+
+    public static SearchUserPageObject getSearchUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new SearchUserPageObject(driver);
+    }
 }
