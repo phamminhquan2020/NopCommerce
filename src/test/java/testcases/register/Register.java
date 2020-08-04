@@ -41,7 +41,7 @@ public class Register extends AbstractTest {
         registerUserPage = PageGeneratorManager.getRegisterUserPage(driver);
 
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.manage().deleteAllCookies();
     }

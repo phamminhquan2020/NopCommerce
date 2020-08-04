@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="suiteNameNopcommerce" parallel="false" thread-count="5">
+<suite name="suiteNameNopcommerce" parallel="false" thread-count="2">
     <listeners>
 
         <!-- ReportNG config-->
@@ -17,9 +17,10 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testcases.register.Register"/>
-<!--            <class name="testcases.login.Login"/>
-            <class name="testcases.myAccount.MyAccount"/>-->
+            <class name="testcases.login.Login"/>
+            <class name="testcases.myAccount.MyAccount"/>
             <class name="testcases.search.Search"/>
+            <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
         </classes>
     </test>
 

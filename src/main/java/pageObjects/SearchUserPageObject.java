@@ -80,4 +80,34 @@ public class SearchUserPageObject extends AbstractPage {
         waitElementVisible(driver, SearchUserPageUI.PRICE_TO_TEXTBOX);
         sendkeyToElement(driver, SearchUserPageUI.PRICE_TO_TEXTBOX, priceToTC);
     }
+
+    public void selectSortByDropdown(String sortByValue) {
+        waitElementVisible(driver, SearchUserPageUI.SORT_BY_DROPDOWN);
+        selectOptionInDropdown(driver, SearchUserPageUI.SORT_BY_DROPDOWN, sortByValue);
+    }
+
+    public void selectDisplayPerPageDropdown(String numberValue) {
+        waitElementVisible(driver, SearchUserPageUI.DISPLAY_PER_PAGE_DROPDOWN);
+        selectOptionInDropdown(driver, SearchUserPageUI.DISPLAY_PER_PAGE_DROPDOWN, numberValue);
+    }
+
+    public boolean isProductTitleSortedAtoZ() {
+        waitAllElementsVisible(driver, SearchUserPageUI.PRODUCT_TITLES);
+        return isDataSortedAscending(driver, SearchUserPageUI.PRODUCT_TITLES);
+    }
+
+    public boolean isProductTitleSortedZtoA() {
+        waitAllElementsVisible(driver, SearchUserPageUI.PRODUCT_TITLES);
+        return isDataSortedDecending(driver, SearchUserPageUI.PRODUCT_TITLES);
+    }
+
+    public boolean isProductPriceSortedLowToHigh() {
+        waitElementVisible(driver, SearchUserPageUI.PRODUCT_PRICES);
+        return isPriceSortedAscending(driver, SearchUserPageUI.PRODUCT_PRICES);
+    }
+
+    public boolean isProductPriceSortedHighToLow() {
+        waitElementVisible(driver, SearchUserPageUI.PRODUCT_PRICES);
+        return isPriceSortedDecending(driver, SearchUserPageUI.PRODUCT_PRICES);
+    }
 }

@@ -32,6 +32,10 @@ public class Login extends AbstractTest {
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
     }
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod() {
+        driver.manage().deleteAllCookies();
+    }
 
     @Test
     public void login_01_empty_data() {

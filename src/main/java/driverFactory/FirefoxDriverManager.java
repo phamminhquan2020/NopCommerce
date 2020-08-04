@@ -26,6 +26,8 @@ public class FirefoxDriverManager extends BrowserDriverManager {
         option.setProfile(profile);
         option.addPreference("font.language.group", "x-unicode");
         option.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
+/*        option.addArguments("-headless");
+        option.addArguments("window-size=1920,1080");*/
         driver = new FirefoxDriver(option);
 
     }

@@ -93,7 +93,7 @@ public class Search extends AbstractTest {
         loginUserPage.clickToSearchLink(driver);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.manage().deleteAllCookies();
     }
@@ -212,7 +212,7 @@ public class Search extends AbstractTest {
     }
 
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass() {
         closeBrowserAndDriver(driver);
     }

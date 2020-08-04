@@ -14,4 +14,9 @@ public class SearchUserPageUI {
     public static final String CATEGORY_DROPDOWN = "//select[@id='cid']";
     public static final String SUB_CATEGORY_CHECKBOX = "//input[@id='isc']";
     public static final String MANUFACTURER_DROPDOWN = "//select[@id='mid']";
+
+    public static final String SORT_BY_DROPDOWN = "//select[@id='products-orderby']";
+    public static final String DISPLAY_PER_PAGE_DROPDOWN = "//select[@id='products-pagesize']";
+    public static final String PRODUCT_PRICES = "//div[@class='prices']/span";
+
 }

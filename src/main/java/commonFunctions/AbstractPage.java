@@ -456,6 +456,10 @@ public abstract class AbstractPage {
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(byXpath(xpathValue)));
     }
+    public void waitAllElementsVisible(WebDriver driver, String xpathValue) {
+        explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
+        explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byXpath(xpathValue)));
+    }
 
     public void waitElementStaleness(WebDriver driver, String xpathValue) {
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
@@ -518,10 +522,6 @@ public abstract class AbstractPage {
         for (WebElement element : elementList) {
             arrayList.add(element.getText());
         }
-        System.out.println("--------Dữ liệu trên UI");
-        for (String name : arrayList) {
-            System.out.println(name);
-        }
 
         ArrayList<String> sortedList = new ArrayList<>();
         for (String child : arrayList) {
@@ -529,11 +529,6 @@ public abstract class AbstractPage {
         }
 
         Collections.sort(arrayList, String.CASE_INSENSITIVE_ORDER);
-
-        System.out.println("--------Dữ liệu đã sort ASC trong code------------");
-        for (String name : arrayList) {
-            System.out.println(name);
-        }
         return sortedList.equals(arrayList);
     }
 
@@ -543,10 +538,6 @@ public abstract class AbstractPage {
         for (WebElement element : elementList) {
             arrayList.add(element.getText());
         }
-        System.out.println("--------Dữ liệu trên UI");
-        for (String name : arrayList) {
-            System.out.println(name);
-        }
 
         ArrayList<String> sortedList = new ArrayList<>();
         for (String child : arrayList) {
@@ -554,16 +545,8 @@ public abstract class AbstractPage {
         }
 
         Collections.sort(arrayList, String.CASE_INSENSITIVE_ORDER);
-        System.out.println("--------Dữ liệu đã sort ASC trong code------------");
-        for (String name : arrayList) {
-            System.out.println(name);
-        }
 
         Collections.reverse(arrayList);
-        System.out.println("----------Dữ liệu đã sort DESC trong code-------------");
-        for (String name : arrayList) {
-            System.out.println(name);
-        }
 
         return sortedList.equals(arrayList);
     }
@@ -572,11 +555,7 @@ public abstract class AbstractPage {
         ArrayList<Float> arrayList = new ArrayList<Float>();
         List<WebElement> elementList = finds(driver, xpathValue);
         for (WebElement element : elementList) {
-            arrayList.add(Float.parseFloat(element.getText()));
-        }
-        System.out.println("-------Dữ liệu trên UI----------");
-        for (Float name : arrayList) {
-            System.out.println(name);
+            arrayList.add(Float.parseFloat(element.getText().replace("$", "").replace(",", "")));
         }
 
         ArrayList<Float> sortedList = new ArrayList<Float>();
@@ -585,10 +564,23 @@ public abstract class AbstractPage {
         }
 
         Collections.sort(arrayList);
-        System.out.println("---------Dữ liệu đã SORT ASC trong code----------");
-        for (Float name : arrayList) {
-            System.out.println(name);
+        return sortedList.equals(arrayList);
+    }
+
+    public boolean isPriceSortedDecending(WebDriver driver, String xpathValue) {
+        ArrayList<Float> arrayList = new ArrayList<Float>();
+        List<WebElement> elementList = finds(driver, xpathValue);
+        for (WebElement element : elementList) {
+            arrayList.add(Float.parseFloat(element.getText().replace("$", "").replace(",", "")));
         }
+
+        ArrayList<Float> sortedList = new ArrayList<Float>();
+        for (Float child : arrayList) {
+            sortedList.add(child);
+        }
+
+        Collections.sort(arrayList);
+        Collections.reverse(arrayList);
         return sortedList.equals(arrayList);
     }
 
@@ -637,6 +629,15 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
     };
 
+    public void hoverToDynamicMenu(WebDriver driver, String menu) {
+        waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_MENU_BY_NAME, menu);
+        hoverToElement(driver, UserAbstractPageUI.DYNAMIC_MENU_BY_NAME, menu);
+    }
+
+    public void clickToSubMenu(WebDriver driver, String menu, String subMenu) {
+        waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_SUB_MENU_BY_NAME, menu, subMenu);
+        clickToElement(driver, UserAbstractPageUI.DYNAMIC_SUB_MENU_BY_NAME, menu, subMenu);
+    }
 
 
     //end of common function of user page

@@ -56,4 +56,9 @@ public class PageGeneratorManager extends AbstractTest {
         sleepInSecond(1);
         return new SearchUserPageObject(driver);
     }
+
+    public static ProductListUserPageObjectBackup getProductListUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new ProductListUserPageObjectBackup(driver);
+    }
 }
