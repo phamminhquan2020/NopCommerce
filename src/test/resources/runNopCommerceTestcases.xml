@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="suiteNameNopcommerce" parallel="false" thread-count="2">
+<suite name="suiteNameNopcommerce" parallel="tests" thread-count="2">
     <listeners>
 
         <!-- ReportNG config-->
@@ -10,7 +10,7 @@
         <listener class-name="reportConfig.ReportNGListener"/>
 
         <!--Retry Test Fail listener-->
-<!--        <listener class-name="retryTestFail.RetryListener"/>-->
+        <!--        <listener class-name="retryTestFail.RetryListener"/>-->
     </listeners>
 
     <test name="Run on Chrome">
@@ -23,5 +23,16 @@
             <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
         </classes>
     </test>
+
+<!--    <test name="Run on Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="testcases.register.Register"/>
+            <class name="testcases.login.Login"/>
+            <class name="testcases.myAccount.MyAccount"/>
+            <class name="testcases.search.Search"/>
+            <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
+        </classes>
+    </test>-->
 
 </suite>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/maven-pom-nopcommerce.iml" filepath="$PROJECT_DIR$/maven-pom-nopcommerce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NopCommerce.iml" filepath="$PROJECT_DIR$/.idea/NopCommerce.iml" />
     </modules>
   </component>
 </project>

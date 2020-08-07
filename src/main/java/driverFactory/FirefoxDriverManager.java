@@ -1,13 +1,12 @@
 package driverFactory;
 
-import java.io.File;
-
+import commonFunctions.GlobalConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
-import commonFunctions.GlobalConstants;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.File;
 
 public class FirefoxDriverManager extends BrowserDriverManager {
 
@@ -22,13 +21,15 @@ public class FirefoxDriverManager extends BrowserDriverManager {
         profile.addExtension(file);
         profile.setPreference("font.language.group", "x-unicode");
         profile.setPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
-        FirefoxOptions option = new FirefoxOptions();
-        option.setProfile(profile);
-        option.addPreference("font.language.group", "x-unicode");
-        option.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
-/*        option.addArguments("-headless");
-        option.addArguments("window-size=1920,1080");*/
-        driver = new FirefoxDriver(option);
+        FirefoxOptions options = new FirefoxOptions();
+        options.setProfile(profile);
+        options.addPreference("font.language.group", "x-unicode");
+        options.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
+        //bug hover of firefox (can not hover twice), add below line to workaround
+        options.setCapability("moz:useNonSpecCompliantPointerOrigin", true);
+/*        options.addArguments("-headless");
+        options.addArguments("window-size=1920,1080");*/
+        driver = new FirefoxDriver(options);
 
     }
 

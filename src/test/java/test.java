@@ -1,12 +1,13 @@
-import javafx.application.Application;
-import javafx.stage.Stage;
-import testdata.helper.DataHelper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class test {
+    WebDriver driver;
 
-    public static void main(String[] args) {
-        DataHelper data = DataHelper.getData();
-        System.out.println(data.getEmail());
+    public void testMethod() {
+        driver = new ChromeDriver();
+        driver.findElement(By.xpath("")).findElement(By.xpath("")).findElement(By.xpath("")).findElement(By.xpath("")).findElement(By.xpath(""));
     }
 
 

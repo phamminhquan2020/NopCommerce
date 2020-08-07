@@ -61,4 +61,9 @@ public class PageGeneratorManager extends AbstractTest {
         sleepInSecond(1);
         return new ProductListUserPageObjectBackup(driver);
     }
+
+    public static WishListUserPageObject getWishListUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new WishListUserPageObject(driver);
+    }
 }

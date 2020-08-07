@@ -1,7 +1,5 @@
 package commonFunctions;
 
-import org.openqa.selenium.WebDriver;
-
 public class GlobalConstants {
 
     public static final long LONG_TIME_OUT = 30;

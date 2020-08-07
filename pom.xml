@@ -154,7 +154,7 @@
                     <suiteXmlFiles>
                         <file>src/test/resources/runNopCommerceTestcases.xml</file>
                     </suiteXmlFiles>
-
+                    <forkMode>never</forkMode>
                 </configuration>
             </plugin>
         </plugins>

@@ -4,10 +4,6 @@ import commonFunctions.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import pageUIs.RegisterUserPageUI;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class RegisterUserPageObject extends AbstractPage {
     private WebDriver driver;
 

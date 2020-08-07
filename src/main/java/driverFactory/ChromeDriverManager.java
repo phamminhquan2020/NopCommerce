@@ -1,13 +1,12 @@
 package driverFactory;
 
-import java.io.File;
-import java.util.*;
-
+import commonFunctions.GlobalConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import commonFunctions.GlobalConstants;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.File;
+import java.util.*;
 
 public class ChromeDriverManager extends BrowserDriverManager {
 
@@ -37,8 +36,8 @@ public class ChromeDriverManager extends BrowserDriverManager {
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.setExperimentalOption("prefs", prefs);
-/*        option.addArguments("-headless");
-        option.addArguments("window-size=1920,1080");*/
+//        options.addArguments("-headless");
+//        options.addArguments("window-size=1920,1080");
 
         driver = new ChromeDriver(options);
     }

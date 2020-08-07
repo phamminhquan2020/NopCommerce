@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import pageUIs.SearchUserPageUI;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class SearchUserPageObject extends AbstractPage {

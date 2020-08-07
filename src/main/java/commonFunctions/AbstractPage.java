@@ -1,21 +1,16 @@
 package commonFunctions;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-
 import commonUIs.UserAbstractPageUI;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractPage {
     private Alert alert;
@@ -68,7 +63,7 @@ public abstract class AbstractPage {
         }
     }
 
-    public void fowardToPage(WebDriver driver) {
+    public void forwardToPage(WebDriver driver) {
         driver.navigate().forward();
         if (driver.toString().contains("internet explorer")) {
             sleepInSecond(5);
@@ -639,7 +634,23 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_SUB_MENU_BY_NAME, menu, subMenu);
     }
 
+    public void waitForAjaxLoadingIconDisappeared(WebDriver driver) {
+        waitElementInvisible(driver, UserAbstractPageUI.LOADING_ICON);
+    }
 
+    public String getNotificationMsg(WebDriver driver) {
+       waitElementVisible(driver, UserAbstractPageUI.NOTIFICATION_MSG);
+       return getElementText(driver, UserAbstractPageUI.NOTIFICATION_MSG);
+    }
+
+    public void clickToWishListLink(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.WISH_LIST_LINK);
+        clickToElement(driver, UserAbstractPageUI.WISH_LIST_LINK);
+    }
+
+    public String getDataByColumnNameAndRow(WebDriver driver, String columnName, String rowNumber) {
+        int index = finds(driver, "//th[text()='SKU']/preceding-sibling::*").size() + 1;
+    }
     //end of common function of user page
 
     //start common function of testcase.admin page

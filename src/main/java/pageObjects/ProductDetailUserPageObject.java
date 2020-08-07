@@ -15,4 +15,9 @@ public class ProductDetailUserPageObject extends AbstractPage {
         waitElementClickable(driver, ProductDetailUserPageUI.ADD_YOUR_REVIEW_LINK);
         clickToElement(driver, ProductDetailUserPageUI.ADD_YOUR_REVIEW_LINK);
     }
+
+    public void clickToAddToWishListButton() {
+       waitElementClickable(driver, ProductDetailUserPageUI.ADD_TO_WISH_LIST_BUTTON);
+       clickToElement(driver, ProductDetailUserPageUI.ADD_TO_WISH_LIST_BUTTON);
+    }
 }

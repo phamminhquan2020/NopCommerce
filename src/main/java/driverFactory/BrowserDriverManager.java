@@ -1,9 +1,9 @@
 package driverFactory;
 
-import java.util.concurrent.TimeUnit;
-
 import commonFunctions.GlobalConstants;
 import org.openqa.selenium.WebDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public abstract class BrowserDriverManager {
     protected WebDriver driver;
