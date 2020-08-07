@@ -5,11 +5,15 @@ import pageObjects.*;
 
 
 public class PageGeneratorManager extends AbstractTest {
+    private static HomeUserPageObject homeUserPage;
 
 
     public static HomeUserPageObject getHomeUserPage(WebDriver driver) {
+        if (homeUserPage==null) {
+            homeUserPage = new HomeUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new HomeUserPageObject(driver);
+        return homeUserPage;
     }
 
     public static RegisterUserPageObject getRegisterUserPage(WebDriver driver) {
