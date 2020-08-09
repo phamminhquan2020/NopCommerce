@@ -53,7 +53,8 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(wishListUserPage.getProductNameByRow("1"),"HTC One M8 Android L 5.0 Lollipop");
         verifyEquals(wishListUserPage.getPriceByRow("1"),"$245.00");
         wishListUserPage.clickToShareLink();
-        System.out.println(wishListUserPage.getWishListTitle());
+        verifyEquals(wishListUserPage.getWishListTitle(), "Wishlist of " + GlobalConstants.FIRST_NAME + " " + GlobalConstants.LAST_NAME);
+        System.out.println();
         verifyTrue(wishListUserPage.isOnlyOnceProductInWishList());
         verifyEquals(wishListUserPage.getSKUByRow("1"),"M8_HTC_5L");
         verifyEquals(wishListUserPage.getProductNameByRow("1"),"HTC One M8 Android L 5.0 Lollipop");

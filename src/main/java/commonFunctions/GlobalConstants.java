@@ -12,4 +12,6 @@ public class GlobalConstants {
     public static final String USER_EMAIL = "leo2020@gmail.com";
     public static final String USER_PASSWORD = "12345678";
     public static final String CHANGED_USER_PASSWORD = "123456789";
+    public static final String FIRST_NAME = "Automation";
+    public static final String LAST_NAME = "FC";
 }
