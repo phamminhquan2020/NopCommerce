@@ -6,6 +6,18 @@ import pageObjects.*;
 
 public class PageGeneratorManager extends AbstractTest {
     private static HomeUserPageObject homeUserPage;
+    private static RegisterUserPageObject registerUserPage;
+    private static LoginUserPageObject loginUserPage;
+    private static CustomerInfoMyAccountUserPageObject customerInfoMyAccountUserPage;
+    private static AddressMyAccountUserPageObject addressMyAccountUserPage;
+    private static ChangePasswordMyAccountUserPageObject changePasswordMyAccountUserPage;
+    private static ProductDetailUserPageObject productDetailUserPage;
+    private static ProductReviewUserPageObject productReviewUserPage;
+    private static MyProductReviewMyAccountUserPageObject myProductReviewMyAccountUserPage;
+    private static SearchUserPageObject searchUserPage;
+    private static ProductListUserPageObjectBackup productListUserPageBackup;
+    private static WishListUserPageObject wishListUserPage;
+
 
 
     public static HomeUserPageObject getHomeUserPage(WebDriver driver) {
@@ -17,57 +29,90 @@ public class PageGeneratorManager extends AbstractTest {
     }
 
     public static RegisterUserPageObject getRegisterUserPage(WebDriver driver) {
+        if (registerUserPage==null) {
+            registerUserPage = new RegisterUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new RegisterUserPageObject(driver);
+        return registerUserPage;
     }
 
     public static LoginUserPageObject getLoginUserPage(WebDriver driver) {
+        if (loginUserPage==null) {
+            loginUserPage = new LoginUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new LoginUserPageObject(driver);
+        return loginUserPage;
     }
 
     public static CustomerInfoMyAccountUserPageObject getMyAccountUserPage(WebDriver driver) {
+        if (customerInfoMyAccountUserPage==null) {
+            customerInfoMyAccountUserPage = new CustomerInfoMyAccountUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new CustomerInfoMyAccountUserPageObject(driver);
+        return customerInfoMyAccountUserPage;
     }
 
     public static AddressMyAccountUserPageObject getAddressMyAccountUserPage(WebDriver driver) {
+        if (addressMyAccountUserPage==null) {
+            addressMyAccountUserPage = new AddressMyAccountUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new AddressMyAccountUserPageObject(driver);
+        return addressMyAccountUserPage;
     }
 
     public static ChangePasswordMyAccountUserPageObject getChangePasswordMyAccountUserPage(WebDriver driver) {
+        if (changePasswordMyAccountUserPage==null) {
+            changePasswordMyAccountUserPage = new ChangePasswordMyAccountUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new ChangePasswordMyAccountUserPageObject(driver);
+        return changePasswordMyAccountUserPage;
     }
 
     public static ProductDetailUserPageObject getProductDetailUserPage(WebDriver driver) {
+        if (productDetailUserPage==null) {
+            productDetailUserPage = new ProductDetailUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new ProductDetailUserPageObject(driver);
+        return productDetailUserPage;
     }
 
     public static ProductReviewUserPageObject getProductReviewUserPage(WebDriver driver) {
+        if (productReviewUserPage==null) {
+            productReviewUserPage = new ProductReviewUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new ProductReviewUserPageObject(driver);
+        return productReviewUserPage;
     }
 
     public static MyProductReviewMyAccountUserPageObject getMyProductReviewMyAccountPage(WebDriver driver) {
+        if (myProductReviewMyAccountUserPage==null) {
+            myProductReviewMyAccountUserPage = new MyProductReviewMyAccountUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new MyProductReviewMyAccountUserPageObject(driver);
+        return myProductReviewMyAccountUserPage;
     }
 
     public static SearchUserPageObject getSearchUserPage(WebDriver driver) {
+        if (searchUserPage==null) {
+            searchUserPage = new SearchUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new SearchUserPageObject(driver);
+        return searchUserPage;
     }
 
     public static ProductListUserPageObjectBackup getProductListUserPage(WebDriver driver) {
+        if (productListUserPageBackup==null) {
+            productListUserPageBackup = new ProductListUserPageObjectBackup(driver);
+        }
         sleepInSecond(1);
-        return new ProductListUserPageObjectBackup(driver);
+        return productListUserPageBackup;
     }
 
     public static WishListUserPageObject getWishListUserPage(WebDriver driver) {
+        if (wishListUserPage==null) {
+            wishListUserPage = new WishListUserPageObject(driver);
+        }
         sleepInSecond(1);
-        return new WishListUserPageObject(driver);
+        return wishListUserPage;
     }
 }
