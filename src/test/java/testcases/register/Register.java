@@ -23,8 +23,8 @@ public class Register extends AbstractTest {
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
 
         data = DataHelper.getData();
-        firstname = data.getFirstName();
-        lastname = data.getLastName();
+        firstname = GlobalConstants.FIRST_NAME;
+        lastname = GlobalConstants.LAST_NAME;
         day = "15";
         month = "June";
         year = "2000";
@@ -41,6 +41,7 @@ public class Register extends AbstractTest {
         registerUserPage = PageGeneratorManager.getRegisterUserPage(driver);
 
     }
+
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.manage().deleteAllCookies();
