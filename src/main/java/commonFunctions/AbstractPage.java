@@ -425,6 +425,11 @@ public abstract class AbstractPage {
         jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", find(driver, xpathValue));
     }
+    public void scrollToElement(WebDriver driver, String xpathValue, String...values) {
+        xpathValue = castToRestParam(xpathValue, values);
+        jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", find(driver, xpathValue));
+    }
 
     public void scrollToElementAtCenter(WebDriver driver, String xpathValue) {
         jsExecutor = (JavascriptExecutor) driver;
@@ -620,6 +625,7 @@ public abstract class AbstractPage {
     };
 
     public void clickToDynamicProductTitle(WebDriver driver, String productTitle) {
+        scrollToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
         waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
     };
