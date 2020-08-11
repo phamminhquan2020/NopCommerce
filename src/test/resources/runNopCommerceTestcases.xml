@@ -16,7 +16,7 @@
     <test name="Run on Chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testcases.register.Register"/>
+<!--            <class name="testcases.register.Register"/>-->
 <!--            <class name="testcases.login.Login"/>
             <class name="testcases.myAccount.MyAccount"/>
             <class name="testcases.search.Search"/>
