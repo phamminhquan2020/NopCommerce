@@ -78,7 +78,7 @@ public class WishListCompareRecentView extends AbstractTest {
     }
 
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass() {
         closeBrowserAndDriver(driver);
     }
