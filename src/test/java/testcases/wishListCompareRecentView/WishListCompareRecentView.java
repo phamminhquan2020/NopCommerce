@@ -5,10 +5,7 @@ import commonFunctions.GlobalConstants;
 import commonFunctions.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.HomeUserPageObject;
-import pageObjects.LoginUserPageObject;
-import pageObjects.ProductDetailUserPageObject;
-import pageObjects.WishListUserPageObject;
+import pageObjects.*;
 
 public class WishListCompareRecentView extends AbstractTest {
     WebDriver driver;
@@ -16,6 +13,7 @@ public class WishListCompareRecentView extends AbstractTest {
     LoginUserPageObject loginUserPage;
     ProductDetailUserPageObject productDetailUserPage;
     WishListUserPageObject wishListUserPage;
+    CartUserPageObject cartUserPage;
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
@@ -41,11 +39,12 @@ public class WishListCompareRecentView extends AbstractTest {
 
 
     @Test
-    public void testName() {
+    public void wishlist_01_add_to_wishlish() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();
         productDetailUserPage.waitForAjaxLoadingIconDisappeared(driver);
         verifyEquals(productDetailUserPage.getNotificationMsg(driver), "The product has been added to your wishlist");
+        productDetailUserPage.clickToCloseIcon(driver);
         productDetailUserPage.clickToWishListLink(driver);
         wishListUserPage = PageGeneratorManager.getWishListUserPage(driver);
         verifyTrue(wishListUserPage.isOnlyOnceProductInWishList());
@@ -54,11 +53,28 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(wishListUserPage.getPriceByRow("1"),"$245.00");
         wishListUserPage.clickToShareLink();
         verifyEquals(wishListUserPage.getWishListTitle(), "Wishlist of " + GlobalConstants.FIRST_NAME + " " + GlobalConstants.LAST_NAME);
-        System.out.println();
         verifyTrue(wishListUserPage.isOnlyOnceProductInWishList());
         verifyEquals(wishListUserPage.getSKUByRow("1"),"M8_HTC_5L");
         verifyEquals(wishListUserPage.getProductNameByRow("1"),"HTC One M8 Android L 5.0 Lollipop");
         verifyEquals(wishListUserPage.getPriceByRow("1"),"$245.00");
+    }
+
+    @Test
+    public void wishlist_02_add_wishlish_to_cart() {
+        productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
+        productDetailUserPage.clickToAddToWishListButton();
+        productDetailUserPage.waitForAjaxLoadingIconDisappeared(driver);
+        productDetailUserPage.clickToCloseIcon(driver);
+        productDetailUserPage.clickToWishListLink(driver);
+        wishListUserPage = PageGeneratorManager.getWishListUserPage(driver);
+        wishListUserPage.clickAddToCartCheckboxByRow("1");
+        wishListUserPage.clickAddToCartButton();
+        cartUserPage = PageGeneratorManager.getCartUserPage(driver);
+        verifyEquals(cartUserPage.getPageUrl(driver), "https://demo.nopcommerce.com/cart");
+        verifyTrue(cartUserPage.isOnlyOnceProductInCart());
+        verifyEquals(cartUserPage.getSKUByRow("1"),"M8_HTC_5L");
+        verifyEquals(cartUserPage.getProductNameByRow("1"),"HTC One M8 Android L 5.0 Lollipop");
+        verifyEquals(cartUserPage.getPriceByRow("1"),"$245.00");
     }
 
 

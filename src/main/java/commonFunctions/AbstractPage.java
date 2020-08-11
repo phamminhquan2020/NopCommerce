@@ -644,15 +644,20 @@ public abstract class AbstractPage {
     }
 
     public void clickToWishListLink(WebDriver driver) {
-/*        waitElementClickable(driver, UserAbstractPageUI.WISH_LIST_LINK);
-        clickToElement(driver, UserAbstractPageUI.WISH_LIST_LINK);*/
-        clickToElementByJS(driver, UserAbstractPageUI.WISH_LIST_LINK);
+        waitElementClickable(driver, UserAbstractPageUI.WISH_LIST_LINK);
+        clickToElement(driver, UserAbstractPageUI.WISH_LIST_LINK);
+   //     clickToElementByJS(driver, UserAbstractPageUI.WISH_LIST_LINK);
     }
 
     public String getDataByColumnNameAndRow(WebDriver driver, String columnName, String rowNumber) {
         int index = finds(driver, "//th[text()='" + columnName + "']/preceding-sibling::*").size() + 1;
         return  getElementText(driver, UserAbstractPageUI.DYNAMIC_DATA_CELL, rowNumber, Integer.toString(index));
 
+    }
+
+    public void clickToCloseIcon(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.CLOSE_ICON);
+        clickToElement(driver, UserAbstractPageUI.CLOSE_ICON);
     }
     //end of common function of user page
 

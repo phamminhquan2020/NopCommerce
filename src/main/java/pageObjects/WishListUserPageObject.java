@@ -48,4 +48,14 @@ public class WishListUserPageObject extends AbstractPage {
         waitElementVisible(driver, WishListUserPageUI.DYNAMIC_PRICE_BY_ROW, rowNumber);
         return getElementText(driver, WishListUserPageUI.DYNAMIC_PRICE_BY_ROW, rowNumber);
     }
+
+    public void clickAddToCartCheckboxByRow(String rowNumber) {
+        waitElementClickable(driver, WishListUserPageUI.DYNAMIC_ADD_TO_CART_CHECKBOX_BY_ROW, rowNumber);
+        clickToElement(driver, WishListUserPageUI.DYNAMIC_ADD_TO_CART_CHECKBOX_BY_ROW, rowNumber);
+    }
+
+    public void clickAddToCartButton() {
+        waitElementClickable(driver, WishListUserPageUI.ADD_TO_CART_BUTTON);
+        clickToElement(driver, WishListUserPageUI.ADD_TO_CART_BUTTON);
+    }
 }

@@ -157,6 +157,7 @@ public abstract class AbstractTest {
 
             Process process = Runtime.getRuntime().exec(cmd);
             process.waitFor();
+            sleepInSecond(2);
 
             log.info("---------- QUIT BROWSER SUCCESS ----------");
         } catch (Exception e) {
