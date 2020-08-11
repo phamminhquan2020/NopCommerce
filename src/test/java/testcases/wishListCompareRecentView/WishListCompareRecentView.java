@@ -18,18 +18,19 @@ public class WishListCompareRecentView extends AbstractTest {
     @BeforeClass
     public void beforeClass(String browser) {
         driver = getBrowserDriverFromFactory(browser);
-        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
     }
 
     @BeforeMethod
     public void beforeMethod() {
+        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
         loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
         loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
         loginUserPage.clickToLoginButton();
-        loginUserPage.clickToDynamicProductTitle(driver,"HTC One M8 Android L 5.0 Lollipop");
+        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+        homeUserPage.clickToDynamicProductTitle(driver,"HTC One M8 Android L 5.0 Lollipop");
     }
 
     @AfterMethod(alwaysRun = true)
