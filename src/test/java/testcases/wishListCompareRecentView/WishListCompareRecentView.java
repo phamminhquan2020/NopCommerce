@@ -30,7 +30,7 @@ public class WishListCompareRecentView extends AbstractTest {
         loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
         loginUserPage.clickToLoginButton();
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
-        homeUserPage.clickToDynamicProductTitle(driver,"HTC One M8 Android L 5.0 Lollipop");
+        homeUserPage.clickToDynamicProductImageByTitle(driver,"HTC One M8 Android L 5.0 Lollipop");
     }
 
     @AfterMethod(alwaysRun = true)

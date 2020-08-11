@@ -154,7 +154,7 @@ public class MyAccount extends AbstractTest {
 
     @Test
     public void myAccount_04_review_product() {
-        homeUserPage.clickToDynamicProductTitle(driver, productTitle);
+        homeUserPage.clickToDynamicProductImageByTitle(driver, productTitle);
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickAddYourReviewLink();
         productReviewUserPage = PageGeneratorManager.getProductReviewUserPage(driver);

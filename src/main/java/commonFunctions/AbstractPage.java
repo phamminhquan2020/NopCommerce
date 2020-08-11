@@ -624,10 +624,9 @@ public abstract class AbstractPage {
 
     };
 
-    public void clickToDynamicProductTitle(WebDriver driver, String productTitle) {
-        scrollToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
-        waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
-        clickToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_TITLE, productTitle);
+    public void clickToDynamicProductImageByTitle(WebDriver driver, String productTitle) {
+        waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_IMAGE_BY_TITLE, productTitle);
+        clickToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_IMAGE_BY_TITLE, productTitle);
     };
 
     public void hoverToDynamicMenu(WebDriver driver, String menu) {

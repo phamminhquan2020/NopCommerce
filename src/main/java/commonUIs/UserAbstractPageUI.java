@@ -7,7 +7,7 @@ public class UserAbstractPageUI {
     public static final String MY_ACCOUNT_LINK = "//a[@class='ico-account']";
     public static final String WISH_LIST_LINK = "//span[@class='wishlist-label']";
     public static final String DYNAMIC_MY_ACCOUNT_MENU = "//div[contains(@class,'block-account-navigation')]//li/a[contains(text(),'%s')]";
-    public static final String DYNAMIC_PRODUCT_TITLE = "//a[contains(text(),'%s')]";
+    public static final String DYNAMIC_PRODUCT_IMAGE_BY_TITLE = "//a[contains(text(),'%s')]/parent::h2/parent::div/preceding-sibling::div";
     public static final String SEARCH_LINK = "//div[@class='footer']//a[contains(text(),'Search')]";
     public static final String DYNAMIC_MENU_BY_NAME = "//div[@class='header-menu']/ul[contains(@class, 'notmobile')]/li/a[contains(text(), '%s')]";
     public static final String DYNAMIC_SUB_MENU_BY_NAME = "//div[@class='header-menu']/ul[contains(@class, 'notmobile')]/li/a[contains(text(), '%s')]/following-sibling::ul//a[contains(text(), '%s')]";
