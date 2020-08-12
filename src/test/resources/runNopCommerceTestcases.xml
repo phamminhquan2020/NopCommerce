@@ -13,27 +13,28 @@
         <!--        <listener class-name="retryTestFail.RetryListener"/>-->
     </listeners>
 
-    <test name="Run on Chrome">
+<!--    <test name="Run on Chrome">
         <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="testcases.register.Register"/>
-<!--            <class name="testcases.login.Login"/>
-            <class name="testcases.myAccount.MyAccount"/>
-            <class name="testcases.search.Search"/>
-            <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>-->
-            <class name="testcases.wishListCompareRecentView.WishListCompareRecentView"/>
-        </classes>
-    </test>
-
-<!--    <test name="Run on Firefox">
-        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="testcases.register.Register"/>
             <class name="testcases.login.Login"/>
             <class name="testcases.myAccount.MyAccount"/>
             <class name="testcases.search.Search"/>
             <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
+            <class name="testcases.wishListCompareRecentView.WishListCompareRecentView"/>
         </classes>
     </test>-->
+
+    <test name="Run on Safari">
+        <parameter name="browser" value="safari"/>
+        <classes>
+            <class name="testcases.register.Register"/>
+            <class name="testcases.login.Login"/>
+            <class name="testcases.myAccount.MyAccount"/>
+            <class name="testcases.search.Search"/>
+            <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
+            <class name="testcases.wishListCompareRecentView.WishListCompareRecentView"/>
+        </classes>
+    </test>
 
 </suite>

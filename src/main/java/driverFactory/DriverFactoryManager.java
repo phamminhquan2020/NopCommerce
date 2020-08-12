@@ -16,6 +16,8 @@ public class DriverFactoryManager {
                 break;
             case "edge":
                 driverManager = new EdgeDriverManager();
+            case "safari":
+                driverManager = new SafariDriverManager();
             default:
                 System.out.println("Browser name " + browserName + " is incorrect. Please check again");
                 break;
