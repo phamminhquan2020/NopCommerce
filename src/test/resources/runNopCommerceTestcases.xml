@@ -26,7 +26,7 @@
     </test>-->
 
     <test name="Run on Safari">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="safari"/>
         <classes>
             <class name="testcases.register.Register"/>
 <!--            <class name="testcases.login.Login"/>
