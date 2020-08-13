@@ -98,7 +98,7 @@ public class WishListCompareRecentView extends AbstractTest {
         wishListUserPage.clickRemoveCheckboxByRow("1");
         wishListUserPage.clickUpdateWishListButton();
         verifyTrue(wishListUserPage.isEmptyWishlistMessageDisplayed());
-        verifyFalse(wishListUserPage.isNoRowDisplayedInWishlist());
+        verifyTrue(wishListUserPage.isNoRowDisplayedInWishlist());
 
     }
 
