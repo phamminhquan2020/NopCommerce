@@ -182,7 +182,7 @@ public class Search extends AbstractTest {
         searchUserPage.inputToPriceToTextbox(priceToTC09);
         searchUserPage.clickToSearchButton();
         verifyEquals(searchUserPage.getSizeOfSearchResult(), sizeOfSearchResultTC09);
-        verifyFalse(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitleTC09));
+        verifyTrue(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitleTC09));
     }
     @Test
     public void search_10_advance_search_with_lower_range_price() {
