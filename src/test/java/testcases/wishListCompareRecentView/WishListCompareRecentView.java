@@ -41,7 +41,7 @@ public class WishListCompareRecentView extends AbstractTest {
     }
 
 
-
+    @Test
     public void wishlist_01_add_to_wishlish() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();
@@ -62,7 +62,7 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(wishListUserPage.getPriceByRow("1"), "$245.00");
     }
 
-
+    @Test
     public void wishlist_02_add_wishlish_to_cart() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();
@@ -80,7 +80,7 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(cartUserPage.getPriceByRow("1"), "$245.00");
     }
 
-
+    @Test
     public void wishlist_03_remove_product_in_wishlist_page() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();

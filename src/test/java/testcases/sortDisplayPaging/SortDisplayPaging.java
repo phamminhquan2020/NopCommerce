@@ -44,7 +44,6 @@ public class SortDisplayPaging extends AbstractTest {
         searchUserPage.selectSortByDropdown("Name: Z to A");
         verifyTrue(searchUserPage.isProductTitleSortedZtoA());
     }
-
     @Test
     public void sortDisplayPaging_03_sort_price_low_to_high() {
         searchUserPage.selectSortByDropdown("Price: Low to High");
