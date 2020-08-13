@@ -16,4 +16,5 @@ public class UserAbstractPageUI {
     public static final String CLOSE_ICON = "//div[@id='bar-notification']//span[@class='close']";
     public static final String CART_ROW = "//table[@class='cart']/tbody/tr";
     public static final String DYNAMIC_DATA_CELL = "//tbody//tr[%s]/td[%s]/span";
+    public static final String DYNAMIC_FOOTER_MENU_BY_NAME = "//div[@class='footer']//li/a[text()='%s']";
 }

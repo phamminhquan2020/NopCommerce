@@ -20,4 +20,9 @@ public class ProductDetailUserPageObject extends AbstractPage {
        waitElementClickable(driver, ProductDetailUserPageUI.ADD_TO_WISH_LIST_BUTTON);
        clickToElement(driver, ProductDetailUserPageUI.ADD_TO_WISH_LIST_BUTTON);
     }
+
+    public void clickToAddToCompareButton() {
+        waitElementClickable(driver, ProductDetailUserPageUI.ADD_TO_COMPARE_BUTTON);
+        clickToElement(driver, ProductDetailUserPageUI.ADD_TO_COMPARE_BUTTON);
+    }
 }

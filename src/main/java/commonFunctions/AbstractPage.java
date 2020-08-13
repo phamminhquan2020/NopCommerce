@@ -140,6 +140,10 @@ public abstract class AbstractPage {
     public List<WebElement> finds(WebDriver driver, String xpathValue) {
         return driver.findElements(byXpath(xpathValue));
     }
+    public List<WebElement> finds(WebDriver driver, String xpathValue, String...values) {
+        xpathValue = castToRestParam(xpathValue, values);
+        return driver.findElements(byXpath(xpathValue));
+    }
 
     public By byXpath(String xpathValue) {
         return By.xpath(xpathValue);
@@ -663,6 +667,11 @@ public abstract class AbstractPage {
     public void clickToCloseIcon(WebDriver driver) {
         waitElementClickable(driver, UserAbstractPageUI.CLOSE_ICON);
         clickToElement(driver, UserAbstractPageUI.CLOSE_ICON);
+    }
+
+    public void clickToDynamicFooterMenu(WebDriver driver, String menu) {
+        waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_FOOTER_MENU_BY_NAME, menu);
+        clickToElement(driver, UserAbstractPageUI.DYNAMIC_FOOTER_MENU_BY_NAME, menu);
     }
     //end of common function of user page
 

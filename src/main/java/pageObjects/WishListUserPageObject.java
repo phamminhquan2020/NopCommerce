@@ -58,4 +58,22 @@ public class WishListUserPageObject extends AbstractPage {
         waitElementClickable(driver, WishListUserPageUI.ADD_TO_CART_BUTTON);
         clickToElement(driver, WishListUserPageUI.ADD_TO_CART_BUTTON);
     }
+
+    public void clickRemoveCheckboxByRow(String rowNumber) {
+        waitElementClickable(driver, WishListUserPageUI.DYNAMIC_REMOVE_CHECKBOX_BY_ROW, rowNumber);
+        clickToElement(driver, WishListUserPageUI.DYNAMIC_REMOVE_CHECKBOX_BY_ROW, rowNumber);
+    }
+
+    public void clickUpdateWishListButton() {
+        waitElementClickable(driver, WishListUserPageUI.UPDATE_WISHLIST_BUTTON);
+        clickToElement(driver, WishListUserPageUI.UPDATE_WISHLIST_BUTTON);
+    }
+
+    public boolean isEmptyWishlistMessageDisplayed() {
+        return isElementDisplayed(driver, WishListUserPageUI.EMPTY_WISHLIST_MSG);
+    }
+
+    public boolean isNoRowDisplayedInWishlist() {
+       return finds(driver, UserAbstractPageUI.CART_ROW).size() == 0;
+    }
 }

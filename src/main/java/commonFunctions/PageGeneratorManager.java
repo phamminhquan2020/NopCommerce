@@ -71,4 +71,9 @@ public class PageGeneratorManager extends AbstractTest {
         sleepInSecond(1);
         return new CartUserPageObject(driver);
     }
+
+    public static CompareProductsPageObject getCompareProductsPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new CompareProductsPageObject(driver);
+    }
 }
