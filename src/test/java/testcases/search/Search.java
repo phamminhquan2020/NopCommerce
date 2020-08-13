@@ -208,6 +208,7 @@ public class Search extends AbstractTest {
         searchUserPage.inputToPriceFromTextbox(priceFromTC11);
         searchUserPage.inputToPriceToTextbox(priceToTC11);
         searchUserPage.clickToSearchButton();
+
         verifyEquals(searchUserPage.getNoResultMsg(), noResultMsg);
     }
 
