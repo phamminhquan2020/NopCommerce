@@ -15,7 +15,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<String, Object>();
-        List<String> args = new ArrayList<String>() ;
+        List<String> args = new ArrayList<String>();
         String path = GlobalConstants.EXTENSION_FOLDER + "/extension_6_1_7_0.crx";
         File file = new File(path);
 
@@ -37,7 +37,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.setExperimentalOption("prefs", prefs);
 //        options.addArguments("-headless");
-//        options.addArguments("window-size=1920,1080");
+        options.addArguments("window-size=1920,1080");
 
         driver = new ChromeDriver(options);
     }
