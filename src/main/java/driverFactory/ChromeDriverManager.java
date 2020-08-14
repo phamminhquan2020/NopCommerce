@@ -40,18 +40,9 @@ public class ChromeDriverManager extends BrowserDriverManager {
         options.setExperimentalOption("prefs", prefs);
         //options.addArguments("-headless");
         //options.addArguments("window-size=1920,1080");
-        final String regex = "^\\D*$";
-        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
-        final Matcher matcher = pattern.matcher(System.getProperty("user.name"));
-        boolean isHuman = matcher.matches();
-
-        if (isHuman){
-            System.out.println("Chrome starting maximized - isHuman: " +isHuman + " process run by " +System.getProperty("user.name"));
-            options.addArguments("--start-maximized");
-        } else {
-            System.out.println("Chrome starting maximized - isHuman: " +isHuman + " process run by " +System.getProperty("user.name"));
-            options.addArguments("--headless");
-            options.addArguments("--window-size=1980,1080");
+        if (System.getProperty("user.name")=="LeoAzureVirtual$") {
+            options.addArguments("-headless");
+            options.addArguments("window-size=1920,1080");
         }
         driver = new ChromeDriver(options);
     }
