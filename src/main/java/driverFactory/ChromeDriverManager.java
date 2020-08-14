@@ -37,7 +37,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.setExperimentalOption("prefs", prefs);
         //options.addArguments("-headless");
-        options.addArguments("window-size=1920,1080");
+        //options.addArguments("window-size=1920,1080");
 
         driver = new ChromeDriver(options);
     }

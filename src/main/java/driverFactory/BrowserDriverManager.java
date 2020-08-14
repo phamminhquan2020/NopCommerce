@@ -1,6 +1,7 @@
 package driverFactory;
 
 import commonFunctions.GlobalConstants;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -14,6 +15,7 @@ public abstract class BrowserDriverManager {
         if (driver == null) {
             createDriver();
         }
+        driver.manage().window().setSize(new Dimension(1920, 1080));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
         return driver;
