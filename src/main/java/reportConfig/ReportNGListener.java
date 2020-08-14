@@ -50,7 +50,8 @@ public class ReportNGListener extends AbstractTest implements ITestListener {
         String screenshotPath = captureScreenshot(driver, result.getName());
 
         Reporter.getCurrentTestResult();
-        Reporter.log("<br><a target=\"_blank\" href=\"file:///" + screenshotPath + "\">" + "<img src=\"file:///" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
+        //Reporter.log("<br><a target=\"_blank\" href=\"file:///" + screenshotPath + "\">" + "<img src=\"file:///" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
+        Reporter.log("<br><a target=\"_blank\" href=\"http://40.88.150.17:8080/job/NOPCOMMERCE_MAVEN/ws" + screenshotPath + "\">" + "<img src=\"http://40.88.150.17:8080/job/NOPCOMMERCE_MAVEN/ws" + screenshotPath + "\" " + "height='100' width='150'/> " + "</a></br>");
         Reporter.setCurrentTestResult(null);
     }
 
@@ -69,8 +70,9 @@ public class ReportNGListener extends AbstractTest implements ITestListener {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
             File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String screenPath = System.getProperty("user.dir") + "/ReportNGScreenShots/" + screenshotName + "_" + formater.format(calendar.getTime()) + ".png";
-            FileUtils.copyFile(source, new File(screenPath));
+            String screenPath = "/ReportNGScreenShots/" + screenshotName + "_" + formater.format(calendar.getTime()) + ".png";
+            String localScreenPath = System.getProperty("user.dir") + screenPath;
+            FileUtils.copyFile(source, new File(localScreenPath));
             return screenPath;
         } catch (IOException e) {
             log.error("Exception while taking screenshot: " + e.getMessage());
