@@ -41,7 +41,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         //options.addArguments("-headless");
         //options.addArguments("window-size=1920,1080");
         System.out.println(System.getProperty("user.name"));
-        if (System.getProperty("user.name")=="LeoAzureVirtual$") {
+        if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             options.addArguments("-headless");
             options.addArguments("window-size=1920,1080");
             System.out.println("Leo Azure");
