@@ -38,16 +38,11 @@ public class ChromeDriverManager extends BrowserDriverManager {
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.setExperimentalOption("prefs", prefs);
-        //options.addArguments("-headless");
-        //options.addArguments("window-size=1920,1080");
-        System.out.println(System.getProperty("user.name"));
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             options.addArguments("-headless");
             options.addArguments("window-size=1920,1080");
-            System.out.println("Leo Azure");
-        } else {
-            System.out.println("run by normal user");
         }
+        System.out.println("Run by: " + System.getProperty("user.name"));
         driver = new ChromeDriver(options);
     }
 

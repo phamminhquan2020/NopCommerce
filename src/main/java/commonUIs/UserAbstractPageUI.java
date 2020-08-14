@@ -17,4 +17,12 @@ public class UserAbstractPageUI {
     public static final String CART_ROW = "//table[@class='cart']/tbody/tr";
     public static final String DYNAMIC_DATA_CELL = "//tbody//tr[%s]/td[%s]/span";
     public static final String DYNAMIC_FOOTER_MENU_BY_NAME = "//div[@class='footer']//li/a[text()='%s']";
+    public static final String CART_QTY = "//span[@class='cart-qty']";
+    public static final String CART_LINK = "//span[@class='cart-label']";
+    public static final String CART_TITLE = "//div[@id='flyout-cart']//div[@class='count']";
+    public static final String PRODUCT_NAME_CART = "//div[@class='name']//a[contains(text(),'%s')]";
+    public static final String PRODUCT_PRICE_BY_NAME = "//div[@class='name']//a[contains(text(),'%s')]/parent::div/following-sibling::div[@class='price']/span";
+    public static final String PRODUCT_ATTRIBUTE_BY_NAME = "//div[@class='name']//a[contains(text(),'%s')]/parent::div/following-sibling::div[@class='attributes']";
+    public static final String PRODUCT_QTY_BY_NAME = "//div[@class='name']//a[contains(text(),'%s')]/parent::div/following-sibling::div[@class='quantity']/span";
+    public static final String SUB_TOTAL = "//div[@class='totals']/strong";
 }

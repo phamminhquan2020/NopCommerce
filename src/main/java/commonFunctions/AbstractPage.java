@@ -155,7 +155,6 @@ public abstract class AbstractPage {
             sleepInSecond(5);
         } else {
             WebElement element = find(driver, xpathValue);
-            System.out.println(element.getText());
             element.click();
         }
     }
@@ -300,7 +299,6 @@ public abstract class AbstractPage {
 
     public boolean isElementDisplayed(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
-        System.out.println("xpathValue: " + xpathValue);
         try {
             return find(driver, xpathValue).isDisplayed();
 
@@ -345,6 +343,10 @@ public abstract class AbstractPage {
     }
 
     public boolean isElementSelected(WebDriver driver, String xpathValue) {
+        return find(driver, xpathValue).isSelected();
+    }
+    public boolean isElementSelected(WebDriver driver, String xpathValue, String...values) {
+        xpathValue = castToRestParam(xpathValue, values);
         return find(driver, xpathValue).isSelected();
     }
 
@@ -514,9 +516,6 @@ public abstract class AbstractPage {
         }
 
         fullFileName = fullFileName.trim();
-
-        System.out.println(xpathValue);
-        System.out.println(fullFileName);
         sendkeyToElement(driver, xpathValue, fullFileName);
     }
 
@@ -672,6 +671,46 @@ public abstract class AbstractPage {
     public void clickToDynamicFooterMenu(WebDriver driver, String menu) {
         waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_FOOTER_MENU_BY_NAME, menu);
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_FOOTER_MENU_BY_NAME, menu);
+    }
+
+    public String getCartQuantity(WebDriver driver) {
+        waitElementVisible(driver, UserAbstractPageUI.CART_QTY);
+        return getElementText(driver, UserAbstractPageUI.CART_QTY);
+    }
+
+    public void hoverToCartLink(WebDriver driver) {
+        waitElementVisible(driver, UserAbstractPageUI.CART_LINK);
+        hoverToElement(driver, UserAbstractPageUI.CART_LINK);
+    }
+
+    public String getCartTitle(WebDriver driver) {
+        waitElementVisible(driver, UserAbstractPageUI.CART_TITLE);
+        return getElementText(driver, UserAbstractPageUI.CART_TITLE);
+    }
+
+    public Boolean isProductNameInCart(WebDriver driver, String productName) {
+        return isElementDisplayed(driver, UserAbstractPageUI.PRODUCT_NAME_CART, productName);
+    }
+
+    public Float getProductPriceInCart(WebDriver driver, String productName) {
+        waitElementVisible(driver, UserAbstractPageUI.PRODUCT_PRICE_BY_NAME, productName);
+        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.PRODUCT_PRICE_BY_NAME, productName).replace("$", "").replace(",",""));
+    }
+
+    public String getProductAttributeInCart(WebDriver driver, String productName) {
+        waitElementVisible(driver, UserAbstractPageUI.PRODUCT_ATTRIBUTE_BY_NAME, productName);
+        return getElementText(driver, UserAbstractPageUI.PRODUCT_ATTRIBUTE_BY_NAME, productName);
+    }
+
+    public String getProductQuantityInCart(WebDriver driver, String productName) {
+        waitElementVisible(driver, UserAbstractPageUI.PRODUCT_QTY_BY_NAME, productName);
+        return getElementText(driver, UserAbstractPageUI.PRODUCT_QTY_BY_NAME, productName);
+    }
+
+    public Float getSubTotalInCart(WebDriver driver) {
+        waitElementVisible(driver, UserAbstractPageUI.SUB_TOTAL);
+        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.SUB_TOTAL).replace("$", "").replace(",",""));
+
     }
     //end of common function of user page
 
