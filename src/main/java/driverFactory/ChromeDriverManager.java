@@ -40,6 +40,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         options.setExperimentalOption("prefs", prefs);
         //options.addArguments("-headless");
         //options.addArguments("window-size=1920,1080");
+        System.out.println(System.getProperty("user.name"));
         if (System.getProperty("user.name")=="LeoAzureVirtual$") {
             options.addArguments("-headless");
             options.addArguments("window-size=1920,1080");
