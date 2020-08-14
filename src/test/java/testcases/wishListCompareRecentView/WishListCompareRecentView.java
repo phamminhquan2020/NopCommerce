@@ -85,6 +85,8 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(cartUserPage.getSKUByRow("1"), "M8_HTC_5L");
         verifyEquals(cartUserPage.getProductNameByRow("1"), "HTC One M8 Android L 5.0 Lollipop");
         verifyEquals(cartUserPage.getPriceByRow("1"), "$245.00");
+        cartUserPage.clickToRemoveCheckbox();
+        cartUserPage.clickToUpdateShoppingCartButton();
     }
 
     @Test
