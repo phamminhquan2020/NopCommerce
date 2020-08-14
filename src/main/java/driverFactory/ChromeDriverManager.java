@@ -43,6 +43,9 @@ public class ChromeDriverManager extends BrowserDriverManager {
         if (System.getProperty("user.name")=="LeoAzureVirtual$") {
             options.addArguments("-headless");
             options.addArguments("window-size=1920,1080");
+            System.out.println("Leo Azure");
+        } else {
+            System.out.println("run by normal user");
         }
         driver = new ChromeDriver(options);
     }
