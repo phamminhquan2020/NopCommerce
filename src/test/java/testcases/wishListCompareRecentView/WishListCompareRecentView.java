@@ -15,6 +15,7 @@ public class WishListCompareRecentView extends AbstractTest {
     WishListUserPageObject wishListUserPage;
     CartUserPageObject cartUserPage;
     CompareProductsPageObject compareProductsPage;
+    SearchUserPageObject searchUserPage;
 
     @Parameters("browser")
     @BeforeClass
@@ -47,7 +48,7 @@ public class WishListCompareRecentView extends AbstractTest {
     }
 
 
-    @Test
+
     public void wishlist_01_add_to_wishlish() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();
@@ -68,7 +69,7 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(wishListUserPage.getPriceByRow("1"), "$245.00");
     }
 
-    @Test
+
     public void wishlist_02_add_wishlish_to_cart() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();
@@ -86,7 +87,7 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(cartUserPage.getPriceByRow("1"), "$245.00");
     }
 
-    @Test
+
     public void wishlist_03_remove_product_in_wishlist_page() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToWishListButton();
@@ -102,7 +103,6 @@ public class WishListCompareRecentView extends AbstractTest {
 
     }
 
-    @Test
     public void wishlist_04_add_product_to_compare() {
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToCompareButton();
@@ -130,6 +130,26 @@ public class WishListCompareRecentView extends AbstractTest {
         verifyEquals(compareProductsPage.getNumberOfProductInComparePage(), "0");
     }
 
+    @Test
+    public void wishlist_05_recent_view() {
+        homeUserPage.hoverToDynamicMenu(driver, "Computers");
+        homeUserPage.clickToSubMenu(driver, "Computers", "Notebooks");
+        searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
+        searchUserPage.clickToDynamicProductImageByTitle(driver, "Lenovo Thinkpad X1 Carbon Laptop");
+        searchUserPage.backToPage(driver);
+        searchUserPage.clickToDynamicProductImageByTitle(driver, "Asus N551JK-XO076H Laptop");
+        searchUserPage.backToPage(driver);
+        searchUserPage.clickToDynamicProductImageByTitle(driver, "HP Envy 6-1180ca 15.6-Inch Sleekbook");
+        searchUserPage.backToPage(driver);
+        searchUserPage.clickToDynamicProductImageByTitle(driver,"HP Spectre XT Pro UltraBook");
+        searchUserPage.backToPage(driver);
+        searchUserPage.clickToDynamicProductImageByTitle(driver, "Apple MacBook Pro 13-inch");
+        searchUserPage.clickToDynamicFooterMenu(driver, "Recently viewed products");
+        verifyEquals(searchUserPage.getSizeOfSearchResult(), "3");
+        verifyTrue(searchUserPage.getTitlesOfSearchResult().contains("Apple MacBook Pro 13-inch"));
+        verifyTrue(searchUserPage.getTitlesOfSearchResult().contains("HP Spectre XT Pro UltraBook"));
+        verifyTrue(searchUserPage.getTitlesOfSearchResult().contains("HP Envy 6-1180ca 15.6-Inch Sleekbook"));
+    }
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
