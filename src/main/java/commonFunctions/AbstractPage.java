@@ -666,6 +666,7 @@ public abstract class AbstractPage {
     public void clickToCloseIcon(WebDriver driver) {
         waitElementClickable(driver, UserAbstractPageUI.CLOSE_ICON);
         clickToElement(driver, UserAbstractPageUI.CLOSE_ICON);
+        sleepInSecond(2);
     }
 
     public void clickToDynamicFooterMenu(WebDriver driver, String menu) {
