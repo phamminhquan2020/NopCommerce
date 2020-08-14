@@ -712,6 +712,16 @@ public abstract class AbstractPage {
         return Float.parseFloat(getElementText(driver, UserAbstractPageUI.SUB_TOTAL).replace("$", "").replace(",",""));
 
     }
+
+    public void clickToCartLink(WebDriver driver) {
+        waitElementClickable(driver, UserAbstractPageUI.CART_LINK);
+        clickToElement(driver, UserAbstractPageUI.CART_LINK);
+    }
+
+    public Float getProductTotalPriceInCart(WebDriver driver, String productName) {
+        waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_SUBTOTAL_BY_PRODUCT_NAME, productName);
+        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.DYNAMIC_SUBTOTAL_BY_PRODUCT_NAME, productName).replace("$", "").replace(",", ""));
+    }
     //end of common function of user page
 
     //start common function of testcase.admin page

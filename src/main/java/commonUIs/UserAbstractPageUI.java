@@ -25,4 +25,5 @@ public class UserAbstractPageUI {
     public static final String PRODUCT_ATTRIBUTE_BY_NAME = "//div[@class='name']//a[contains(text(),'%s')]/parent::div/following-sibling::div[@class='attributes']";
     public static final String PRODUCT_QTY_BY_NAME = "//div[@class='name']//a[contains(text(),'%s')]/parent::div/following-sibling::div[@class='quantity']/span";
     public static final String SUB_TOTAL = "//div[@class='totals']/strong";
+    public static final String DYNAMIC_SUBTOTAL_BY_PRODUCT_NAME = "//a[text()='%s']/parent::td/following-sibling::td[@class='subtotal']/span";
 }

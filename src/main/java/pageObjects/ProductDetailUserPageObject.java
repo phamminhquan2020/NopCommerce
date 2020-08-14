@@ -68,4 +68,8 @@ public class ProductDetailUserPageObject extends AbstractPage {
         clickToElement(driver, ProductDetailUserPageUI.ADD_TO_CART_BUTTON);
     }
 
+    public void clickToUpdateButton() {
+        waitElementClickable(driver, ProductDetailUserPageUI.UPDATE_BUTTON);
+        clickToElement(driver, ProductDetailUserPageUI.UPDATE_BUTTON);
+    }
 }

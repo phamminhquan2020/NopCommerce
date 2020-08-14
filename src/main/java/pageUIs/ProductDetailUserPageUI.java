@@ -11,4 +11,5 @@ public class ProductDetailUserPageUI {
     public static final String QTY_TEXTBOX = "//input[contains(@class,'qty-input')]";
 
     public static final String DYNAMIC_SOFTWARE_OPTION = "//label[contains(text(),'%s')]/preceding-sibling::input";
+    public static final String UPDATE_BUTTON = "//input[@value='Update']";
 }

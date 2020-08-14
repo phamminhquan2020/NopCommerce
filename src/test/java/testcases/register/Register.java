@@ -66,7 +66,7 @@ public class Register extends AbstractTest {
         verifyEquals(registerUserPage.getEmailErrorMsg(), "Wrong email");
     }
 
-
+    @Test
     public void register_03_existing_email() {
         registerUserPage.clickMaleGender();
         registerUserPage.inputFirstName(firstname);
