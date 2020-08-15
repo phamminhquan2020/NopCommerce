@@ -17,6 +17,7 @@ public class Order extends AbstractTest {
     ProductDetailUserPageObject productDetailUserPage;
     CartUserPageObject cartUserPage;
     SearchUserPageObject searchUserPage;
+    CheckOutPageObject checkOutPage;
 
     String productName1, processor1, ram1, hdd1, os1, productAttribute1;
     float basePrice, price1, processorAddPrice1, ramAddPrice1, hddAddPrice1, osAddPrice1, softwareAddPrice1;
@@ -31,6 +32,9 @@ public class Order extends AbstractTest {
     String productName4;
     float basePrice4;
     int qty4;
+
+    String getProductName5 = "Apple MacBook Pro 13-inch";
+    String country;
 
     @Parameters("browser")
     @BeforeClass
@@ -74,7 +78,7 @@ public class Order extends AbstractTest {
         basePrice4 = 500;
         qty4 = 5;
 
-
+        country = "United States";
     }
 
     @BeforeMethod
@@ -93,7 +97,7 @@ public class Order extends AbstractTest {
         driver.manage().deleteAllCookies();
     }
 
-    @Test
+
     public void order_01_add_product_to_cart() {
         homeUserPage.clickToDynamicProductImageByTitle(driver, productName1);
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
@@ -130,7 +134,7 @@ public class Order extends AbstractTest {
 
     }
 
-    @Test
+
     public void order_02_edit_product_in_cart() {
         homeUserPage.clickToCartLink(driver);
         cartUserPage = PageGeneratorManager.getCartUserPage(driver);
@@ -167,7 +171,7 @@ public class Order extends AbstractTest {
         verifyEquals(productDetailUserPage.getSubTotalInCart(driver), price2 * qty2);
     }
 
-    @Test
+
     public void order_03_remove_from_cart() {
         homeUserPage.clickToCartLink(driver);
         cartUserPage = PageGeneratorManager.getCartUserPage(driver);
@@ -176,7 +180,7 @@ public class Order extends AbstractTest {
         verifyTrue(cartUserPage.isEmptyCartMessageDisplayed());
     }
 
-    @Test
+
     public void order_04_update_shopping_cart() {
         homeUserPage.hoverToDynamicMenu(driver, "Computers");
         homeUserPage.clickToSubMenu(driver, "Computers", "Desktops");
@@ -189,11 +193,41 @@ public class Order extends AbstractTest {
         cartUserPage = PageGeneratorManager.getCartUserPage(driver);
         cartUserPage.inputQuantity(Integer.toString(qty4));
         cartUserPage.clickToUpdateShoppingCartButton();
-        verifyEquals(cartUserPage.getProductTotalPriceInCart(driver, productName4), basePrice4*qty4);
+        verifyEquals(cartUserPage.getProductTotalPriceInCart(driver, productName4), basePrice4 * qty4);
         cartUserPage.clickToRemoveCheckbox();
         cartUserPage.clickToUpdateShoppingCartButton();
 
     }
+
+
+    public void order_05_checkout_payment_by_cheque() {
+        homeUserPage.clickToDynamicProductImageByTitle(driver, productName4);
+        productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
+        productDetailUserPage.clickAddToCartButton();
+        productDetailUserPage.clickToCloseIcon(driver);
+        productDetailUserPage.clickToCartLink(driver);
+        cartUserPage = PageGeneratorManager.getCartUserPage(driver);
+        cartUserPage.clickToTermOfServiceCheckbox();
+        cartUserPage.selectGiftWrappingDropdown();
+        cartUserPage.clickToEstimateShippingButton();
+        cartUserPage.selectCountryInDrropdown(country);
+        cartUserPage.selectStateInDropdown(state);
+        cartUserPage.inputToZipcodeTextbox(zip);
+        cartUserPage.clickToShippingMethod(method);
+        cartUserPage.clickToApplyButton();
+        cartUserPage.clickToCheckOutButton();
+        checkOutPage = PageGeneratorManager.getCheckOutPage(driver);
+        cartUserPage.selectCountryInDropdown(country);
+        cartUserPage.selectStateInDropdown(state);
+        cartUserPage.inputToCityTextBox(city);
+        cartUserPage.inputToAddress1TextBox(address1);
+        cartUserPage.inputToZipcodeTextBox(zipcode);
+        cartUserPage.inputToPhoneNumberTextBox(phoneNumber);
+        cartUserPage.clickToCoutinueBillingButton();
+        cartUserPage.clickToShippingMethodRadio(shippingMethod);
+        cartUserPage.clickToContinueShippingButton();
+    }
+
     @AfterClass(alwaysRun = true)
     public void afterClass() {
         closeBrowserAndDriver(driver);
