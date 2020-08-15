@@ -13,5 +13,6 @@ public class OrdersMyAccountUserPageObject extends AbstractPage {
 
     public void clickToDynamicDetailButtonByOrderID(String orderID) {
         waitElementClickable(driver, OrderMyAccountUserPageUI.DYNAMIC_DETAIL_BUTTON_BY_ORDER_ID, orderID);
+        clickToElement(driver, OrderMyAccountUserPageUI.DYNAMIC_DETAIL_BUTTON_BY_ORDER_ID, orderID);
     }
 }

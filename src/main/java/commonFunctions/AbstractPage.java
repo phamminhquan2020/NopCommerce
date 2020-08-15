@@ -260,6 +260,14 @@ public abstract class AbstractPage {
         return find(driver, xpathValue).getText();
     }
 
+    public List<String> getElementsText(WebDriver driver, String xpathValue) {
+        List<WebElement> elements = finds(driver, xpathValue);
+        List<String> texts = new ArrayList<>();
+        for (WebElement element:elements) {
+            texts.add(element.getText());
+        }
+        return texts;
+    }
     public String getElementText(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         return find(driver, xpathValue).getText();

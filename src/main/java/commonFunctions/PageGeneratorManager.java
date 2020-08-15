@@ -86,4 +86,9 @@ public class PageGeneratorManager extends AbstractTest {
         sleepInSecond(1);
         return new OrdersMyAccountUserPageObject(driver);
     }
+
+    public static OrderDetailPageObject getOrderDetailPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new OrderDetailPageObject(driver);
+    }
 }

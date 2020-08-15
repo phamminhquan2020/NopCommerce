@@ -47,7 +47,7 @@ public class Register extends AbstractTest {
         driver.manage().deleteAllCookies();
     }
 
-    @Test
+
     public void register_01_empty_data() {
 
         registerUserPage.clickRegisterButton();
@@ -58,7 +58,7 @@ public class Register extends AbstractTest {
         verifyEquals(registerUserPage.getConfirmPasswordErrorMsg(), "Password is required.");
     }
 
-    @Test
+
     public void register_02_invalid_email() {
 
         registerUserPage.inputEmail("qwerty");
@@ -82,14 +82,14 @@ public class Register extends AbstractTest {
         verifyTrue(registerUserPage.isEmailAlreadyExistMsgDisplayed());
     }
 
-    @Test
+
     public void register_04_invalid_password() {
         registerUserPage.inputPassword("123");
         registerUserPage.clickRegisterButton();
         verifyTrue(registerUserPage.getPasswordErrorMsg().contains("Password must meet the following rules:") && registerUserPage.getPasswordErrorMsg().contains("must have at least 6 characters"));
     }
 
-    @Test
+
     public void register_05_Confirm_Password_Not_Match() {
         registerUserPage.inputPassword(password);
         registerUserPage.inputConfirmPassword(password + "123");

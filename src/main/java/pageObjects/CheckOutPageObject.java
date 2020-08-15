@@ -42,6 +42,7 @@ public class CheckOutPageObject extends AbstractPage {
     }
 
     public void clickToCoutinueBillingButton() {
+        scrollToElement(driver, CheckOutPageUI.CONTINUE_BUTTON_BILLING);
         waitElementClickable(driver, CheckOutPageUI.CONTINUE_BUTTON_BILLING);
         clickToElement(driver, CheckOutPageUI.CONTINUE_BUTTON_BILLING);
     }
@@ -113,6 +114,12 @@ public class CheckOutPageObject extends AbstractPage {
 
     public String getOrderID() {
         waitElementVisible(driver, CheckOutPageUI.ORDER_NUMBER);
-        return getElementText(driver, CheckOutPageUI.ORDER_NUMBER);
+        String[] tempt = getElementText(driver, CheckOutPageUI.ORDER_NUMBER).split(": ");
+        return tempt[1];
+    }
+
+    public String getPaymentInfoText() {
+        waitElementVisible(driver, CheckOutPageUI.PAYMENT_INFO_TEXT);
+        return getElementText(driver, CheckOutPageUI.PAYMENT_INFO_TEXT);
     }
 }

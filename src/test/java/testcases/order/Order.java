@@ -21,6 +21,7 @@ public class Order extends AbstractTest {
     CheckOutPageObject checkOutPage;
     CustomerInfoMyAccountUserPageObject customerInfoMyAccountUserPage;
     OrdersMyAccountUserPageObject ordersMyAccountUserPage;
+    OrderDetailPageObject orderDetailPage;
     DataHelper data;
 
     String productName1, processor1, ram1, hdd1, os1, productAttribute1;
@@ -40,6 +41,7 @@ public class Order extends AbstractTest {
     String productName5 = "Apple MacBook Pro 13-inch";
     String giftWrapping, country, state, shippingMethod, city, address1, zipcode, phoneNumber, paymentMethod, orderID;
     float totalPrice;
+    List<String> billingAddressInfo, paymentMethodInfo, shippingAddressInfo, shippingMethodInfo;
 
     @Parameters("browser")
     @BeforeClass
@@ -113,7 +115,7 @@ public class Order extends AbstractTest {
         driver.manage().deleteAllCookies();
     }
 
-
+    @Test
     public void order_01_add_product_to_cart() {
         homeUserPage.clickToDynamicProductImageByTitle(driver, productName1);
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
@@ -150,7 +152,7 @@ public class Order extends AbstractTest {
 
     }
 
-
+    @Test
     public void order_02_edit_product_in_cart() {
         homeUserPage.clickToCartLink(driver);
         cartUserPage = PageGeneratorManager.getCartUserPage(driver);
@@ -187,7 +189,7 @@ public class Order extends AbstractTest {
         verifyEquals(productDetailUserPage.getSubTotalInCart(driver), price2 * qty2);
     }
 
-
+    @Test
     public void order_03_remove_from_cart() {
         homeUserPage.clickToCartLink(driver);
         cartUserPage = PageGeneratorManager.getCartUserPage(driver);
@@ -196,7 +198,7 @@ public class Order extends AbstractTest {
         verifyTrue(cartUserPage.isEmptyCartMessageDisplayed());
     }
 
-
+    @Test
     public void order_04_update_shopping_cart() {
         homeUserPage.hoverToDynamicMenu(driver, "Computers");
         homeUserPage.clickToSubMenu(driver, "Computers", "Desktops");
@@ -262,6 +264,7 @@ public class Order extends AbstractTest {
         checkOutPage.clickToContinueCardInfoButton();
         checkOutPage.waitForLoadingTextCardInfoDisappeared();*/
 
+        System.out.println(checkOutPage.getPaymentInfoText());
         checkOutPage.clickToContinueButtonPaymentInfo();
         checkOutPage.waitForLoadingNextStepPaymentInfoDisappeared();
         checkOutPage.clickToConfirmButton();
@@ -276,12 +279,43 @@ public class Order extends AbstractTest {
         ordersMyAccountUserPage = PageGeneratorManager.getOrdersMyAccountUserPage(driver);
         ordersMyAccountUserPage.clickToDynamicDetailButtonByOrderID(orderID);
 
+        orderDetailPage = PageGeneratorManager.getOrderDetailPage(driver);
+        verifyEquals(orderDetailPage.getOrderID(), orderID);
+        verifyEquals(orderDetailPage.getStatus(), "Pending");
+        verifyEquals(orderDetailPage.getTotalPrice(), totalPrice);
+
+        billingAddressInfo = orderDetailPage.getBillingAddressInfo();
+        log.info("billingAddressInfo" + billingAddressInfo);
+        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfo.contains(address1));
+        verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfo.contains(country));
+
+        paymentMethodInfo = orderDetailPage.getPaymentMethodInfo();
+        log.info("paymentMethodInfo" + paymentMethodInfo);
+        verifyTrue(paymentMethodInfo.contains("Payment Method: " + paymentMethod));
+        verifyTrue(paymentMethodInfo.contains("Payment Status: Pending"));
+
+        shippingAddressInfo = orderDetailPage.getShippingAddressInfo();
+        log.info("shippingAddressInfo" + shippingAddressInfo);
+        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfo.contains(address1));
+        verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfo.contains(country));
+
+        shippingMethodInfo = orderDetailPage.getShippingMethodInfo();
+        log.info("shippingMethodInfo" + shippingMethodInfo);
+        verifyTrue(shippingMethodInfo.contains("Shipping Method: " + shippingMethod));
+        verifyTrue(shippingMethodInfo.contains("Shipping Status: Not yet shipped"));
+
 
     }
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
-        //closeBrowserAndDriver(driver);
+        closeBrowserAndDriver(driver);
     }
 }
 

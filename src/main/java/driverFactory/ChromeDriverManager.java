@@ -7,8 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ChromeDriverManager extends BrowserDriverManager {
 
@@ -18,7 +16,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<String, Object>();
         List<String> args = new ArrayList<String>();
-        String path = GlobalConstants.EXTENSION_FOLDER + "/extension_6_1_7_0.crx";
+        String path = GlobalConstants.EXTENSION_FOLDER + "/chroPath.crx";
         File file = new File(path);
 
         options.addExtensions(file);

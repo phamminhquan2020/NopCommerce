@@ -31,5 +31,5 @@ public class CheckOutPageUI {
     public static final String CONTINUE_BUTTON_SUCCESS = "//input[@value='Continue']";
 
 
-
+    public static final String PAYMENT_INFO_TEXT = "//div[@class='info']//td";
 }
