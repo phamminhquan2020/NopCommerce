@@ -17,7 +17,7 @@ public class CartUserPageUI {
     public static final String COUNTRY_DROPDOWN = "//select[@id='CountryId']";
     public static final String STATE_DROPDOWN = "//select[@id='StateProvinceId']";
     public static final String ZIPCODE_TEXTBOX = "//input[@id='ZipPostalCode']";
-    public static final String DYNAMIC_METHOD_DROPDOWN = "//div[contains(text(),'%s')]";
+    public static final String DYNAMIC_METHOD_RADIO = "//div[contains(text(),'%s')]";
     public static final String APPLY_BUTTON = "//input[@value='Apply']";
     public static final String TOTAL_PRICE_FIELD = "//tr[@class='order-total']//span[@class='value-summary']/strong";
 

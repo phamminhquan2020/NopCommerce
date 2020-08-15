@@ -76,7 +76,7 @@ public class MyAccount extends AbstractTest {
     @Test
     public void myAccount_01_update_customer_info() {
         homeUserPage.clickToMyAccountLink(driver);
-        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToFemaleRadio();
         customerInfoMyAccountUserPage.inputFirstName(firstname);
         customerInfoMyAccountUserPage.inputLastName(lastname);
@@ -97,7 +97,7 @@ public class MyAccount extends AbstractTest {
     @Test
     public void myAccount_02_add_address() {
         homeUserPage.clickToMyAccountLink(driver);
-        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Addresses");
         addressMyAccountUserPage = PageGeneratorManager.getAddressMyAccountUserPage(driver);
         addressMyAccountUserPage.clickToAddButton();
@@ -133,7 +133,7 @@ public class MyAccount extends AbstractTest {
 
     public void myAccount_03_change_password() {
         homeUserPage.clickToMyAccountLink(driver);
-        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Change password");
         changePasswordMyAccountUserPage = PageGeneratorManager.getChangePasswordMyAccountUserPage(driver);
         changePasswordMyAccountUserPage.inputOldPassword(GlobalConstants.USER_PASSWORD);
@@ -164,7 +164,7 @@ public class MyAccount extends AbstractTest {
         productReviewUserPage.clickSubmitReviewButton();
         verifyEquals(productReviewUserPage.getResultReviewMsg(), "Product review is successfully added.");
         productReviewUserPage.clickToMyAccountLink(driver);
-        customerInfoMyAccountUserPage = PageGeneratorManager.getMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "My product reviews");
         myProductReviewMyAccountUserPage = PageGeneratorManager.getMyProductReviewMyAccountPage(driver);
         verifyTrue(myProductReviewMyAccountUserPage.isReviewTitleDisplayed(reviewTitle));

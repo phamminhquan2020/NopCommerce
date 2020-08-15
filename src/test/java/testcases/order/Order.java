@@ -6,6 +6,7 @@ import commonFunctions.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageObjects.*;
+import testdata.helper.DataHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ public class Order extends AbstractTest {
     CartUserPageObject cartUserPage;
     SearchUserPageObject searchUserPage;
     CheckOutPageObject checkOutPage;
+    CustomerInfoMyAccountUserPageObject customerInfoMyAccountUserPage;
+    OrdersMyAccountUserPageObject ordersMyAccountUserPage;
+    DataHelper data;
 
     String productName1, processor1, ram1, hdd1, os1, productAttribute1;
     float basePrice, price1, processorAddPrice1, ramAddPrice1, hddAddPrice1, osAddPrice1, softwareAddPrice1;
@@ -33,14 +37,16 @@ public class Order extends AbstractTest {
     float basePrice4;
     int qty4;
 
-    String getProductName5 = "Apple MacBook Pro 13-inch";
-    String country;
+    String productName5 = "Apple MacBook Pro 13-inch";
+    String giftWrapping, country, state, shippingMethod, city, address1, zipcode, phoneNumber, paymentMethod, orderID;
+    float totalPrice;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+        data = DataHelper.getData();
 
         productName1 = "Build your own computer";
         processor1 = "2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]";
@@ -78,7 +84,17 @@ public class Order extends AbstractTest {
         basePrice4 = 500;
         qty4 = 5;
 
+        giftWrapping = "Yes [+$10.00]";
         country = "United States";
+        state = "Texas";
+        zipcode = "75217";
+        shippingMethod = "Next Day Air";
+        city = "Dallas";
+        address1 = "E Main Street";
+        phoneNumber = "123456789";
+        paymentMethod = "Check / Money Order";
+        totalPrice = 3610;
+
     }
 
     @BeforeMethod
@@ -199,38 +215,73 @@ public class Order extends AbstractTest {
 
     }
 
-
+    @Test
     public void order_05_checkout_payment_by_cheque() {
-        homeUserPage.clickToDynamicProductImageByTitle(driver, productName4);
+        homeUserPage.clickToDynamicProductImageByTitle(driver, productName5);
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickAddToCartButton();
         productDetailUserPage.clickToCloseIcon(driver);
         productDetailUserPage.clickToCartLink(driver);
         cartUserPage = PageGeneratorManager.getCartUserPage(driver);
-        cartUserPage.clickToTermOfServiceCheckbox();
-        cartUserPage.selectGiftWrappingDropdown();
+        cartUserPage.selectGiftWrappingDropdown(giftWrapping);
         cartUserPage.clickToEstimateShippingButton();
         cartUserPage.selectCountryInDrropdown(country);
         cartUserPage.selectStateInDropdown(state);
-        cartUserPage.inputToZipcodeTextbox(zip);
-        cartUserPage.clickToShippingMethod(method);
+        cartUserPage.inputToZipcodeTextbox(zipcode);
+        cartUserPage.clickToShippingMethod(shippingMethod);
         cartUserPage.clickToApplyButton();
+        cartUserPage.waitForAjaxLoadingIconDisappeared(driver);
+        verifyEquals(cartUserPage.getTotalValue(), totalPrice);
+        cartUserPage.clickToTermOfServiceCheckbox();
         cartUserPage.clickToCheckOutButton();
+
         checkOutPage = PageGeneratorManager.getCheckOutPage(driver);
-        cartUserPage.selectCountryInDropdown(country);
-        cartUserPage.selectStateInDropdown(state);
-        cartUserPage.inputToCityTextBox(city);
-        cartUserPage.inputToAddress1TextBox(address1);
-        cartUserPage.inputToZipcodeTextBox(zipcode);
-        cartUserPage.inputToPhoneNumberTextBox(phoneNumber);
-        cartUserPage.clickToCoutinueBillingButton();
-        cartUserPage.clickToShippingMethodRadio(shippingMethod);
-        cartUserPage.clickToContinueShippingButton();
+        checkOutPage.selectNewAddressIfAny();
+        checkOutPage.selectCountryInDropdown(country);
+        checkOutPage.selectStateInDropdown(state);
+        checkOutPage.inputToCityTextBox(city);
+        checkOutPage.inputToAddress1TextBox(address1);
+        checkOutPage.inputToZipcodeTextBox(zipcode);
+        checkOutPage.inputToPhoneNumberTextBox(phoneNumber);
+        checkOutPage.clickToCoutinueBillingButton();
+        checkOutPage.waitForLoadingTextBillingDisappeared();
+
+        checkOutPage.clickToShippingMethodRadio(shippingMethod);
+        checkOutPage.clickToContinueShippingMethodButton();
+        checkOutPage.waitForLoadingTextShippingMethodDisappear();
+
+        checkOutPage.clickToDynamicPaymentMethod(paymentMethod);
+        checkOutPage.clickToContinuePaymentMethodButton();
+        checkOutPage.waitForLoadingTextPaymentMethodDisappeared();
+
+/*        checkOutPage.selectCreditCartType(creditCartType);
+        checkOutPage.inputCardHolderName(cartHolderName);
+        checkOutPage.selectExpireMonth(month);
+        checkOutPage.selectExpireYear(year);
+        checkOutPage.inputToCartCodeTextbox(code);
+        checkOutPage.clickToContinueCardInfoButton();
+        checkOutPage.waitForLoadingTextCardInfoDisappeared();*/
+
+        checkOutPage.clickToContinueButtonPaymentInfo();
+        checkOutPage.waitForLoadingNextStepPaymentInfoDisappeared();
+        checkOutPage.clickToConfirmButton();
+        checkOutPage.waitForSubmittingOrderTextDisappeared();
+        orderID = checkOutPage.getOrderID();
+        checkOutPage.clickToContinueButtonCartSuccess();
+        verifyEquals(checkOutPage.getPageUrl(driver), GlobalConstants.USER_URL);
+        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+        homeUserPage.clickToMyAccountLink(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Orders");
+        ordersMyAccountUserPage = PageGeneratorManager.getOrdersMyAccountUserPage(driver);
+        ordersMyAccountUserPage.clickToDynamicDetailButtonByOrderID(orderID);
+
+
     }
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
-        closeBrowserAndDriver(driver);
+        //closeBrowserAndDriver(driver);
     }
 }
 

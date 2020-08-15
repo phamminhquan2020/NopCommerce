@@ -22,7 +22,7 @@ public class PageGeneratorManager extends AbstractTest {
         return new LoginUserPageObject(driver);
     }
 
-    public static CustomerInfoMyAccountUserPageObject getMyAccountUserPage(WebDriver driver) {
+    public static CustomerInfoMyAccountUserPageObject getCustomerInfoMyAccountUserPage(WebDriver driver) {
         sleepInSecond(1);
         return new CustomerInfoMyAccountUserPageObject(driver);
     }
@@ -80,5 +80,10 @@ public class PageGeneratorManager extends AbstractTest {
     public static CheckOutPageObject getCheckOutPage(WebDriver driver) {
         sleepInSecond(1);
         return new CheckOutPageObject(driver);
+    }
+
+    public static OrdersMyAccountUserPageObject getOrdersMyAccountUserPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new OrdersMyAccountUserPageObject(driver);
     }
 }

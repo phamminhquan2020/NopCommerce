@@ -2,6 +2,7 @@ package testdata.helper;
 
 import com.github.javafaker.Faker;
 
+import javax.sql.rowset.serial.SerialStruct;
 import java.util.Locale;
 
 public class DataHelper {
@@ -50,6 +51,12 @@ public class DataHelper {
 
     public String getFaxNumber() {
         return faker.phoneNumber().phoneNumber();
+    }
+    public String getCreditCardNumber() {
+       return faker.business().creditCardNumber();
+    }
+    public String getCreditCardExpire() {
+        return faker.business().creditCardExpiry();
     }
 }
  
