@@ -269,6 +269,7 @@ public class Order extends AbstractTest {
         checkOutPage.waitForLoadingNextStepPaymentInfoDisappeared();
         checkOutPage.clickToConfirmButton();
         checkOutPage.waitForSubmittingOrderTextDisappeared();
+
         orderID = checkOutPage.getOrderID();
         checkOutPage.clickToContinueButtonCartSuccess();
         verifyEquals(checkOutPage.getPageUrl(driver), GlobalConstants.USER_URL);
