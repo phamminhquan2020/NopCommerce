@@ -32,4 +32,18 @@ public class CheckOutPageUI {
 
 
     public static final String PAYMENT_INFO_TEXT = "//div[@class='info']//td";
+    public static final String BILLING_INFO = "//div[@class='billing-info']//li";
+    public static final String PAYMENT_METHOD_INFO = "//div[@class='payment-method-info']//li";
+    public static final String SHIPPING_INFO = "//div[@class='shipping-info']//li";
+    public static final String SHIPPING_METHOD_INFO = "//div[@class='shipping-method-info']//li";
+
+    public static final String PRODUCT_NAME_CONFIRM = "//a[@class='product-name']";
+    public static final String ORDER_TOTAL_CONFIRM = "//tr[@class='order-total']//span[@class='value-summary']/strong";
+
+    public static final String CARD_TYPE_DROPDOWN = "//select[@id='CreditCardType']";
+    public static final String CARD_HOLDER_NAME = "//input[@id='CardholderName']";
+    public static final String CARD_NUMBER_TEXBOX = "//input[@id='CardNumber']";
+    public static final String EXPIRE_MONTH_DROPDOWN = "//select[@id='ExpireMonth']";
+    public static final String EXPIRE_YEAR_DROPDOWN = "//select[@id='ExpireYear']";
+    public static final String CODE_TEXTBOX = "//input[@id='CardCode']";
 }
