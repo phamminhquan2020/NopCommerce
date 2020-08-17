@@ -39,16 +39,19 @@ public class Order extends AbstractTest {
     int qty4;
 
     String productName5 = "Apple MacBook Pro 13-inch";
-    String giftWrapping, country, state, shippingMethod, city, address1, zipcode, phoneNumber, paymentMethod, orderID;
+    String giftWrapping, country, state, shippingMethod, city, address1, zipcode, phoneNumber, paymentMethod05, orderID, paymentMethod06;
     float totalPrice;
     List<String> billingAddressInfo, paymentMethodInfo, shippingAddressInfo, shippingMethodInfo;
+    List<String> billingAddressInfoConfirmOrder, paymentMethodInfoConfirmOrder, shippingAddressInfoConfirmOrder, shippingMethodInfoConfirmOrder;
+    String creditCartType, cartHolderName, cartNumber, month, year, code;
 
     @Parameters("browser")
     @BeforeClass
+
     public void beforeClass(String browser) {
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
-        data = DataHelper.getData();
+        //data = DataHelper.getData();
 
         productName1 = "Build your own computer";
         processor1 = "2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]";
@@ -94,8 +97,16 @@ public class Order extends AbstractTest {
         city = "Dallas";
         address1 = "E Main Street";
         phoneNumber = "123456789";
-        paymentMethod = "Check / Money Order";
+        paymentMethod05 = "Check / Money Order";
         totalPrice = 3610;
+
+        paymentMethod06 = "Credit Card";
+        creditCartType = "Master card";
+        cartHolderName =  "Camilla Edwards";
+        month = "04";
+        year = "2026";
+        code = "791";
+        cartNumber = "5198178217867618";
 
     }
 
@@ -252,21 +263,44 @@ public class Order extends AbstractTest {
         checkOutPage.clickToContinueShippingMethodButton();
         checkOutPage.waitForLoadingTextShippingMethodDisappear();
 
-        checkOutPage.clickToDynamicPaymentMethod(paymentMethod);
+        checkOutPage.clickToDynamicPaymentMethod(paymentMethod05);
         checkOutPage.clickToContinuePaymentMethodButton();
         checkOutPage.waitForLoadingTextPaymentMethodDisappeared();
 
-/*        checkOutPage.selectCreditCartType(creditCartType);
-        checkOutPage.inputCardHolderName(cartHolderName);
-        checkOutPage.selectExpireMonth(month);
-        checkOutPage.selectExpireYear(year);
-        checkOutPage.inputToCartCodeTextbox(code);
-        checkOutPage.clickToContinueCardInfoButton();
-        checkOutPage.waitForLoadingTextCardInfoDisappeared();*/
-
         System.out.println(checkOutPage.getPaymentInfoText());
         checkOutPage.clickToContinueButtonPaymentInfo();
-        checkOutPage.waitForLoadingNextStepPaymentInfoDisappeared();
+        checkOutPage.waitForLoadingTextPaymentInfoDisappeared();
+
+        //verify
+
+        billingAddressInfoConfirmOrder = checkOutPage.getBillingAddressInfoConfirmOrder();
+        log.info("billingAddressInfo" + billingAddressInfoConfirmOrder);
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(country));
+
+        paymentMethodInfoConfirmOrder = checkOutPage.getPaymentMethodInfoConfirmOrder();
+        log.info("paymentMethodInfo" + paymentMethodInfoConfirmOrder);
+        verifyTrue(paymentMethodInfoConfirmOrder.contains("Payment Method: " + paymentMethod05));
+
+        shippingAddressInfoConfirmOrder = checkOutPage.getShippingAddressInfoConfirmOrder();
+        log.info("shippingAddressInfo" + shippingAddressInfoConfirmOrder);
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(country));
+
+        shippingMethodInfoConfirmOrder = checkOutPage.getShippingMethodInfoConfirmOrder();
+        log.info("shippingMethodInfo" + shippingMethodInfoConfirmOrder);
+        verifyTrue(shippingMethodInfoConfirmOrder.contains("Shipping Method: " + shippingMethod));
+        verifyEquals(checkOutPage.getProductNameAtConfirm(), productName5);
+        verifyEquals(checkOutPage.getTotalPriceAtConfirm(), totalPrice);
+
+        //verify
+
         checkOutPage.clickToConfirmButton();
         checkOutPage.waitForSubmittingOrderTextDisappeared();
 
@@ -295,7 +329,132 @@ public class Order extends AbstractTest {
 
         paymentMethodInfo = orderDetailPage.getPaymentMethodInfo();
         log.info("paymentMethodInfo" + paymentMethodInfo);
-        verifyTrue(paymentMethodInfo.contains("Payment Method: " + paymentMethod));
+        verifyTrue(paymentMethodInfo.contains("Payment Method: " + paymentMethod05));
+        verifyTrue(paymentMethodInfo.contains("Payment Status: Pending"));
+
+        shippingAddressInfo = orderDetailPage.getShippingAddressInfo();
+        log.info("shippingAddressInfo" + shippingAddressInfo);
+        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfo.contains(address1));
+        verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfo.contains(country));
+
+        shippingMethodInfo = orderDetailPage.getShippingMethodInfo();
+        log.info("shippingMethodInfo" + shippingMethodInfo);
+        verifyTrue(shippingMethodInfo.contains("Shipping Method: " + shippingMethod));
+        verifyTrue(shippingMethodInfo.contains("Shipping Status: Not yet shipped"));
+
+
+    }
+
+    @Test
+    public void order_06_checkout_payment_by_cart() {
+        homeUserPage.clickToDynamicProductImageByTitle(driver, productName5);
+        productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
+        productDetailUserPage.clickAddToCartButton();
+        productDetailUserPage.clickToCloseIcon(driver);
+        productDetailUserPage.clickToCartLink(driver);
+        cartUserPage = PageGeneratorManager.getCartUserPage(driver);
+        cartUserPage.selectGiftWrappingDropdown(giftWrapping);
+        cartUserPage.clickToEstimateShippingButton();
+        cartUserPage.selectCountryInDrropdown(country);
+        cartUserPage.selectStateInDropdown(state);
+        cartUserPage.inputToZipcodeTextbox(zipcode);
+        cartUserPage.clickToShippingMethod(shippingMethod);
+        cartUserPage.clickToApplyButton();
+        cartUserPage.waitForAjaxLoadingIconDisappeared(driver);
+        verifyEquals(cartUserPage.getTotalValue(), totalPrice);
+        cartUserPage.clickToTermOfServiceCheckbox();
+        cartUserPage.clickToCheckOutButton();
+
+        checkOutPage = PageGeneratorManager.getCheckOutPage(driver);
+        checkOutPage.selectNewAddressIfAny();
+        checkOutPage.selectCountryInDropdown(country);
+        checkOutPage.selectStateInDropdown(state);
+        checkOutPage.inputToCityTextBox(city);
+        checkOutPage.inputToAddress1TextBox(address1);
+        checkOutPage.inputToZipcodeTextBox(zipcode);
+        checkOutPage.inputToPhoneNumberTextBox(phoneNumber);
+        checkOutPage.clickToCoutinueBillingButton();
+        checkOutPage.waitForLoadingTextBillingDisappeared();
+
+        checkOutPage.clickToShippingMethodRadio(shippingMethod);
+        checkOutPage.clickToContinueShippingMethodButton();
+        checkOutPage.waitForLoadingTextShippingMethodDisappear();
+
+        checkOutPage.clickToDynamicPaymentMethod(paymentMethod06);
+        checkOutPage.clickToContinuePaymentMethodButton();
+        checkOutPage.waitForLoadingTextPaymentMethodDisappeared();
+
+        checkOutPage.selectCreditCartType(creditCartType);
+        checkOutPage.inputCardHolderName(cartHolderName);
+        checkOutPage.inputCardNumber(cartNumber);
+        checkOutPage.selectExpireMonth(month);
+        checkOutPage.selectExpireYear(year);
+        checkOutPage.inputToCartCodeTextbox(code);
+        checkOutPage.clickToContinueButtonPaymentInfo();
+        checkOutPage.waitForLoadingTextPaymentInfoDisappeared();
+
+        //verify
+
+        billingAddressInfoConfirmOrder = checkOutPage.getBillingAddressInfoConfirmOrder();
+        log.info("billingAddressInfo" + billingAddressInfoConfirmOrder);
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(country));
+
+        paymentMethodInfoConfirmOrder = checkOutPage.getPaymentMethodInfoConfirmOrder();
+        log.info("paymentMethodInfo" + paymentMethodInfoConfirmOrder);
+        verifyTrue(paymentMethodInfoConfirmOrder.contains("Payment Method: " + paymentMethod06));
+
+        shippingAddressInfoConfirmOrder = checkOutPage.getShippingAddressInfoConfirmOrder();
+        log.info("shippingAddressInfo" + shippingAddressInfoConfirmOrder);
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfoConfirmOrder.contains(country));
+
+        shippingMethodInfoConfirmOrder = checkOutPage.getShippingMethodInfoConfirmOrder();
+        log.info("shippingMethodInfo" + shippingMethodInfoConfirmOrder);
+        verifyTrue(shippingMethodInfoConfirmOrder.contains("Shipping Method: " + shippingMethod));
+        verifyEquals(checkOutPage.getProductNameAtConfirm(), productName5);
+        verifyEquals(checkOutPage.getTotalPriceAtConfirm(), totalPrice);
+
+        //verify
+
+        checkOutPage.clickToConfirmButton();
+        checkOutPage.waitForSubmittingOrderTextDisappeared();
+
+        orderID = checkOutPage.getOrderID();
+        checkOutPage.clickToContinueButtonCartSuccess();
+        verifyEquals(checkOutPage.getPageUrl(driver), GlobalConstants.USER_URL);
+        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+        homeUserPage.clickToMyAccountLink(driver);
+        customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
+        customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Orders");
+        ordersMyAccountUserPage = PageGeneratorManager.getOrdersMyAccountUserPage(driver);
+        ordersMyAccountUserPage.clickToDynamicDetailButtonByOrderID(orderID);
+
+        orderDetailPage = PageGeneratorManager.getOrderDetailPage(driver);
+        verifyEquals(orderDetailPage.getOrderID(), orderID);
+        verifyEquals(orderDetailPage.getStatus(), "Pending");
+        verifyEquals(orderDetailPage.getTotalPrice(), totalPrice);
+
+        billingAddressInfo = orderDetailPage.getBillingAddressInfo();
+        log.info("billingAddressInfo" + billingAddressInfo);
+        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
+        verifyTrue(billingAddressInfo.contains(address1));
+        verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
+        verifyTrue(billingAddressInfo.contains(country));
+
+        paymentMethodInfo = orderDetailPage.getPaymentMethodInfo();
+        log.info("paymentMethodInfo" + paymentMethodInfo);
+        verifyTrue(paymentMethodInfo.contains("Payment Method: " + paymentMethod06));
         verifyTrue(paymentMethodInfo.contains("Payment Status: Pending"));
 
         shippingAddressInfo = orderDetailPage.getShippingAddressInfo();

@@ -4,6 +4,8 @@ import commonFunctions.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import pageUIs.CheckOutPageUI;
 
+import java.util.List;
+
 public class CheckOutPageObject extends AbstractPage {
     private WebDriver driver;
 
@@ -84,7 +86,7 @@ public class CheckOutPageObject extends AbstractPage {
         clickToElement(driver, CheckOutPageUI.CONTINUE_BUTTON_PAYMENT_INFO);
     }
 
-    public void waitForLoadingNextStepPaymentInfoDisappeared() {
+    public void waitForLoadingTextPaymentInfoDisappeared() {
         waitElementInvisible(driver, CheckOutPageUI.LOADING_NEXT_STEP_PAYMENT_INFO);
     }
 
@@ -121,5 +123,66 @@ public class CheckOutPageObject extends AbstractPage {
     public String getPaymentInfoText() {
         waitElementVisible(driver, CheckOutPageUI.PAYMENT_INFO_TEXT);
         return getElementText(driver, CheckOutPageUI.PAYMENT_INFO_TEXT);
+    }
+
+    public List<String> getBillingAddressInfoConfirmOrder() {
+        waitAllElementsVisible(driver, CheckOutPageUI.BILLING_INFO);
+        return getElementsText(driver, CheckOutPageUI.BILLING_INFO);
+    }
+
+    public List<String> getPaymentMethodInfoConfirmOrder() {
+        waitAllElementsVisible(driver, CheckOutPageUI.PAYMENT_METHOD_INFO);
+        return getElementsText(driver, CheckOutPageUI.PAYMENT_METHOD_INFO);
+    }
+
+    public List<String> getShippingAddressInfoConfirmOrder() {
+        waitAllElementsVisible(driver, CheckOutPageUI.SHIPPING_INFO);
+        return getElementsText(driver, CheckOutPageUI.SHIPPING_INFO);
+    }
+
+    public List<String> getShippingMethodInfoConfirmOrder() {
+        waitAllElementsVisible(driver, CheckOutPageUI.SHIPPING_METHOD_INFO);
+        return getElementsText(driver, CheckOutPageUI.SHIPPING_METHOD_INFO);
+    }
+
+    public String getProductNameAtConfirm() {
+        waitElementVisible(driver, CheckOutPageUI.PRODUCT_NAME_CONFIRM);
+        return getElementText(driver, CheckOutPageUI.PRODUCT_NAME_CONFIRM);
+    }
+
+    public Float getTotalPriceAtConfirm() {
+        waitElementVisible(driver, CheckOutPageUI.ORDER_TOTAL_CONFIRM);
+        return Float.parseFloat(getElementText(driver, CheckOutPageUI.ORDER_TOTAL_CONFIRM).replace("$", "").replace(",", ""));
+    }
+
+    public void selectCreditCartType(String creditCartType) {
+        waitElementVisible(driver, CheckOutPageUI.CARD_TYPE_DROPDOWN);
+        selectOptionInDropdown(driver, CheckOutPageUI.CARD_TYPE_DROPDOWN, creditCartType);
+    }
+
+    public void inputCardHolderName(String cartHolderName) {
+        waitElementVisible(driver, CheckOutPageUI.CARD_HOLDER_NAME);
+        sendkeyToElement(driver, CheckOutPageUI.CARD_HOLDER_NAME, cartHolderName);
+    }
+
+    public void inputCardNumber(String cartNumber) {
+        waitElementVisible(driver, CheckOutPageUI.CARD_NUMBER_TEXBOX);
+        sendkeyToElement(driver, CheckOutPageUI.CARD_NUMBER_TEXBOX, cartNumber);
+
+    }
+
+    public void selectExpireMonth(String month) {
+        waitElementVisible(driver, CheckOutPageUI.EXPIRE_MONTH_DROPDOWN);
+        selectOptionInDropdown(driver, CheckOutPageUI.EXPIRE_MONTH_DROPDOWN, month);
+    }
+
+    public void selectExpireYear(String year) {
+        waitElementVisible(driver, CheckOutPageUI.EXPIRE_YEAR_DROPDOWN);
+        selectOptionInDropdown(driver, CheckOutPageUI.EXPIRE_YEAR_DROPDOWN, year);
+    }
+
+    public void inputToCartCodeTextbox(String code) {
+        waitElementVisible(driver, CheckOutPageUI.CODE_TEXTBOX);
+        sendkeyToElement(driver, CheckOutPageUI.CODE_TEXTBOX, code);
     }
 }

@@ -25,6 +25,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
         args.add("--disable-geolocation");
         args.add("--disable-extensions");
         args.add("-lang=vi");
+        args.add("--no-sandbox");
         options.addArguments(args);
 
 
