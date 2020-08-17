@@ -22,6 +22,7 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -190,8 +191,19 @@ public abstract class AbstractTest {
         try {
             File file = new File(pathFolderDownload);
             File[] listOfFiles = file.listFiles();
+
+            Calendar cal = Calendar.getInstance();;
+            cal.add(Calendar.DATE, -4);
+            Date endDate = cal.getTime();
+            System.out.println("DELETE SCREENSHOT BEFORE: " + endDate);
+
             for (int i = 0;i< listOfFiles.length;i++) {
-                if (listOfFiles[i].isFile()) {
+               String fileName = listOfFiles[i].getName();
+               String dateString = fileName.substring(fileName.length()-23, fileName.length()-5);
+                SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+                Date date = formater.parse(dateString);
+
+                if (listOfFiles[i].isFile() && date.before(endDate)){
                     new File(listOfFiles[i].toString()).delete();
                 }
             }
