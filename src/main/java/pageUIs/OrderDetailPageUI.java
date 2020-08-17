@@ -8,5 +8,6 @@ public class OrderDetailPageUI {
     public static final String ORDER_NUMBER = "//div[@class='order-number']/strong";
     public static final String ORDER_STATUS = "//li[@class='order-status']";
     public static final String ORDER_TOTAL = "//li[@class='order-total']/strong";
+    public static final String REORDER_BUTTON = "//input[@value='Re-order']";
 
 }

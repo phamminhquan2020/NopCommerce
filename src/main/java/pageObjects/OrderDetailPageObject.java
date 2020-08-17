@@ -47,4 +47,9 @@ public class OrderDetailPageObject extends AbstractPage {
         waitAllElementsVisible(driver, OrderDetailPageUI.SHIPPING_METHOD_INFO);
         return getElementsText(driver, OrderDetailPageUI.SHIPPING_METHOD_INFO);
     }
+
+    public void clickToReorderButton() {
+        waitElementClickable(driver, OrderDetailPageUI.REORDER_BUTTON);
+        clickToElement(driver, OrderDetailPageUI.REORDER_BUTTON);
+    }
 }
