@@ -26,6 +26,9 @@ public class PageGeneratorManager extends AbstractTest {
     public static DashboardAdminPageObject dashboardAdminPage;
     public static ProductListAdminPageObject productAdminPage;
     public static EditProductAdminPageObject editProductAdminPage;
+    public static CustomerListAdminPageObject customerListAdminPage;
+    public static CustomerCreateAdminPageObject customerCreateAdminPage;
+    public static CustomerEditAdminPageObject customerEditAdminPage;
 
 
     public static HomeUserPageObject getHomeUserPage(WebDriver driver) {
@@ -186,5 +189,29 @@ public class PageGeneratorManager extends AbstractTest {
             editProductAdminPage = new EditProductAdminPageObject(driver);
         }
         return editProductAdminPage;
+    }
+
+    public static CustomerListAdminPageObject getCustomerListAdminPage(WebDriver driver) {
+        sleepInSecond(pageStableTimeout);
+        if (customerListAdminPage == null || customerListAdminPage.getDriver() != driver) {
+            customerListAdminPage = new CustomerListAdminPageObject(driver);
+        }
+        return customerListAdminPage;
+    }
+
+    public static CustomerCreateAdminPageObject getCustomerCreateAdminPage(WebDriver driver) {
+        sleepInSecond(pageStableTimeout);
+        if (customerCreateAdminPage == null || customerCreateAdminPage.getDriver() != driver) {
+            customerCreateAdminPage = new CustomerCreateAdminPageObject(driver);
+        }
+        return customerCreateAdminPage;
+    }
+
+    public static CustomerEditAdminPageObject getCustomerEditAdminPage(WebDriver driver) {
+        sleepInSecond(pageStableTimeout);
+        if (customerEditAdminPage == null || customerEditAdminPage.getDriver() != driver) {
+            customerEditAdminPage = new CustomerEditAdminPageObject(driver);
+        }
+        return customerEditAdminPage;
     }
 }

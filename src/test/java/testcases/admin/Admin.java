@@ -5,23 +5,27 @@ import commonFunctions.GlobalConstants;
 import commonFunctions.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.DashboardAdminPageObject;
-import pageObjects.EditProductAdminPageObject;
-import pageObjects.LoginAdminPageObject;
-import pageObjects.ProductListAdminPageObject;
+import pageObjects.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Admin extends AbstractTest {
-    private WebDriver driver;
     LoginAdminPageObject loginAdminPageObject;
     DashboardAdminPageObject dashboardAdminPage;
     ProductListAdminPageObject productAdminPage;
     EditProductAdminPageObject editProductAdminPage;
-
+    CustomerListAdminPageObject customerListAdminPage;
+    CustomerCreateAdminPageObject customerCreateAdminPage;
+    CustomerEditAdminPageObject customerEditAdminPage;
     String productName01, sku01, type01;
     float price01;
     int stock01;
-
     String categoryOption02, categoryOption04, categoryOption05, manufacturer05;
+    String email, password, firstName, lastName, dob, companyName, vendorName, adminComment;
+    List<String> storeNames, roleNames;
+    private WebDriver driver;
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
@@ -38,7 +42,23 @@ public class Admin extends AbstractTest {
         categoryOption05 = "All";
         manufacturer05 = "Apple";
         driver = getBrowserDriverFromFactory(browser);
+
+        email = "automationfc@gmail.com";
+        password = "123456";
+        firstName = "Automation";
+        lastName = "FC";
+        dob = "8/15/2000";
+        companyName = "AutomationFC";
+        storeNames = new ArrayList<>();
+        storeNames.add("Your store name");
+        storeNames.add("Test store 2");
+        roleNames = new ArrayList<>();
+        roleNames.add("Vendors");
+        roleNames.add("Forum Moderators");
+        vendorName = "Vendor 1";
+        adminComment = "New Customer";
     }
+
     @BeforeMethod
     public void beforeMethod() {
         loginAdminPageObject = PageGeneratorManager.getLoginAdminPage(driver);
@@ -47,12 +67,13 @@ public class Admin extends AbstractTest {
         loginAdminPageObject.inputToPasswordTextbox(GlobalConstants.ADMIN_PASSWORD);
         loginAdminPageObject.clickToLoginButton();
     }
+
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.manage().deleteAllCookies();
     }
 
-    @Test
+
     public void admin_01_search_with_product_name() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -70,7 +91,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-    @Test
+
     public void admin_02_search_with_product_name_parent_category_unchecked() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -85,7 +106,7 @@ public class Admin extends AbstractTest {
         verifyTrue(productAdminPage.isEmptyRowMessageDisplayed());
     }
 
-    @Test
+
     public void admin_03_search_with_product_name_parent_category_checked() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -105,7 +126,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-    @Test
+
     public void admin_04_search_with_product_name_child_category() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -124,7 +145,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-    @Test
+
     public void admin_05_search_with_product_name_manufacturer() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -140,7 +161,7 @@ public class Admin extends AbstractTest {
         verifyTrue(productAdminPage.isEmptyRowMessageDisplayed());
     }
 
-    @Test
+
     public void admin_06_go_directly_product_sku() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -159,6 +180,53 @@ public class Admin extends AbstractTest {
 
     }
 
+
+/*    public void admin_07_create_new_customer() {
+        dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
+        dashboardAdminPage.clickToDynamicAdminMenu(driver, "Customers");
+        dashboardAdminPage.clickToDynamicAdminSubmenu(driver, "Customers", "Customers");
+
+        customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.clickToAddNewButton();
+
+        customerCreateAdminPage = PageGeneratorManager.getCustomerCreateAdminPage(driver);
+        customerCreateAdminPage.inputToEmailTextbox(email);
+        customerCreateAdminPage.inputToPasswordTextbox(password);
+        customerCreateAdminPage.inputToFirstNameTextbox(firstName);
+        customerCreateAdminPage.inputToLastNameTextbox(lastName);
+        customerCreateAdminPage.clickToMaleRadio();
+        customerCreateAdminPage.inputToDayOfBirthTextbox(dob);
+        customerCreateAdminPage.inputToCompanyNameTextbox(companyName);
+        customerCreateAdminPage.checkToIsTaxExemptCheckbox();
+        customerCreateAdminPage.selectNewsletterMultiSelectDropdown(storeNames);
+        customerCreateAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerCreateAdminPage.selectManagerOfVendorDropdown(vendorName);
+        customerCreateAdminPage.checkToActiveCheckbox();
+        customerCreateAdminPage.inputToAdminComment(adminComment);
+        customerCreateAdminPage.clickToSaveAndContinueEditButton();
+
+        customerEditAdminPage = PageGeneratorManager.getCustomerEditAdminPage(driver);
+        verifyEquals(customerEditAdminPage.getNotificationMessageOfAdmin(driver), "");
+        verifyEquals(customerEditAdminPage.getEmail(), email);
+        verifyEquals(customerEditAdminPage.getFirstName(), firstName);
+        verifyEquals(customerEditAdminPage.getLastName(), lastName);
+        verifyTrue(customerEditAdminPage.isMaleGenderSelected());
+        verifyEquals(customerEditAdminPage.getDayOfBirth(), dob);
+        verifyEquals(customerEditAdminPage.getCompanyName(), companyName);
+        verifyTrue(customerEditAdminPage.isTaxExemptChecked());
+        verifyEquals(customerEditAdminPage.getStores(), storeNames);
+        verifyEquals(customerEditAdminPage.getRoles(), roleNames);
+        verifyEquals(customerEditAdminPage.getSelectedVendor(), roleNames);
+        verifyTrue(customerEditAdminPage.isActiveChecked());
+        verifyEquals(customerEditAdminPage.getAminComment(), adminComment);
+        customerCreateAdminPage.clickToBackToCustomerListButton();
+
+        customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerListAdminPage.clickToSearchButton();
+        customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+
+    }*/
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
