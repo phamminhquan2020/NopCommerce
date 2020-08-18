@@ -12,6 +12,9 @@ public class ProductDetailUserPageObject extends AbstractPage {
     public ProductDetailUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void clickAddYourReviewLink() {
         waitElementClickable(driver, ProductDetailUserPageUI.ADD_YOUR_REVIEW_LINK);

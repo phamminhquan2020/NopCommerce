@@ -11,6 +11,9 @@ public class WishListUserPageObject extends AbstractPage {
     public WishListUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public boolean isOnlyOnceProductInWishList() {
         return finds(driver, UserAbstractPageUI.CART_ROW).size() == 1;

@@ -13,6 +13,10 @@ public class CartUserPageObject extends AbstractPage {
         this.driver = driver;
     }
 
+    public WebDriver getDriver() {
+        return this.driver;
+    }
+
     public boolean isOnlyOnceProductInCart() {
         return finds(driver, UserAbstractPageUI.CART_ROW).size() == 1;
     }
@@ -88,8 +92,8 @@ public class CartUserPageObject extends AbstractPage {
     }
 
     public void clickToApplyButton() {
-        waitElementClickable(driver,CartUserPageUI.APPLY_BUTTON);
-        clickToElement(driver,CartUserPageUI.APPLY_BUTTON);
+        waitElementClickable(driver, CartUserPageUI.APPLY_BUTTON);
+        clickToElement(driver, CartUserPageUI.APPLY_BUTTON);
     }
 
     public void clickToCheckOutButton() {

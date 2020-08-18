@@ -10,6 +10,9 @@ public class CompareProductsPageObject extends AbstractPage {
     public CompareProductsPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public String getNumberOfProductInComparePage() {
         int number = finds(driver, CompareProductsPageUI.ALL_CELL_OF_FIRST_ROW).size() - 1;

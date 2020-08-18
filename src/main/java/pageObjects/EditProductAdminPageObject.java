@@ -10,6 +10,9 @@ public class EditProductAdminPageObject extends AbstractPage {
     public EditProductAdminPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public String getProductName() {
         waitElementVisible(driver, EditProductAdminPageUI.PRODUCT_NAME_TEXTBOX);

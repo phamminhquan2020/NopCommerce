@@ -9,4 +9,7 @@ public class ProductListUserPageObjectBackup extends AbstractPage {
     public ProductListUserPageObjectBackup(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 }

@@ -9,4 +9,7 @@ public class DashboardAdminPageObject extends AbstractPage {
     public DashboardAdminPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 }

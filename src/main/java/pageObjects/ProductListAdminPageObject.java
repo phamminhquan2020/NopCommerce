@@ -13,6 +13,9 @@ public class ProductListAdminPageObject extends AbstractPage {
     public ProductListAdminPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void inputToProductNameTextbox(String productName01) {
         waitElementVisible(driver, ProductListAdminPageUI.PRODUCT_NAME_TEXTBOX);

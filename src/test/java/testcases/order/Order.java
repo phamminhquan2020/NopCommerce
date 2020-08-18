@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     ProductDetailUserPageObject productDetailUserPage;

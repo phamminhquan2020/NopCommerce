@@ -10,7 +10,9 @@ public class MyProductReviewMyAccountUserPageObject extends AbstractPage {
     public MyProductReviewMyAccountUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
-
+    public WebDriver getDriver() {
+        return this.driver;
+    }
     public boolean isReviewTitleDisplayed(String reviewTitle) {
         return isElementDisplayed(driver, MyProductReviewMyAccountUserPageUI.DYNAMIC_PRODUCT_TITLE, reviewTitle);
     }

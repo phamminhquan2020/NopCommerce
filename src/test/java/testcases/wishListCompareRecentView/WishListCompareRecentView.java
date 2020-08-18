@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 import pageObjects.*;
 
 public class WishListCompareRecentView extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     ProductDetailUserPageObject productDetailUserPage;

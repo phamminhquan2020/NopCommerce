@@ -30,7 +30,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static HomeUserPageObject getHomeUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (homeUserPage == null) {
+        if (homeUserPage == null || homeUserPage.getDriver() != driver) {
             homeUserPage = new HomeUserPageObject(driver);
         }
         return homeUserPage;
@@ -38,7 +38,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static RegisterUserPageObject getRegisterUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (registerUserPage == null) {
+        if (registerUserPage == null || registerUserPage.getDriver() != driver) {
             registerUserPage = new RegisterUserPageObject(driver);
         }
         return registerUserPage;
@@ -46,7 +46,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static LoginUserPageObject getLoginUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (loginUserPage == null) {
+        if (loginUserPage == null || loginUserPage.getDriver() != driver) {
             loginUserPage = new LoginUserPageObject(driver);
         }
         return loginUserPage;
@@ -54,7 +54,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static CustomerInfoMyAccountUserPageObject getCustomerInfoMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (customerInfoMyAccountUserPage == null) {
+        if (customerInfoMyAccountUserPage == null || customerInfoMyAccountUserPage.getDriver() != driver) {
             customerInfoMyAccountUserPage = new CustomerInfoMyAccountUserPageObject(driver);
         }
         return customerInfoMyAccountUserPage;
@@ -62,7 +62,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static AddressMyAccountUserPageObject getAddressMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (addressMyAccountUserPage == null) {
+        if (addressMyAccountUserPage == null || addressMyAccountUserPage.getDriver() != driver) {
             addressMyAccountUserPage = new AddressMyAccountUserPageObject(driver);
         }
         return addressMyAccountUserPage;
@@ -70,7 +70,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static ChangePasswordMyAccountUserPageObject getChangePasswordMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (changePasswordMyAccountUserPage == null) {
+        if (changePasswordMyAccountUserPage == null || changePasswordMyAccountUserPage.getDriver() != driver) {
             changePasswordMyAccountUserPage = new ChangePasswordMyAccountUserPageObject(driver);
         }
         return changePasswordMyAccountUserPage;
@@ -78,7 +78,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static ProductDetailUserPageObject getProductDetailUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (productDetailUserPage == null) {
+        if (productDetailUserPage == null || productDetailUserPage.getDriver() != driver) {
             productDetailUserPage = new ProductDetailUserPageObject(driver);
         }
         return productDetailUserPage;
@@ -86,7 +86,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static ProductReviewUserPageObject getProductReviewUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (productReviewUserPage == null) {
+        if (productReviewUserPage == null || productReviewUserPage.getDriver() != driver) {
             productReviewUserPage = new ProductReviewUserPageObject(driver);
         }
         return productReviewUserPage;
@@ -94,7 +94,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static MyProductReviewMyAccountUserPageObject getMyProductReviewMyAccountPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (myProductReviewMyAccountUserPage == null) {
+        if (myProductReviewMyAccountUserPage == null || myProductReviewMyAccountUserPage.getDriver() != driver) {
             myProductReviewMyAccountUserPage = new MyProductReviewMyAccountUserPageObject(driver);
         }
         return myProductReviewMyAccountUserPage;
@@ -102,7 +102,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static SearchUserPageObject getSearchUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (searchUserPage == null) {
+        if (searchUserPage == null || searchUserPage.getDriver() != driver) {
             searchUserPage = new SearchUserPageObject(driver);
         }
         return searchUserPage;
@@ -110,7 +110,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static WishListUserPageObject getWishListUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (wishListUserPage == null) {
+        if (wishListUserPage == null || wishListUserPage.getDriver() != driver) {
             wishListUserPage = new WishListUserPageObject(driver);
         }
         return wishListUserPage;
@@ -118,7 +118,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static CartUserPageObject getCartUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (cartUserPage == null) {
+        if (cartUserPage == null || cartUserPage.getDriver() != driver) {
             cartUserPage = new CartUserPageObject(driver);
         }
         return cartUserPage;
@@ -126,7 +126,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static CompareProductsPageObject getCompareProductsPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (compareProductsPage == null) {
+        if (compareProductsPage == null || compareProductsPage.getDriver() != driver) {
             compareProductsPage = new CompareProductsPageObject(driver);
         }
         return compareProductsPage;
@@ -134,7 +134,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static CheckOutPageObject getCheckOutPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (checkOutPage == null) {
+        if (checkOutPage == null || checkOutPage.getDriver() != driver) {
             checkOutPage = new CheckOutPageObject(driver);
         }
         return checkOutPage;
@@ -142,7 +142,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static OrdersMyAccountUserPageObject getOrdersMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (ordersMyAccountUserPage == null) {
+        if (ordersMyAccountUserPage == null || ordersMyAccountUserPage.getDriver() != driver) {
             ordersMyAccountUserPage = new OrdersMyAccountUserPageObject(driver);
         }
         return ordersMyAccountUserPage;
@@ -150,7 +150,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static OrderDetailPageObject getOrderDetailPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (orderDetailPage == null) {
+        if (orderDetailPage == null || orderDetailPage.getDriver() != driver) {
             orderDetailPage = new OrderDetailPageObject(driver);
         }
         return orderDetailPage;
@@ -158,7 +158,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static LoginAdminPageObject getLoginAdminPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (loginAdminPage == null) {
+        if (loginAdminPage == null || loginAdminPage.getDriver() != driver) {
             loginAdminPage = new LoginAdminPageObject(driver);
         }
         return loginAdminPage;
@@ -166,7 +166,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static DashboardAdminPageObject getDashboardAdminPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (dashboardAdminPage == null) {
+        if (dashboardAdminPage == null || dashboardAdminPage.getDriver() != driver) {
             dashboardAdminPage = new DashboardAdminPageObject(driver);
         }
         return dashboardAdminPage;
@@ -174,7 +174,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static ProductListAdminPageObject getProductAdminPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (productAdminPage == null) {
+        if (productAdminPage == null || productAdminPage.getDriver() != driver) {
             productAdminPage = new ProductListAdminPageObject(driver);
         }
         return productAdminPage;
@@ -182,7 +182,7 @@ public class PageGeneratorManager extends AbstractTest {
 
     public static EditProductAdminPageObject getEditProductAdminPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        if (editProductAdminPage == null) {
+        if (editProductAdminPage == null || editProductAdminPage.getDriver() != driver) {
             editProductAdminPage = new EditProductAdminPageObject(driver);
         }
         return editProductAdminPage;

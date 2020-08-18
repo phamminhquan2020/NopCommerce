@@ -10,7 +10,7 @@ import pageObjects.ProductListUserPageObjectBackup;
 import pageObjects.SearchUserPageObject;
 
 public class SortDisplayPaging extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     ProductListUserPageObjectBackup productListUserPage;
     SearchUserPageObject searchUserPage;

@@ -10,6 +10,10 @@ public class ChangePasswordMyAccountUserPageObject extends AbstractPage {
     public ChangePasswordMyAccountUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
+
 
     public void inputOldPassword(String userPassword) {
         waitElementVisible(driver, ChangePasswordMyAccountUserPageUI.OLD_PASSWORD_TEXTBOX);

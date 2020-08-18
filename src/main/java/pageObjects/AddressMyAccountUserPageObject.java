@@ -10,6 +10,9 @@ public class AddressMyAccountUserPageObject extends AbstractPage {
     public AddressMyAccountUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void clickToAddButton() {
         waitElementClickable(driver, AddressMyAccountUserPageUI.ADD_NEW_BUTTON);

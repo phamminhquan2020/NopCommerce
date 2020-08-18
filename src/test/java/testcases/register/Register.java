@@ -10,7 +10,7 @@ import pageObjects.RegisterUserPageObject;
 import testdata.helper.DataHelper;
 
 public class Register extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     RegisterUserPageObject registerUserPage;
     DataHelper data;

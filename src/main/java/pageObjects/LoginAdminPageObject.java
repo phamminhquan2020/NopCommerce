@@ -10,6 +10,9 @@ public class LoginAdminPageObject extends AbstractPage {
     public LoginAdminPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void inputToEmailTextbox(String adminEmail) {
         waitElementVisible(driver, LoginAdminPageUI.EMAIL_TEXTBOX);

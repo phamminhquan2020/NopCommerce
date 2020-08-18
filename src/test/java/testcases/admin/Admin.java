@@ -11,7 +11,7 @@ import pageObjects.LoginAdminPageObject;
 import pageObjects.ProductListAdminPageObject;
 
 public class Admin extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     LoginAdminPageObject loginAdminPageObject;
     DashboardAdminPageObject dashboardAdminPage;
     ProductListAdminPageObject productAdminPage;

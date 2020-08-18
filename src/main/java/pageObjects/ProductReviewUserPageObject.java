@@ -10,6 +10,9 @@ public class ProductReviewUserPageObject extends AbstractPage {
     public ProductReviewUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void inputReviewTitleTextbox(String reviewTitle) {
         waitElementVisible(driver, ProductReviewUserPageUI.REVIEW_TITLE_TEXTBOX);

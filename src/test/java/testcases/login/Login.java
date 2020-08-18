@@ -10,7 +10,7 @@ import pageObjects.LoginUserPageObject;
 import testdata.helper.DataHelper;
 
 public class Login extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     DataHelper data;

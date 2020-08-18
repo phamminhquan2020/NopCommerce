@@ -14,6 +14,9 @@ public class SearchUserPageObject extends AbstractPage {
     public SearchUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void clickToSearchButton() {
         waitElementClickable(driver, SearchUserPageUI.SEARCH_BUTTON);

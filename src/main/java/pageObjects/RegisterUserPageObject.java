@@ -10,6 +10,9 @@ public class RegisterUserPageObject extends AbstractPage {
     public RegisterUserPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void clickMaleGender() {
         //waitElementClickable(driver, RegisterUserPageUI.GENDER_MALE_RADIO);

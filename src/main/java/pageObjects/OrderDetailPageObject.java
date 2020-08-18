@@ -12,7 +12,9 @@ public class OrderDetailPageObject extends AbstractPage {
     public OrderDetailPageObject(WebDriver driver) {
         this.driver = driver;
     }
-
+    public WebDriver getDriver() {
+        return this.driver;
+    }
     public String getOrderID() {
         waitElementVisible(driver, OrderDetailPageUI.ORDER_NUMBER);
         return getElementText(driver, OrderDetailPageUI.ORDER_NUMBER).split("#")[1];

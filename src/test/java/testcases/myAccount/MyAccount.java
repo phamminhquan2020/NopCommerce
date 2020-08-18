@@ -9,7 +9,7 @@ import pageObjects.*;
 import testdata.helper.DataHelper;
 
 public class MyAccount extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     CustomerInfoMyAccountUserPageObject customerInfoMyAccountUserPage;

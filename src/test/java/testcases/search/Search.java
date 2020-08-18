@@ -10,7 +10,7 @@ import pageObjects.LoginUserPageObject;
 import pageObjects.SearchUserPageObject;
 
 public class Search extends AbstractTest {
-    WebDriver driver;
+    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     SearchUserPageObject searchUserPage;

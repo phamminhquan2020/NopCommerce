@@ -12,6 +12,9 @@ public class CheckOutPageObject extends AbstractPage {
     public CheckOutPageObject(WebDriver driver) {
         this.driver = driver;
     }
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public void selectCountryInDropdown(String country) {
         waitElementVisible(driver, CheckOutPageUI.COUNTRY_DROPDOWN);
