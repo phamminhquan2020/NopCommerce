@@ -50,7 +50,6 @@ public class Order extends AbstractTest {
 
     @Parameters("browser")
     @BeforeClass
-
     public void beforeClass(String browser) {
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);

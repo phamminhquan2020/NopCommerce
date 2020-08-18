@@ -14,4 +14,8 @@ public class GlobalConstants {
     public static final String CHANGED_USER_PASSWORD = "123456789";
     public static final String FIRST_NAME = "Automation";
     public static final String LAST_NAME = "FC";
+
+    public static final String ADMIN_URL = "https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/";
+    public static final String ADMIN_EMAIL = "admin@yourstore.com";
+    public static final String ADMIN_PASSWORD = "admin";
 }

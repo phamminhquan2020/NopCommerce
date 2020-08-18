@@ -91,4 +91,9 @@ public class PageGeneratorManager extends AbstractTest {
         sleepInSecond(1);
         return new OrderDetailPageObject(driver);
     }
+
+    public static LoginAdminPageObject getLoginAdminPage(WebDriver driver) {
+        sleepInSecond(1);
+        return new LoginAdminPageObject(driver);
+    }
 }
