@@ -252,6 +252,11 @@ public abstract class AbstractPage {
         return find(driver, xpathValue).getAttribute(attributeName);
     }
 
+    public String getElementAttributeValue(WebDriver driver, String xpathValue, String attributeName, String...values) {
+        xpathValue = castToRestParam(xpathValue, values);
+        return find(driver, xpathValue).getAttribute(attributeName);
+    }
+
     public String getElementTextByJS(WebDriver driver, String xpathValue) {
         jsExecutor = (JavascriptExecutor) driver;
         return (String) jsExecutor.executeScript("return arguments[0].value", find(driver, xpathValue));
