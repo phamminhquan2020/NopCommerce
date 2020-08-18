@@ -1,5 +1,6 @@
 package commonFunctions;
 
+import commonUIs.AdminAbstractPageUI;
 import commonUIs.UserAbstractPageUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -731,9 +732,24 @@ public abstract class AbstractPage {
         waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_SUBTOTAL_BY_PRODUCT_NAME, productName);
         return Float.parseFloat(getElementText(driver, UserAbstractPageUI.DYNAMIC_SUBTOTAL_BY_PRODUCT_NAME, productName).replace("$", "").replace(",", ""));
     }
+
     //end of common function of user page
 
     //start common function of testcase.admin page
+
+    public void clickToDynamicAdminMenu(WebDriver driver, String catalog) {
+        waitElementClickable(driver, AdminAbstractPageUI.DYNAMIC_MENU_BY_NAME, catalog);
+        clickToElement(driver, AdminAbstractPageUI.DYNAMIC_MENU_BY_NAME, catalog);
+    }
+
+    public void clickToDynamicAdminSubmenu(WebDriver driver, String catalog, String products) {
+        waitElementClickable(driver, AdminAbstractPageUI.DYNAMIC_SUB_MENU_BY_NAME, catalog, products);
+        clickToElement(driver, AdminAbstractPageUI.DYNAMIC_SUB_MENU_BY_NAME, catalog, products);
+    }
+
+    public void waitForAjaxLoadingIconAdminDisappeared(WebDriver driver) {
+        waitElementInvisible(driver, AdminAbstractPageUI.LOADING_ICON_AJAX);
+    }
 
     //end of common function of testcase.admin page
 }
