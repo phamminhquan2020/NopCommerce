@@ -6,101 +6,162 @@ import pageObjects.*;
 
 public class PageGeneratorManager extends AbstractTest {
     private static long pageStableTimeout = GlobalConstants.PAGE_STABLE_TIMEOUT;
+    public static HomeUserPageObject homeUserPage;
+    public static RegisterUserPageObject registerUserPage;
+    public static LoginUserPageObject loginUserPage;
+    public static CustomerInfoMyAccountUserPageObject customerInfoMyAccountUserPage;
+    public static AddressMyAccountUserPageObject addressMyAccountUserPage;
+    public static ChangePasswordMyAccountUserPageObject changePasswordMyAccountUserPage;
+    public static ProductDetailUserPageObject productDetailUserPage;
+    public static ProductReviewUserPageObject productReviewUserPage;
+    public static MyProductReviewMyAccountUserPageObject myProductReviewMyAccountUserPage;
+    public static SearchUserPageObject searchUserPage;
+    public static WishListUserPageObject wishListUserPage;
+    public static CartUserPageObject cartUserPage;
+    public static CompareProductsPageObject compareProductsPage;
+    public static CheckOutPageObject checkOutPage;
+    public static OrdersMyAccountUserPageObject ordersMyAccountUserPage;
+    public static OrderDetailPageObject orderDetailPage;
+    public static LoginAdminPageObject loginAdminPage;
     public static DashboardAdminPageObject dashboardAdminPage;
     public static ProductListAdminPageObject productAdminPage;
     public static EditProductAdminPageObject editProductAdminPage;
 
 
-
-
     public static HomeUserPageObject getHomeUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new HomeUserPageObject(driver);
+        if (homeUserPage == null) {
+            homeUserPage = new HomeUserPageObject(driver);
+        }
+        return homeUserPage;
     }
 
     public static RegisterUserPageObject getRegisterUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new RegisterUserPageObject(driver);
+        if (registerUserPage == null) {
+            registerUserPage = new RegisterUserPageObject(driver);
+        }
+        return registerUserPage;
     }
 
     public static LoginUserPageObject getLoginUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new LoginUserPageObject(driver);
+        if (loginUserPage == null) {
+            loginUserPage = new LoginUserPageObject(driver);
+        }
+        return loginUserPage;
     }
 
     public static CustomerInfoMyAccountUserPageObject getCustomerInfoMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new CustomerInfoMyAccountUserPageObject(driver);
+        if (customerInfoMyAccountUserPage == null) {
+            customerInfoMyAccountUserPage = new CustomerInfoMyAccountUserPageObject(driver);
+        }
+        return customerInfoMyAccountUserPage;
     }
 
     public static AddressMyAccountUserPageObject getAddressMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new AddressMyAccountUserPageObject(driver);
+        if (addressMyAccountUserPage == null) {
+            addressMyAccountUserPage = new AddressMyAccountUserPageObject(driver);
+        }
+        return addressMyAccountUserPage;
     }
 
     public static ChangePasswordMyAccountUserPageObject getChangePasswordMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new ChangePasswordMyAccountUserPageObject(driver);
+        if (changePasswordMyAccountUserPage == null) {
+            changePasswordMyAccountUserPage = new ChangePasswordMyAccountUserPageObject(driver);
+        }
+        return changePasswordMyAccountUserPage;
     }
 
     public static ProductDetailUserPageObject getProductDetailUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new ProductDetailUserPageObject(driver);
+        if (productDetailUserPage == null) {
+            productDetailUserPage = new ProductDetailUserPageObject(driver);
+        }
+        return productDetailUserPage;
     }
 
     public static ProductReviewUserPageObject getProductReviewUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new ProductReviewUserPageObject(driver);
+        if (productReviewUserPage == null) {
+            productReviewUserPage = new ProductReviewUserPageObject(driver);
+        }
+        return productReviewUserPage;
     }
 
     public static MyProductReviewMyAccountUserPageObject getMyProductReviewMyAccountPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new MyProductReviewMyAccountUserPageObject(driver);
+        if (myProductReviewMyAccountUserPage == null) {
+            myProductReviewMyAccountUserPage = new MyProductReviewMyAccountUserPageObject(driver);
+        }
+        return myProductReviewMyAccountUserPage;
     }
 
     public static SearchUserPageObject getSearchUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new SearchUserPageObject(driver);
-    }
-
-    public static ProductListUserPageObjectBackup getProductListUserPage(WebDriver driver) {
-        sleepInSecond(pageStableTimeout);
-        return new ProductListUserPageObjectBackup(driver);
+        if (searchUserPage == null) {
+            searchUserPage = new SearchUserPageObject(driver);
+        }
+        return searchUserPage;
     }
 
     public static WishListUserPageObject getWishListUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new WishListUserPageObject(driver);
+        if (wishListUserPage == null) {
+            wishListUserPage = new WishListUserPageObject(driver);
+        }
+        return wishListUserPage;
     }
 
     public static CartUserPageObject getCartUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new CartUserPageObject(driver);
+        if (cartUserPage == null) {
+            cartUserPage = new CartUserPageObject(driver);
+        }
+        return cartUserPage;
     }
 
     public static CompareProductsPageObject getCompareProductsPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new CompareProductsPageObject(driver);
+        if (compareProductsPage == null) {
+            compareProductsPage = new CompareProductsPageObject(driver);
+        }
+        return compareProductsPage;
     }
 
     public static CheckOutPageObject getCheckOutPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new CheckOutPageObject(driver);
+        if (checkOutPage == null) {
+            checkOutPage = new CheckOutPageObject(driver);
+        }
+        return checkOutPage;
     }
 
     public static OrdersMyAccountUserPageObject getOrdersMyAccountUserPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new OrdersMyAccountUserPageObject(driver);
+        if (ordersMyAccountUserPage == null) {
+            ordersMyAccountUserPage = new OrdersMyAccountUserPageObject(driver);
+        }
+        return ordersMyAccountUserPage;
     }
 
     public static OrderDetailPageObject getOrderDetailPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new OrderDetailPageObject(driver);
+        if (orderDetailPage == null) {
+            orderDetailPage = new OrderDetailPageObject(driver);
+        }
+        return orderDetailPage;
     }
 
     public static LoginAdminPageObject getLoginAdminPage(WebDriver driver) {
         sleepInSecond(pageStableTimeout);
-        return new LoginAdminPageObject(driver);
+        if (loginAdminPage == null) {
+            loginAdminPage = new LoginAdminPageObject(driver);
+        }
+        return loginAdminPage;
     }
 
     public static DashboardAdminPageObject getDashboardAdminPage(WebDriver driver) {
