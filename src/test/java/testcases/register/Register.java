@@ -112,7 +112,6 @@ public class Register extends AbstractTest {
         registerUserPage.inputPassword(userPassword);
         registerUserPage.inputConfirmPassword(userPassword);
         registerUserPage.clickRegisterButton();
-        verifyTrue(false);
 /*        verifyEquals(registerUserPage.getSuccessMsg(), "Your registration completed");
         registerUserPage.clickContinueButton();
         verifyEquals(registerUserPage.getPageUrl(driver), GlobalConstants.USER_URL);*/

@@ -1,11 +1,10 @@
 package testdata.helper;
 
 import com.github.javafaker.Faker;
+import commonFunctions.GlobalConstants;
 
 import java.util.Locale;
 
-import static commonFunctions.GlobalConstants.USER_EMAIL_CHROME;
-import static commonFunctions.GlobalConstants.USER_EMAIL_FIREFOX;
 
 public class DataHelper {
     private Locale locale = new Locale("en");
@@ -67,13 +66,13 @@ public class DataHelper {
         String userEmail;
         switch (browser) {
             case "chrome":
-                userEmail = USER_EMAIL_CHROME;
+                userEmail = GlobalConstants.USER_EMAIL_CHROME;
                 break;
             case "firefox":
-                userEmail = USER_EMAIL_FIREFOX;
+                userEmail = GlobalConstants.USER_EMAIL_FIREFOX;
                 break;
             default:
-                userEmail = USER_EMAIL_CHROME;
+                userEmail = GlobalConstants.USER_EMAIL_CHROME;
                 break;
         }
         return userEmail;
