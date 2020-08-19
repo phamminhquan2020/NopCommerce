@@ -2,6 +2,7 @@ package driverFactory;
 
 import commonFunctions.GlobalConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -9,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import java.io.File;
 
 public class FirefoxDriverManager extends BrowserDriverManager {
-
+Dimension dimension;
     @Override
     protected void createDriver() {
         WebDriverManager.firefoxdriver().setup();
@@ -27,14 +28,19 @@ public class FirefoxDriverManager extends BrowserDriverManager {
         options.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
         //bug hover of firefox (can not hover twice), add below line to workaround
         options.setCapability("moz:useNonSpecCompliantPointerOrigin", true);
+
+        System.out.println("Run by: " + System.getProperty("user.name"));
+        driver = new FirefoxDriver(options);
+        dimension = new Dimension(1920, 1080);
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
-            options.addArguments("-headless");
+            driver.manage().window().setSize(dimension);
+/*            options.addArguments("-headless");
             options.addArguments("--window-size=1920,1080");
             options.addArguments("--width=1920");
             options.addArguments("--height=1080");
+            options.*/
         }
-        System.out.println("Run by: " + System.getProperty("user.name"));
-        driver = new FirefoxDriver(options);
+
 
     }
 
