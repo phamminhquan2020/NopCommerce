@@ -19,13 +19,14 @@ public class Login extends AbstractTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        driver = getBrowserDriverFromFactory(browser);
-        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
+
         data = DataHelper.getData();
         newEmail = data.getEmail();
         password = data.getPassword();
-        userEmail = GlobalConstants.getUserEmail(browser);
+        userEmail = data.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
+        driver = getBrowserDriverFromFactory(browser);
+        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
 
 }
     @BeforeMethod

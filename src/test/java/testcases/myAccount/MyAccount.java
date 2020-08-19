@@ -26,9 +26,9 @@ public class MyAccount extends AbstractTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        userEmail = GlobalConstants.getUserEmail(browser);
-        userPassword = GlobalConstants.USER_PASSWORD;
         data = DataHelper.getData();
+        userEmail = data.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
         firstname = "Automation";
         lastname = "FC";
         day = "1";

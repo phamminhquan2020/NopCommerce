@@ -4,6 +4,9 @@ import com.github.javafaker.Faker;
 
 import java.util.Locale;
 
+import static commonFunctions.GlobalConstants.USER_EMAIL_CHROME;
+import static commonFunctions.GlobalConstants.USER_EMAIL_FIREFOX;
+
 public class DataHelper {
     private Locale locale = new Locale("en");
     private Faker faker = new Faker(locale);
@@ -58,6 +61,22 @@ public class DataHelper {
 
     public String getCreditCardExpire() {
         return faker.business().creditCardExpiry();
+    }
+
+    public static String getUserEmail(String browser) {
+        String userEmail;
+        switch (browser) {
+            case "chrome":
+                userEmail = USER_EMAIL_CHROME;
+                break;
+            case "firefox":
+                userEmail = USER_EMAIL_FIREFOX;
+                break;
+            default:
+                userEmail = USER_EMAIL_CHROME;
+                break;
+        }
+        return userEmail;
     }
 }
  

@@ -6,6 +6,7 @@ import commonFunctions.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageObjects.*;
+import testdata.helper.DataHelper;
 
 public class WishListCompareRecentView extends AbstractTest {
     private WebDriver driver;
@@ -17,11 +18,13 @@ public class WishListCompareRecentView extends AbstractTest {
     CompareProductsPageObject compareProductsPage;
     SearchUserPageObject searchUserPage;
     String userEmail, userPassword;
+    DataHelper data;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        userEmail = GlobalConstants.getUserEmail(browser);
+        data = DataHelper.getData();
+        userEmail = data.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
         driver = getBrowserDriverFromFactory(browser);
     }

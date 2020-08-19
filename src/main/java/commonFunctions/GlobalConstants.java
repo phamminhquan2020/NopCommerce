@@ -21,19 +21,5 @@ public class GlobalConstants {
     public static final String ADMIN_EMAIL = "admin@yourstore.com";
     public static final String ADMIN_PASSWORD = "admin";
 
-    public static String getUserEmail(String browser) {
-        String userEmail;
-        switch (browser) {
-            case "chrome":
-                userEmail = USER_EMAIL_CHROME;
-                break;
-            case "firefox":
-                userEmail = USER_EMAIL_FIREFOX;
-                break;
-            default:
-                userEmail = USER_EMAIL_CHROME;
-                break;
-        }
-        return userEmail;
-    }
+
 }

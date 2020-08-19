@@ -8,11 +8,13 @@ import org.testng.annotations.*;
 import pageObjects.HomeUserPageObject;
 import pageObjects.LoginUserPageObject;
 import pageObjects.SearchUserPageObject;
+import testdata.helper.DataHelper;
 
 public class Search extends AbstractTest {
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     SearchUserPageObject searchUserPage;
+    DataHelper data;
     String userEmail, userPassword;
     String emptyDataMsg, keywordTC02, noResultMsg, keywordTC03, sizeOfSearchResultTC03, searchResultTitle01TC03, searchResultTitle02TC03, keywordTC04, sizeOfSearchResultTC04, searchResultTitleTC04, keywordTC05, categoryTC05, keywordTC06, categoryTC06, sizeOfSearchResultTC06, searchResultTitleTC06, keywordTC07, categoryTC07, manufacturerTC07, keywordTC08, categoryTC08, manufacturerTC08, sizeOfSearchResultTC08, searchResultTitleTC08, keywordTC09, categoryTC09, manufacturerTC09, priceFromTC09, priceToTC09, sizeOfSearchResultTC09, searchResultTitleTC09, keywordTC10, categoryTC10, manufacturerTC10, priceFromTC10, priceToTC10, keywordTC11, categoryTC11, manufacturerTC11, priceFromTC11, priceToTC11;
     private WebDriver driver;
@@ -20,8 +22,8 @@ public class Search extends AbstractTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-
-        userEmail = GlobalConstants.getUserEmail(browser);
+        data = DataHelper.getData();
+        userEmail = data.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
         emptyDataMsg = "Search term minimum length is 3 characters";
 

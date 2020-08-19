@@ -47,11 +47,12 @@ public class Order extends AbstractTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        userEmail = GlobalConstants.getUserEmail(browser);
+        data = DataHelper.getData();
+        userEmail = data.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
-        //data = DataHelper.getData();
+
 
         productName1 = "Build your own computer";
         processor1 = "2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]";

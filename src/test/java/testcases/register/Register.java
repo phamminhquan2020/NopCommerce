@@ -19,20 +19,20 @@ public class Register extends AbstractTest {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        driver = getBrowserDriverFromFactory(browser);
-        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
-
         data = DataHelper.getData();
         firstname06 = GlobalConstants.FIRST_NAME;
         lastname06 = GlobalConstants.LAST_NAME;
         day06 = "15";
         month06 = "June";
         year06 = "2000";
-        userEmail = GlobalConstants.getUserEmail(browser);
+        userEmail = data.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
         email03 = "automationfc.vn@gmail.com";
         companyName03 = data.getCompanyName();
         password03 = data.getPassword();
+
+        driver = getBrowserDriverFromFactory(browser);
+        homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
     }
 
     @BeforeMethod
