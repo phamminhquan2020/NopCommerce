@@ -31,16 +31,10 @@ Dimension dimension;
 
         System.out.println("Run by: " + System.getProperty("user.name"));
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
-            System.out.println("set size here");
             options.setHeadless(true);
             options.addArguments("--width=1920");
             options.addArguments("--height=1080");
-            options.addArguments("--window-size").addArguments("1920,1080");
-
-//            options.addArguments("--window-size=1920,1080");
-//            options.addArguments("--width=1920");
-//            options.addArguments("--height=1080");
-//            options.
+//            options.addArguments("--window-size").addArguments("1920,1080");
         }
         driver = new FirefoxDriver(options);
 
