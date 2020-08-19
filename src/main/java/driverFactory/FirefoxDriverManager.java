@@ -30,7 +30,7 @@ Dimension dimension;
         options.setCapability("moz:useNonSpecCompliantPointerOrigin", true);
 
         System.out.println("Run by: " + System.getProperty("user.name"));
-        dimension = new Dimension(1920, 1080);
+        dimension = new Dimension(500, 200);
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             System.out.println("set size here");
             options.setHeadless(true);
