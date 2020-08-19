@@ -35,9 +35,6 @@ Dimension dimension;
             System.out.println("set size here");
             options.setHeadless(true);
 
-            System.out.println(driver.manage().window().getSize());
-            System.out.println(driver.manage().window().getPosition());
-
 //            options.addArguments("--window-size=1920,1080");
 //            options.addArguments("--width=1920");
 //            options.addArguments("--height=1080");
