@@ -27,8 +27,11 @@ public class FirefoxDriverManager extends BrowserDriverManager {
         options.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
         //bug hover of firefox (can not hover twice), add below line to workaround
         options.setCapability("moz:useNonSpecCompliantPointerOrigin", true);
-       // options.addArguments("-headless");
-        options.addArguments("window-size=1920,1080");
+        if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
+            options.addArguments("-headless");
+            options.addArguments("window-size=1920,1080");
+        }
+        System.out.println("Run by: " + System.getProperty("user.name"));
         driver = new FirefoxDriver(options);
 
     }
