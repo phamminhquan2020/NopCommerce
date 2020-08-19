@@ -36,7 +36,7 @@ public class MyAccount extends AbstractTest {
         add_firstname = data.getFirstName();
         add_lastname = data.getLastName();
         add_email = data.getEmail();
-        add_company = data.getCompany();
+        add_company = data.getCompanyName();
         add_country = "United States";
         add_state = "Texas";
         add_city = data.getCity();

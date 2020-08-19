@@ -42,4 +42,29 @@ public class CustomerListAdminPageObject extends AbstractPage {
     public boolean isEmptyDataTableMessageDisplayed() {
         return isElementDisplayed(driver, CustomerListAdminPageUI.EMPTY_DATA_MESSAGE);
     }
+
+    public void inputToFirstNameTextbox(String firstName) {
+        waitElementVisible(driver, CustomerListAdminPageUI.FIRST_NAME_TEXTBOX);
+        sendkeyToElement(driver, CustomerListAdminPageUI.FIRST_NAME_TEXTBOX, firstName);
+    }
+
+    public void inputToLastNameTextbox(String lastName) {
+        waitElementVisible(driver, CustomerListAdminPageUI.LAST_NAME_TEXTBOX);
+        sendkeyToElement(driver, CustomerListAdminPageUI.LAST_NAME_TEXTBOX, lastName);
+    }
+
+    public void inputToCompanyNameTextbox(String companyName) {
+        waitElementVisible(driver, CustomerListAdminPageUI.COMPANY_NAME_TEXTBOX);
+        sendkeyToElement(driver, CustomerListAdminPageUI.COMPANY_NAME_TEXTBOX, companyName);
+    }
+
+    public void selectMonthDropdown(String month) {
+        waitElementVisible(driver, CustomerListAdminPageUI.MONTH_DROPDOWN);
+        selectOptionInDropdown(driver, CustomerListAdminPageUI.MONTH_DROPDOWN, month);
+    }
+
+    public void selectDayDropdown(String day) {
+        waitElementVisible(driver, CustomerListAdminPageUI.DAY_DROPDOWN);
+        selectOptionInDropdown(driver, CustomerListAdminPageUI.DAY_DROPDOWN, day);
+    }
 }

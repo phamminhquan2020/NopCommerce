@@ -29,7 +29,7 @@ public class Register extends AbstractTest {
         month = "June";
         year = "2000";
         email = "automationfc.vn@gmail.com";
-        companyName = data.getCompany();
+        companyName = data.getCompanyName();
         password = data.getPassword();
     }
 

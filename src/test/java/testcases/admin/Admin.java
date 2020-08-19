@@ -6,6 +6,7 @@ import commonFunctions.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageObjects.*;
+import testdata.helper.DataHelper;
 
 public class Admin extends AbstractTest {
     LoginAdminPageObject loginAdminPageObject;
@@ -19,14 +20,14 @@ public class Admin extends AbstractTest {
     float price01;
     int stock01;
     String categoryOption02, categoryOption04, categoryOption05, manufacturer05;
-    String email, password, firstName, lastName, dob, companyName, vendorName, adminComment;
-    String storeNames, roleNames;
+    String email, password, firstName, lastName, dob, companyName, vendorName, adminComment, month, day, storeNames, roleNames;
+    DataHelper data;
     private WebDriver driver;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-
+        data = DataHelper.getData();
         productName01 = "Lenovo IdeaCentre 600 All-in-One PC";
         sku01 = "LE_IC_600";
         price01 = 500;
@@ -39,12 +40,14 @@ public class Admin extends AbstractTest {
         categoryOption05 = "All";
         manufacturer05 = "Apple";
 
-        email = "leo" + randomNumber() + "@gmail.com";
-        password = "123456";
-        firstName = "Automation";
-        lastName = "FC";
+        email = data.getEmail();
+        password = data.getPassword();
+        firstName = data.getFirstName();
+        lastName = data.getLastName();
         dob = "8/15/2000";
-        companyName = "AutomationFC";
+        month = "8";
+        day = "15";
+        companyName = data.getCompanyName();
 
 
         storeNames = "Your store name";
@@ -69,7 +72,7 @@ public class Admin extends AbstractTest {
         driver.manage().deleteAllCookies();
     }
 
-    @Test
+
     public void admin_01_search_with_product_name() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -87,7 +90,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-    @Test
+
     public void admin_02_search_with_product_name_parent_category_unchecked() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -102,7 +105,7 @@ public class Admin extends AbstractTest {
         verifyTrue(productAdminPage.isEmptyRowMessageDisplayed());
     }
 
-    @Test
+
     public void admin_03_search_with_product_name_parent_category_checked() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -122,7 +125,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-    @Test
+
     public void admin_04_search_with_product_name_child_category() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -141,7 +144,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-    @Test
+
     public void admin_05_search_with_product_name_manufacturer() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -157,7 +160,7 @@ public class Admin extends AbstractTest {
         verifyTrue(productAdminPage.isEmptyRowMessageDisplayed());
     }
 
-    @Test
+
     public void admin_06_go_directly_product_sku() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -229,6 +232,75 @@ public class Admin extends AbstractTest {
 
     }
 
+    @Test
+    public void admin_08_search_customer_with_email() {
+        dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
+        dashboardAdminPage.clickToDynamicAdminMenu(driver, "Customers");
+        dashboardAdminPage.clickToDynamicAdminSubmenu(driver, "Customers", "Customers");
+
+        customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.deleteItemInCustomDropdown(driver, "Registered");
+        customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerListAdminPage.inputToEmailTextbox(email);
+        customerListAdminPage.clickToSearchButton();
+        customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+        verifyEquals(customerListAdminPage.getNumberOfRowInList(), 1);
+        verifyFalse(customerListAdminPage.isEmptyDataTableMessageDisplayed());
+    }
+
+    @Test
+    public void admin_09_search_customer_with_first_name_and_last_name() {
+        dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
+        dashboardAdminPage.clickToDynamicAdminMenu(driver, "Customers");
+        dashboardAdminPage.clickToDynamicAdminSubmenu(driver, "Customers", "Customers");
+
+        customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.deleteItemInCustomDropdown(driver, "Registered");
+        customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerListAdminPage.inputToFirstNameTextbox(firstName);
+        customerListAdminPage.inputToLastNameTextbox(lastName);
+        customerListAdminPage.clickToSearchButton();
+        customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+        verifyEquals(customerListAdminPage.getNumberOfRowInList(), 1);
+        verifyFalse(customerListAdminPage.isEmptyDataTableMessageDisplayed());
+    }
+
+    @Test
+    public void admin_10_search_customer_with_company_name() {
+        dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
+        dashboardAdminPage.clickToDynamicAdminMenu(driver, "Customers");
+        dashboardAdminPage.clickToDynamicAdminSubmenu(driver, "Customers", "Customers");
+
+        customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.deleteItemInCustomDropdown(driver, "Registered");
+        customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerListAdminPage.inputToCompanyNameTextbox(companyName);
+        customerListAdminPage.clickToSearchButton();
+        customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+        verifyEquals(customerListAdminPage.getNumberOfRowInList(), 1);
+        verifyFalse(customerListAdminPage.isEmptyDataTableMessageDisplayed());
+    }
+
+    @Test
+    public void admin_11_search_customer_with_full_data() {
+        dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
+        dashboardAdminPage.clickToDynamicAdminMenu(driver, "Customers");
+        dashboardAdminPage.clickToDynamicAdminSubmenu(driver, "Customers", "Customers");
+
+        customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.deleteItemInCustomDropdown(driver, "Registered");
+        customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerListAdminPage.inputToEmailTextbox(email);
+        customerListAdminPage.inputToFirstNameTextbox(firstName);
+        customerListAdminPage.inputToLastNameTextbox(lastName);
+        customerListAdminPage.selectMonthDropdown(month);
+        customerListAdminPage.selectDayDropdown(day);
+        customerListAdminPage.inputToCompanyNameTextbox(companyName);
+        customerListAdminPage.clickToSearchButton();
+        customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+        verifyEquals(customerListAdminPage.getNumberOfRowInList(), 1);
+        verifyFalse(customerListAdminPage.isEmptyDataTableMessageDisplayed());
+    }
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
