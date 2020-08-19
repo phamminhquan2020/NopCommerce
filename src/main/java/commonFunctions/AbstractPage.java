@@ -229,11 +229,18 @@ public abstract class AbstractPage {
 
         for (WebElement item : elements) {
             if (item.getText().equals(expectedItem)) {
-                jsExecutor = (JavascriptExecutor) driver;
-                jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
+                try {
+                    item.click();
+                }
+                catch (Exception e) {
+                    jsExecutor = (JavascriptExecutor) driver;
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
+                    item.click();
+                }
+
                 sleepInSecond(1);
 
-                item.click();
+
                 sleepInSecond(1);
                 break;
             }
@@ -754,6 +761,16 @@ public abstract class AbstractPage {
 
     public void waitForAjaxLoadingIconAdminDisappeared(WebDriver driver) {
         waitElementInvisible(driver, AdminAbstractPageUI.LOADING_ICON_AJAX);
+    }
+
+    public String getNotificationMessageOfAdmin(WebDriver driver) {
+        waitElementVisible(driver, AdminAbstractPageUI.ALERT_NOTIFICATION);
+        return getElementText(driver, AdminAbstractPageUI.ALERT_NOTIFICATION).replace("×", "").trim();
+    }
+
+    public void deleteItemInCustomDropdown(WebDriver driver, String option) {
+        waitElementClickable(driver, AdminAbstractPageUI.DYNAMIC_DELETE_ICON, option);
+        clickToElement(driver, AdminAbstractPageUI.DYNAMIC_DELETE_ICON, option);
     }
 
     //end of common function of testcase.admin page

@@ -23,7 +23,7 @@
             <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
             <class name="testcases.wishListCompareRecentView.WishListCompareRecentView"/>
             <class name="testcases.order.Order"/>
-<!--            <class name="testcases.admin.Admin"/>-->
+            <class name="testcases.admin.Admin"/>
         </classes>
     </test>
 

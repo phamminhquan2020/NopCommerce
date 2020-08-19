@@ -17,4 +17,6 @@ public class CustomerEditAdminPageUI  {
     public static final String ADMIN_COMMENT = "//textarea[@id='AdminComment']";
     public static final String BACK_TO_CUSTOMER_LIST_LINK = "//a[contains(text(),'back to customer list')]";
 
+    public static final String DYNAMIC_SELECTED_STORE_NAME = "//ul[@id='SelectedNewsletterSubscriptionStoreIds_taglist']/li/span[text()='%s']";
+    public static final String DYNAMIC_SELECTED_ROLE_NAME = "//ul[@id='SelectedCustomerRoleIds_taglist']/li/span[text()='%s']";
 }

@@ -23,7 +23,7 @@ public class Admin extends AbstractTest {
     int stock01;
     String categoryOption02, categoryOption04, categoryOption05, manufacturer05;
     String email, password, firstName, lastName, dob, companyName, vendorName, adminComment;
-    List<String> storeNames, roleNames;
+    String storeNames, roleNames;
     private WebDriver driver;
 
     @Parameters("browser")
@@ -41,22 +41,21 @@ public class Admin extends AbstractTest {
         categoryOption04 = "Computers >> Desktops";
         categoryOption05 = "All";
         manufacturer05 = "Apple";
-        driver = getBrowserDriverFromFactory(browser);
 
-        email = "automationfc@gmail.com";
+        email = "leo" + randomNumber() + "@gmail.com";
         password = "123456";
         firstName = "Automation";
         lastName = "FC";
         dob = "8/15/2000";
         companyName = "AutomationFC";
-        storeNames = new ArrayList<>();
-        storeNames.add("Your store name");
-        storeNames.add("Test store 2");
-        roleNames = new ArrayList<>();
-        roleNames.add("Vendors");
-        roleNames.add("Forum Moderators");
+
+
+        storeNames = "Your store name";
+        roleNames = "Guests";
         vendorName = "Vendor 1";
         adminComment = "New Customer";
+
+        driver = getBrowserDriverFromFactory(browser);
     }
 
     @BeforeMethod
@@ -180,8 +179,8 @@ public class Admin extends AbstractTest {
 
     }
 
-
-/*    public void admin_07_create_new_customer() {
+    @Test
+    public void admin_07_create_new_customer() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Customers");
         dashboardAdminPage.clickToDynamicAdminSubmenu(driver, "Customers", "Customers");
@@ -198,6 +197,7 @@ public class Admin extends AbstractTest {
         customerCreateAdminPage.inputToDayOfBirthTextbox(dob);
         customerCreateAdminPage.inputToCompanyNameTextbox(companyName);
         customerCreateAdminPage.checkToIsTaxExemptCheckbox();
+        customerCreateAdminPage.deleteItemInCustomDropdown(driver, "Registered");
         customerCreateAdminPage.selectNewsletterMultiSelectDropdown(storeNames);
         customerCreateAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
         customerCreateAdminPage.selectManagerOfVendorDropdown(vendorName);
@@ -206,7 +206,7 @@ public class Admin extends AbstractTest {
         customerCreateAdminPage.clickToSaveAndContinueEditButton();
 
         customerEditAdminPage = PageGeneratorManager.getCustomerEditAdminPage(driver);
-        verifyEquals(customerEditAdminPage.getNotificationMessageOfAdmin(driver), "");
+        verifyEquals(customerEditAdminPage.getNotificationMessageOfAdmin(driver), "The new customer has been added successfully.");
         verifyEquals(customerEditAdminPage.getEmail(), email);
         verifyEquals(customerEditAdminPage.getFirstName(), firstName);
         verifyEquals(customerEditAdminPage.getLastName(), lastName);
@@ -214,19 +214,20 @@ public class Admin extends AbstractTest {
         verifyEquals(customerEditAdminPage.getDayOfBirth(), dob);
         verifyEquals(customerEditAdminPage.getCompanyName(), companyName);
         verifyTrue(customerEditAdminPage.isTaxExemptChecked());
-        verifyEquals(customerEditAdminPage.getStores(), storeNames);
-        verifyEquals(customerEditAdminPage.getRoles(), roleNames);
-        verifyEquals(customerEditAdminPage.getSelectedVendor(), roleNames);
+        verifyTrue(customerEditAdminPage.isStoreNameSelected(storeNames));
+        verifyTrue(customerEditAdminPage.isRoleNameSelected(roleNames));
+        verifyEquals(customerEditAdminPage.getSelectedVendor(), vendorName);
         verifyTrue(customerEditAdminPage.isActiveChecked());
         verifyEquals(customerEditAdminPage.getAminComment(), adminComment);
-        customerCreateAdminPage.clickToBackToCustomerListButton();
+        customerEditAdminPage.clickToBackToCustomerListButton();
 
         customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
+        customerListAdminPage.deleteItemInCustomDropdown(driver, "Registered");
         customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
         customerListAdminPage.clickToSearchButton();
         customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+    }
 
-    }*/
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
