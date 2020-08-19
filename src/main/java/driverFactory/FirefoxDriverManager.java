@@ -24,6 +24,7 @@ Dimension dimension;
         profile.setPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
         FirefoxOptions options = new FirefoxOptions();
         options.setProfile(profile);
+       options.
         options.addPreference("font.language.group", "x-unicode");
         options.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
         //bug hover of firefox (can not hover twice), add below line to workaround
@@ -37,11 +38,11 @@ Dimension dimension;
             driver.manage().window().setSize(dimension);
             System.out.println(driver.manage().window().getSize());
             System.out.println(driver.manage().window().getPosition());
-/*            options.addArguments("-headless");
-            options.addArguments("--window-size=1920,1080");
-            options.addArguments("--width=1920");
-            options.addArguments("--height=1080");
-            options.*/
+            options.setHeadless(true);
+//            options.addArguments("--window-size=1920,1080");
+//            options.addArguments("--width=1920");
+//            options.addArguments("--height=1080");
+//            options.
         }
 
 
