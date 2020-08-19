@@ -13,19 +13,19 @@
         <!--        <listener class-name="retryTestFail.RetryListener"/>-->
     </listeners>
 
-    <test name="Run on chrome">
+<!--    <test name="Run on chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testcases.register.Register"/>
-<!--            <class name="testcases.login.Login"/>
+            <class name="testcases.login.Login"/>
             <class name="testcases.myAccount.MyAccount"/>
             <class name="testcases.search.Search"/>
             <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
             <class name="testcases.wishListCompareRecentView.WishListCompareRecentView"/>
             <class name="testcases.order.Order"/>
-            <class name="testcases.admin.Admin"/>-->
+            <class name="testcases.admin.Admin"/>
         </classes>
-    </test>
+    </test>-->
     <test name="Run on Firefox">
         <parameter name="browser" value="firefox"/>
         <classes>
