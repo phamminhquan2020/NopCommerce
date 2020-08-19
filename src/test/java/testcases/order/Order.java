@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order extends AbstractTest {
-    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     ProductDetailUserPageObject productDetailUserPage;
@@ -23,34 +22,33 @@ public class Order extends AbstractTest {
     OrdersMyAccountUserPageObject ordersMyAccountUserPage;
     OrderDetailPageObject orderDetailPage;
     DataHelper data;
-
+    String userEmail, userPassword;
     String productName1, processor1, ram1, hdd1, os1, productAttribute1;
     float basePrice, price1, processorAddPrice1, ramAddPrice1, hddAddPrice1, osAddPrice1, softwareAddPrice1;
     List<String> softwares1;
     int qty1;
-
     String productName2, processor2, ram2, hdd2, os2, productAttribute2;
     float price2, processorAddPrice2, ramAddPrice2, hddAddPrice2, osAddPrice2, softwareAddPrice2;
     List<String> softwares2;
     int qty2;
-
     String productName4;
     float basePrice4;
     int qty4;
-
     String productName5 = "Apple MacBook Pro 13-inch";
     String giftWrapping, country, state, shippingMethod, city, address1, zipcode, phoneNumber, paymentMethod05, orderID, paymentMethod06;
     float totalPrice;
     List<String> billingAddressInfo, paymentMethodInfo, shippingAddressInfo, shippingMethodInfo;
     List<String> billingAddressInfoConfirmOrder, paymentMethodInfoConfirmOrder, shippingAddressInfoConfirmOrder, shippingMethodInfoConfirmOrder;
     String creditCartType, cartHolderName, cartNumber, month, year, code;
-
     int qty7;
     float totalPrice7;
+    private WebDriver driver;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
+        userEmail = GlobalConstants.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
         //data = DataHelper.getData();
@@ -120,8 +118,8 @@ public class Order extends AbstractTest {
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
-        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.inputToEmailTextBox(userEmail);
+        loginUserPage.inputToPasswordTextBox(userPassword);
         loginUserPage.clickToLoginButton();
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
     }
@@ -280,7 +278,7 @@ public class Order extends AbstractTest {
 
         billingAddressInfoConfirmOrder = checkOutPage.getBillingAddressInfoConfirmOrder();
         log.info("billingAddressInfo" + billingAddressInfoConfirmOrder);
-        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
         verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
@@ -292,7 +290,7 @@ public class Order extends AbstractTest {
 
         shippingAddressInfoConfirmOrder = checkOutPage.getShippingAddressInfoConfirmOrder();
         log.info("shippingAddressInfo" + shippingAddressInfoConfirmOrder);
-        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
         verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
@@ -326,7 +324,7 @@ public class Order extends AbstractTest {
 
         billingAddressInfo = orderDetailPage.getBillingAddressInfo();
         log.info("billingAddressInfo" + billingAddressInfo);
-        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfo.contains(address1));
         verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
@@ -339,7 +337,7 @@ public class Order extends AbstractTest {
 
         shippingAddressInfo = orderDetailPage.getShippingAddressInfo();
         log.info("shippingAddressInfo" + shippingAddressInfo);
-        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfo.contains(address1));
         verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
@@ -405,7 +403,7 @@ public class Order extends AbstractTest {
 
         billingAddressInfoConfirmOrder = checkOutPage.getBillingAddressInfoConfirmOrder();
         log.info("billingAddressInfo" + billingAddressInfoConfirmOrder);
-        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
         verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
@@ -417,7 +415,7 @@ public class Order extends AbstractTest {
 
         shippingAddressInfoConfirmOrder = checkOutPage.getShippingAddressInfoConfirmOrder();
         log.info("shippingAddressInfo" + shippingAddressInfoConfirmOrder);
-        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
         verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
@@ -451,7 +449,7 @@ public class Order extends AbstractTest {
 
         billingAddressInfo = orderDetailPage.getBillingAddressInfo();
         log.info("billingAddressInfo" + billingAddressInfo);
-        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfo.contains(address1));
         verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
@@ -464,7 +462,7 @@ public class Order extends AbstractTest {
 
         shippingAddressInfo = orderDetailPage.getShippingAddressInfo();
         log.info("shippingAddressInfo" + shippingAddressInfo);
-        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfo.contains(address1));
         verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
@@ -530,7 +528,7 @@ public class Order extends AbstractTest {
 
         billingAddressInfoConfirmOrder = checkOutPage.getBillingAddressInfoConfirmOrder();
         log.info("billingAddressInfo" + billingAddressInfoConfirmOrder);
-        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
         verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
@@ -542,7 +540,7 @@ public class Order extends AbstractTest {
 
         shippingAddressInfoConfirmOrder = checkOutPage.getShippingAddressInfoConfirmOrder();
         log.info("shippingAddressInfo" + shippingAddressInfoConfirmOrder);
-        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfoConfirmOrder.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfoConfirmOrder.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfoConfirmOrder.contains(address1));
         verifyTrue(billingAddressInfoConfirmOrder.contains(city + "," + state + "," + zipcode));
@@ -576,7 +574,7 @@ public class Order extends AbstractTest {
 
         billingAddressInfo = orderDetailPage.getBillingAddressInfo();
         log.info("billingAddressInfo" + billingAddressInfo);
-        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfo.contains(address1));
         verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));
@@ -589,7 +587,7 @@ public class Order extends AbstractTest {
 
         shippingAddressInfo = orderDetailPage.getShippingAddressInfo();
         log.info("shippingAddressInfo" + shippingAddressInfo);
-        verifyTrue(billingAddressInfo.contains("Email: " + GlobalConstants.USER_EMAIL));
+        verifyTrue(billingAddressInfo.contains("Email: " + userEmail));
         verifyTrue(billingAddressInfo.contains("Phone: " + phoneNumber));
         verifyTrue(billingAddressInfo.contains(address1));
         verifyTrue(billingAddressInfo.contains(city + "," + state + "," + zipcode));

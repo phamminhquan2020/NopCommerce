@@ -84,54 +84,53 @@ public class AddressMyAccountUserPageObject extends AbstractPage {
         clickToElement(driver, AddressMyAccountUserPageUI.SAVE_BUTTON);
     }
 
-    public String getAddTitle() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.TITLE_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.TITLE_FIELD);
+    public boolean isAddressTitleDisplayed(String addTitle) {
+        return isElementDisplayed(driver, AddressMyAccountUserPageUI.DYNAMIC_TITLE_FIELD, addTitle);
     }
 
-    public String getAddFullName() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.FULL_NAME_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.FULL_NAME_FIELD);
+    public String getAddFullNameByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_FULL_NAME_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_FULL_NAME_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddEmail() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.EMAIL_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.EMAIL_FIELD);
+    public String getAddEmailByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_EMAIL_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_EMAIL_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddPhone() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.PHONE_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.PHONE_FIELD);
+    public String getAddPhoneByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_PHONE_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_PHONE_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddFax() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.FAX_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.FAX_FIELD);
+    public String getAddFaxByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_FAX_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_FAX_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddCompany() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.COMPANY_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.COMPANY_FIELD);
+    public String getAddCompanyByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_COMPANY_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_COMPANY_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddAddress1() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.ADDRESS1_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.ADDRESS1_FIELD);
+    public String getAddAddress1ByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_ADDRESS1_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_ADDRESS1_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddCityStateZip() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.CITY_STATE_ZIP_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.CITY_STATE_ZIP_FIELD);
+    public String getAddCityStateZipByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_CITY_STATE_ZIP_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_CITY_STATE_ZIP_FIELD_BY_TITLE, addTitle);
     }
 
-    public String getAddCountry() {
-        waitElementVisible(driver, AddressMyAccountUserPageUI.COUNTRY_FIELD);
-        return getElementText(driver, AddressMyAccountUserPageUI.COUNTRY_FIELD);
+    public String getAddCountryByTitle(String addTitle) {
+        waitElementVisible(driver, AddressMyAccountUserPageUI.DYNAMIC_COUNTRY_FIELD_BY_TITLE, addTitle);
+        return getElementText(driver, AddressMyAccountUserPageUI.DYNAMIC_COUNTRY_FIELD_BY_TITLE, addTitle);
     }
 
-    public void clickToDeleteButton() {
-        waitElementClickable(driver, AddressMyAccountUserPageUI.DELETE_BUTTON);
-        clickToElement(driver, AddressMyAccountUserPageUI.DELETE_BUTTON);
+    public void clickToDeleteButtonByTitle(String addTitle) {
+        waitElementClickable(driver, AddressMyAccountUserPageUI.DYNAMIC_DELETE_BUTTON_BY_TITLE, addTitle);
+        clickToElement(driver, AddressMyAccountUserPageUI.DYNAMIC_DELETE_BUTTON_BY_TITLE, addTitle);
     }
 
     public boolean isNoAddressMsgDisplayed() {

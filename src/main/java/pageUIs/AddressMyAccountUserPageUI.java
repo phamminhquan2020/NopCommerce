@@ -16,16 +16,16 @@ public class AddressMyAccountUserPageUI {
     public static final String FAX_TEXTBOX = "//input[@id='Address_FaxNumber']";
     public static final String SAVE_BUTTON = "//input[@value='Save']";
 
-    public static final String TITLE_FIELD = "//div[@class='address-list']//div[@class='title']/strong";
-    public static final String FULL_NAME_FIELD = "//li[@class='name']";
-    public static final String EMAIL_FIELD = "//li[@class='email']";
-    public static final String PHONE_FIELD = "//li[@class='phone']";
-    public static final String FAX_FIELD = "//li[@class='fax']";
-    public static final String COMPANY_FIELD = "//li[@class='company']";
-    public static final String ADDRESS1_FIELD = "//li[@class='address1']";
-    public static final String CITY_STATE_ZIP_FIELD = "//li[@class='city-state-zip']";
-    public static final String COUNTRY_FIELD = "//li[@class='country']";
-    public static final String DELETE_BUTTON = "//input[@value='Delete']";
+    public static final String DYNAMIC_TITLE_FIELD = "//div[@class='address-list']//div[@class='title']/strong[text()='%s']";
+    public static final String DYNAMIC_FULL_NAME_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='name']";
+    public static final String DYNAMIC_EMAIL_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='email']";
+    public static final String DYNAMIC_PHONE_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='phone']";
+    public static final String DYNAMIC_FAX_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='fax']";
+    public static final String DYNAMIC_COMPANY_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='company']";
+    public static final String DYNAMIC_ADDRESS1_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='address1']";
+    public static final String DYNAMIC_CITY_STATE_ZIP_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='city-state-zip']";
+    public static final String DYNAMIC_COUNTRY_FIELD_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::ul/li[@class='country']";
+    public static final String DYNAMIC_DELETE_BUTTON_BY_TITLE = "//strong[text()='%s']/parent::div/following-sibling::div/input[@value='Delete']";
     public static final String NO_ADDRESS_FIELD = "//div[text()='No addresses']";
 
 }

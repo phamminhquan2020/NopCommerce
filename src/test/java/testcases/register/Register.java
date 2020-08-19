@@ -14,7 +14,7 @@ public class Register extends AbstractTest {
     HomeUserPageObject homeUserPage;
     RegisterUserPageObject registerUserPage;
     DataHelper data;
-    String firstname, lastname, day, month, year, email, companyName, password;
+    String firstname06, lastname06, day06, month06, year06, email03, companyName03, password03, userEmail, userPassword;
 
     @Parameters("browser")
     @BeforeClass
@@ -23,14 +23,16 @@ public class Register extends AbstractTest {
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
 
         data = DataHelper.getData();
-        firstname = GlobalConstants.FIRST_NAME;
-        lastname = GlobalConstants.LAST_NAME;
-        day = "15";
-        month = "June";
-        year = "2000";
-        email = "automationfc.vn@gmail.com";
-        companyName = data.getCompanyName();
-        password = data.getPassword();
+        firstname06 = GlobalConstants.FIRST_NAME;
+        lastname06 = GlobalConstants.LAST_NAME;
+        day06 = "15";
+        month06 = "June";
+        year06 = "2000";
+        userEmail = GlobalConstants.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
+        email03 = "automationfc.vn@gmail.com";
+        companyName03 = data.getCompanyName();
+        password03 = data.getPassword();
     }
 
     @BeforeMethod
@@ -69,15 +71,15 @@ public class Register extends AbstractTest {
 
     public void register_03_existing_email() {
         registerUserPage.clickMaleGender();
-        registerUserPage.inputFirstName(firstname);
-        registerUserPage.inputLastName(lastname);
-        registerUserPage.selectDay(day);
-        registerUserPage.selectMonth(month);
-        registerUserPage.selectYear(year);
-        registerUserPage.inputEmail(email);
-        registerUserPage.inputCompanyName(companyName);
-        registerUserPage.inputPassword(password);
-        registerUserPage.inputConfirmPassword(password);
+        registerUserPage.inputFirstName(firstname06);
+        registerUserPage.inputLastName(lastname06);
+        registerUserPage.selectDay(day06);
+        registerUserPage.selectMonth(month06);
+        registerUserPage.selectYear(year06);
+        registerUserPage.inputEmail(email03);
+        registerUserPage.inputCompanyName(companyName03);
+        registerUserPage.inputPassword(password03);
+        registerUserPage.inputConfirmPassword(password03);
         registerUserPage.clickRegisterButton();
         verifyTrue(registerUserPage.isEmailAlreadyExistMsgDisplayed());
     }
@@ -91,8 +93,8 @@ public class Register extends AbstractTest {
 
 
     public void register_05_Confirm_Password_Not_Match() {
-        registerUserPage.inputPassword(password);
-        registerUserPage.inputConfirmPassword(password + "123");
+        registerUserPage.inputPassword(password03);
+        registerUserPage.inputConfirmPassword(password03 + "123");
         registerUserPage.clickRegisterButton();
         verifyEquals(registerUserPage.getConfirmPasswordErrorMsg(), "The password and confirmation password do not match.");
     }
@@ -100,15 +102,15 @@ public class Register extends AbstractTest {
     @Test
     public void register_06_register_success() {
         registerUserPage.clickMaleGender();
-        registerUserPage.inputFirstName(firstname);
-        registerUserPage.inputLastName(lastname);
-        registerUserPage.selectDay(day);
-        registerUserPage.selectMonth(month);
-        registerUserPage.selectYear(year);
-        registerUserPage.inputEmail(GlobalConstants.USER_EMAIL);
-        registerUserPage.inputCompanyName(companyName);
-        registerUserPage.inputPassword(GlobalConstants.USER_PASSWORD);
-        registerUserPage.inputConfirmPassword(GlobalConstants.USER_PASSWORD);
+        registerUserPage.inputFirstName(firstname06);
+        registerUserPage.inputLastName(lastname06);
+        registerUserPage.selectDay(day06);
+        registerUserPage.selectMonth(month06);
+        registerUserPage.selectYear(year06);
+        registerUserPage.inputEmail(userEmail);
+        registerUserPage.inputCompanyName(companyName03);
+        registerUserPage.inputPassword(userPassword);
+        registerUserPage.inputConfirmPassword(userPassword);
         registerUserPage.clickRegisterButton();
 /*        verifyEquals(registerUserPage.getSuccessMsg(), "Your registration completed");
         registerUserPage.clickContinueButton();

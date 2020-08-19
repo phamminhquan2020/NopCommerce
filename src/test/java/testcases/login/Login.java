@@ -14,7 +14,7 @@ public class Login extends AbstractTest {
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     DataHelper data;
-    String newEmail, password;
+    String newEmail, password, userEmail, userPassword;
 
     @Parameters("browser")
     @BeforeClass
@@ -24,6 +24,8 @@ public class Login extends AbstractTest {
         data = DataHelper.getData();
         newEmail = data.getEmail();
         password = data.getPassword();
+        userEmail = GlobalConstants.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
 
 }
     @BeforeMethod
@@ -56,21 +58,21 @@ public class Login extends AbstractTest {
     }
     @Test
     public void login_04_empty_password() {
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
+        loginUserPage.inputToEmailTextBox(userEmail);
         loginUserPage.clickToLoginButton();
         verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
     }
     @Test
     public void login_05_wrong_password() {
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
+        loginUserPage.inputToEmailTextBox(userEmail);
         loginUserPage.inputToPasswordTextBox(password);
         loginUserPage.clickToLoginButton();
         verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
     }
     @Test
     public void login_06_login_success() {
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
-        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.inputToEmailTextBox(userEmail);
+        loginUserPage.inputToPasswordTextBox(userPassword);
         loginUserPage.clickToLoginButton();
         verifyEquals(loginUserPage.getPageUrl(driver), GlobalConstants.USER_URL);
     }

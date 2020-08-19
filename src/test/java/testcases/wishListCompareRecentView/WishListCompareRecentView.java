@@ -16,10 +16,13 @@ public class WishListCompareRecentView extends AbstractTest {
     CartUserPageObject cartUserPage;
     CompareProductsPageObject compareProductsPage;
     SearchUserPageObject searchUserPage;
+    String userEmail, userPassword;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
+        userEmail = GlobalConstants.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
         driver = getBrowserDriverFromFactory(browser);
     }
 
@@ -32,9 +35,9 @@ public class WishListCompareRecentView extends AbstractTest {
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
         log.info("input email");
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
+        loginUserPage.inputToEmailTextBox(userEmail);
         log.info("input password");
-        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.inputToPasswordTextBox(userPassword);
         log.info("click login button");
         loginUserPage.clickToLoginButton();
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);

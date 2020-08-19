@@ -10,20 +10,19 @@ import pageObjects.LoginUserPageObject;
 import pageObjects.SearchUserPageObject;
 
 public class Search extends AbstractTest {
-    private WebDriver driver;
     HomeUserPageObject homeUserPage;
     LoginUserPageObject loginUserPage;
     SearchUserPageObject searchUserPage;
-    String emptyDataMsg, keywordTC02, noResultMsg, keywordTC03, sizeOfSearchResultTC03, searchResultTitle01TC03, searchResultTitle02TC03,
-            keywordTC04, sizeOfSearchResultTC04, searchResultTitleTC04, keywordTC05, categoryTC05, keywordTC06, categoryTC06,
-            sizeOfSearchResultTC06, searchResultTitleTC06, keywordTC07, categoryTC07, manufacturerTC07, keywordTC08, categoryTC08, manufacturerTC08, sizeOfSearchResultTC08,
-            searchResultTitleTC08, keywordTC09, categoryTC09, manufacturerTC09, priceFromTC09, priceToTC09, sizeOfSearchResultTC09, searchResultTitleTC09,
-            keywordTC10, categoryTC10, manufacturerTC10, priceFromTC10, priceToTC10, keywordTC11, categoryTC11, manufacturerTC11, priceFromTC11, priceToTC11;
-
+    String userEmail, userPassword;
+    String emptyDataMsg, keywordTC02, noResultMsg, keywordTC03, sizeOfSearchResultTC03, searchResultTitle01TC03, searchResultTitle02TC03, keywordTC04, sizeOfSearchResultTC04, searchResultTitleTC04, keywordTC05, categoryTC05, keywordTC06, categoryTC06, sizeOfSearchResultTC06, searchResultTitleTC06, keywordTC07, categoryTC07, manufacturerTC07, keywordTC08, categoryTC08, manufacturerTC08, sizeOfSearchResultTC08, searchResultTitleTC08, keywordTC09, categoryTC09, manufacturerTC09, priceFromTC09, priceToTC09, sizeOfSearchResultTC09, searchResultTitleTC09, keywordTC10, categoryTC10, manufacturerTC10, priceFromTC10, priceToTC10, keywordTC11, categoryTC11, manufacturerTC11, priceFromTC11, priceToTC11;
+    private WebDriver driver;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
+
+        userEmail = GlobalConstants.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
         emptyDataMsg = "Search term minimum length is 3 characters";
 
         keywordTC02 = "Macbook Pro 2050";
@@ -87,8 +86,8 @@ public class Search extends AbstractTest {
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
-        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.inputToEmailTextBox(userEmail);
+        loginUserPage.inputToPasswordTextBox(userPassword);
         loginUserPage.clickToLoginButton();
         loginUserPage.clickToSearchLink(driver);
     }
@@ -104,6 +103,7 @@ public class Search extends AbstractTest {
         searchUserPage.clickToSearchButton();
         verifyEquals(searchUserPage.getWarningMsg(), emptyDataMsg);
     }
+
     @Test
     public void search_02_not_exist_data() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -111,6 +111,7 @@ public class Search extends AbstractTest {
         searchUserPage.clickToSearchButton();
         verifyEquals(searchUserPage.getNoResultMsg(), noResultMsg);
     }
+
     @Test
     public void search_03_search_with_relative_product_name() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -119,6 +120,7 @@ public class Search extends AbstractTest {
         verifyEquals(searchUserPage.getSizeOfSearchResult(), sizeOfSearchResultTC03);
         verifyTrue(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitle01TC03) && searchUserPage.getTitlesOfSearchResult().contains(searchResultTitle02TC03));
     }
+
     @Test
     public void search_04_search_with_absolute_product_name() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -127,6 +129,7 @@ public class Search extends AbstractTest {
         verifyEquals(searchUserPage.getSizeOfSearchResult(), sizeOfSearchResultTC04);
         verifyTrue(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitleTC04));
     }
+
     @Test
     public void search_05_advance_search_with_parent_category() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -136,6 +139,7 @@ public class Search extends AbstractTest {
         searchUserPage.clickToSearchButton();
         verifyEquals(searchUserPage.getNoResultMsg(), noResultMsg);
     }
+
     @Test
     public void search_06_advance_search_with_sub_category() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -147,6 +151,7 @@ public class Search extends AbstractTest {
         verifyEquals(searchUserPage.getSizeOfSearchResult(), sizeOfSearchResultTC06);
         verifyTrue(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitleTC06));
     }
+
     @Test
     public void search_07_advance_search_with_incorrect_manufacturer() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -158,6 +163,7 @@ public class Search extends AbstractTest {
         searchUserPage.clickToSearchButton();
         verifyEquals(searchUserPage.getNoResultMsg(), noResultMsg);
     }
+
     @Test
     public void search_08_advance_search_with_correct_manufacturer() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -170,6 +176,7 @@ public class Search extends AbstractTest {
         verifyEquals(searchUserPage.getSizeOfSearchResult(), sizeOfSearchResultTC08);
         verifyTrue(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitleTC08));
     }
+
     @Test
     public void search_09_advance_search_with_in_range_price() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -184,6 +191,7 @@ public class Search extends AbstractTest {
         verifyEquals(searchUserPage.getSizeOfSearchResult(), sizeOfSearchResultTC09);
         verifyTrue(searchUserPage.getTitlesOfSearchResult().contains(searchResultTitleTC09));
     }
+
     @Test
     public void search_10_advance_search_with_lower_range_price() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);
@@ -197,6 +205,7 @@ public class Search extends AbstractTest {
         searchUserPage.clickToSearchButton();
         verifyEquals(searchUserPage.getNoResultMsg(), noResultMsg);
     }
+
     @Test
     public void search_11_advance_search_with_higher_range_price() {
         searchUserPage = PageGeneratorManager.getSearchUserPage(driver);

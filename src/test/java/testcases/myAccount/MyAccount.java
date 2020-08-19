@@ -19,13 +19,15 @@ public class MyAccount extends AbstractTest {
     ProductReviewUserPageObject productReviewUserPage;
     MyProductReviewMyAccountUserPageObject myProductReviewMyAccountUserPage;
     DataHelper data;
+    String userEmail, userPassword;
     String firstname, lastname, day, month, year, company;
-    String add_firstname, add_lastname, add_email, add_company, add_country, add_state, add_city, add_address1, add_address2, add_zipcode, add_phone, add_fax;
+    String add_firstname, add_lastname, add_email, add_company, add_country, add_state, add_city, add_address1, add_address2, add_zipcode, add_phone, add_fax, addTitle;
     String productTitle, reviewTitle, reviewText, ratingValue;
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-
+        userEmail = GlobalConstants.getUserEmail(browser);
+        userPassword = GlobalConstants.USER_PASSWORD;
         data = DataHelper.getData();
         firstname = "Automation";
         lastname = "FC";
@@ -45,6 +47,7 @@ public class MyAccount extends AbstractTest {
         add_zipcode = data.getZipcode();
         add_phone = data.getPhoneNumber();
         add_fax = data.getFaxNumber();
+        addTitle = add_firstname + " " + add_lastname;
 
         productTitle = "Apple MacBook Pro 13-inch";
         reviewTitle = "This is best Macbook" + randomNumber();
@@ -63,8 +66,8 @@ public class MyAccount extends AbstractTest {
         homeUserPage.navigatePageUrl(driver, GlobalConstants.USER_URL);
         homeUserPage.clickToLoginLink(driver);
         loginUserPage = PageGeneratorManager.getLoginUserPage(driver);
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
-        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.inputToEmailTextBox(userEmail);
+        loginUserPage.inputToPasswordTextBox(userPassword);
         loginUserPage.clickToLoginButton();
     }
 
@@ -114,16 +117,16 @@ public class MyAccount extends AbstractTest {
         addressMyAccountUserPage.inputAddPhone(add_phone);
         addressMyAccountUserPage.inputAddFax(add_fax);
         addressMyAccountUserPage.clickSaveButton();
-        verifyEquals(addressMyAccountUserPage.getAddTitle(), add_firstname + " " + add_lastname);
-        verifyEquals(addressMyAccountUserPage.getAddFullName(), add_firstname + " " + add_lastname);
-        verifyEquals(addressMyAccountUserPage.getAddEmail(), "Email: " + add_email);
-        verifyEquals(addressMyAccountUserPage.getAddPhone(), "Phone number: " + add_phone);
-        verifyEquals(addressMyAccountUserPage.getAddFax(), "Fax number: " + add_fax);
-        verifyEquals(addressMyAccountUserPage.getAddCompany(), add_company);
-        verifyEquals(addressMyAccountUserPage.getAddAddress1(), add_address1);
-        verifyEquals(addressMyAccountUserPage.getAddCityStateZip(), add_city + ", " + add_state + ", " + add_zipcode);
-        verifyEquals(addressMyAccountUserPage.getAddCountry(), add_country);
-        addressMyAccountUserPage.clickToDeleteButton();
+        verifyTrue(addressMyAccountUserPage.isAddressTitleDisplayed(addTitle));
+        verifyEquals(addressMyAccountUserPage.getAddFullNameByTitle(addTitle), add_firstname + " " + add_lastname);
+        verifyEquals(addressMyAccountUserPage.getAddEmailByTitle(addTitle), "Email: " + add_email);
+        verifyEquals(addressMyAccountUserPage.getAddPhoneByTitle(addTitle), "Phone number: " + add_phone);
+        verifyEquals(addressMyAccountUserPage.getAddFaxByTitle(addTitle), "Fax number: " + add_fax);
+        verifyEquals(addressMyAccountUserPage.getAddCompanyByTitle(addTitle), add_company);
+        verifyEquals(addressMyAccountUserPage.getAddAddress1ByTitle(addTitle), add_address1);
+        verifyEquals(addressMyAccountUserPage.getAddCityStateZipByTitle(addTitle), add_city + ", " + add_state + ", " + add_zipcode);
+        verifyEquals(addressMyAccountUserPage.getAddCountryByTitle(addTitle), add_country);
+        addressMyAccountUserPage.clickToDeleteButtonByTitle(addTitle);
         addressMyAccountUserPage.acceptAlert(driver);
         verifyTrue(addressMyAccountUserPage.isNoAddressMsgDisplayed());
 
@@ -136,15 +139,15 @@ public class MyAccount extends AbstractTest {
         customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "Change password");
         changePasswordMyAccountUserPage = PageGeneratorManager.getChangePasswordMyAccountUserPage(driver);
-        changePasswordMyAccountUserPage.inputOldPassword(GlobalConstants.USER_PASSWORD);
+        changePasswordMyAccountUserPage.inputOldPassword(userPassword);
         changePasswordMyAccountUserPage.inputNewPassword(GlobalConstants.CHANGED_USER_PASSWORD);
         changePasswordMyAccountUserPage.inputConfirmNewPassword(GlobalConstants.CHANGED_USER_PASSWORD);
         changePasswordMyAccountUserPage.clickChangePasswordButton();
         verifyEquals(changePasswordMyAccountUserPage.getResultMsg(), "Password was changed");
         changePasswordMyAccountUserPage.clickToLogoutLink(driver);
         changePasswordMyAccountUserPage.clickToLoginLink(driver);
-        loginUserPage.inputToEmailTextBox(GlobalConstants.USER_EMAIL);
-        loginUserPage.inputToPasswordTextBox(GlobalConstants.USER_PASSWORD);
+        loginUserPage.inputToEmailTextBox(userEmail);
+        loginUserPage.inputToPasswordTextBox(userPassword);
         loginUserPage.clickToLoginButton();
         verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
         loginUserPage.inputToPasswordTextBox(GlobalConstants.CHANGED_USER_PASSWORD);
