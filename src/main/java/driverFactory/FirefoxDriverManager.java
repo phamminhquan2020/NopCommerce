@@ -33,6 +33,7 @@ Dimension dimension;
         driver = new FirefoxDriver(options);
         dimension = new Dimension(1920, 1080);
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
+            System.out.println("set size here");
             driver.manage().window().setSize(dimension);
 /*            options.addArguments("-headless");
             options.addArguments("--window-size=1920,1080");
