@@ -62,6 +62,7 @@ public class ProductDetailUserPageObject extends AbstractPage {
     }
 
     public void inputQuantity(String qty) {
+        scrollToElement(driver, ProductDetailUserPageUI.QTY_TEXTBOX);
         waitElementVisible(driver, ProductDetailUserPageUI.QTY_TEXTBOX);
         sendkeyToElement(driver, ProductDetailUserPageUI.QTY_TEXTBOX, qty);
     }
