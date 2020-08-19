@@ -24,7 +24,6 @@ Dimension dimension;
         profile.setPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
         FirefoxOptions options = new FirefoxOptions();
         options.setProfile(profile);
-       options.
         options.addPreference("font.language.group", "x-unicode");
         options.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
         //bug hover of firefox (can not hover twice), add below line to workaround
