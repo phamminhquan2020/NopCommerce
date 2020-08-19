@@ -29,7 +29,9 @@ public class FirefoxDriverManager extends BrowserDriverManager {
         options.setCapability("moz:useNonSpecCompliantPointerOrigin", true);
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             options.addArguments("-headless");
-            options.addArguments("-window-size=1920,1080");
+            //options.addArguments("-window-size=1920,1080");
+            options.addArguments("--width=1920");
+            options.addArguments("--height=1080");
         }
         System.out.println("Run by: " + System.getProperty("user.name"));
         driver = new FirefoxDriver(options);
