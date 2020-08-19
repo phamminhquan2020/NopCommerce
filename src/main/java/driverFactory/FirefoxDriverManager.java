@@ -31,20 +31,21 @@ Dimension dimension;
         options.setCapability("moz:useNonSpecCompliantPointerOrigin", true);
 
         System.out.println("Run by: " + System.getProperty("user.name"));
-        driver = new FirefoxDriver(options);
         dimension = new Dimension(1920, 1080);
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             System.out.println("set size here");
-            driver.manage().window().setSize(dimension);
+            options.setHeadless(true);
+
             System.out.println(driver.manage().window().getSize());
             System.out.println(driver.manage().window().getPosition());
-            options.setHeadless(true);
+
 //            options.addArguments("--window-size=1920,1080");
 //            options.addArguments("--width=1920");
 //            options.addArguments("--height=1080");
 //            options.
         }
-
+        driver = new FirefoxDriver(options);
+        driver.manage().window().setSize(dimension);
 
     }
 
