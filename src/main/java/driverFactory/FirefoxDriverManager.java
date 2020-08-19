@@ -35,6 +35,8 @@ Dimension dimension;
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             System.out.println("set size here");
             driver.manage().window().setSize(dimension);
+            System.out.println(driver.manage().window().getSize());
+            System.out.println(driver.manage().window().getPosition());
 /*            options.addArguments("-headless");
             options.addArguments("--window-size=1920,1080");
             options.addArguments("--width=1920");
