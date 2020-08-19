@@ -7,9 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageObjects.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Admin extends AbstractTest {
     LoginAdminPageObject loginAdminPageObject;
     DashboardAdminPageObject dashboardAdminPage;
@@ -72,7 +69,7 @@ public class Admin extends AbstractTest {
         driver.manage().deleteAllCookies();
     }
 
-
+    @Test
     public void admin_01_search_with_product_name() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -90,7 +87,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-
+    @Test
     public void admin_02_search_with_product_name_parent_category_unchecked() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -105,7 +102,7 @@ public class Admin extends AbstractTest {
         verifyTrue(productAdminPage.isEmptyRowMessageDisplayed());
     }
 
-
+    @Test
     public void admin_03_search_with_product_name_parent_category_checked() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -125,7 +122,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-
+    @Test
     public void admin_04_search_with_product_name_child_category() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -144,7 +141,7 @@ public class Admin extends AbstractTest {
         verifyEquals(productAdminPage.getProductTypeByProductName(productName01), type01);
     }
 
-
+    @Test
     public void admin_05_search_with_product_name_manufacturer() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -160,7 +157,7 @@ public class Admin extends AbstractTest {
         verifyTrue(productAdminPage.isEmptyRowMessageDisplayed());
     }
 
-
+    @Test
     public void admin_06_go_directly_product_sku() {
         dashboardAdminPage = PageGeneratorManager.getDashboardAdminPage(driver);
         dashboardAdminPage.clickToDynamicAdminMenu(driver, "Catalog");
@@ -224,8 +221,12 @@ public class Admin extends AbstractTest {
         customerListAdminPage = PageGeneratorManager.getCustomerListAdminPage(driver);
         customerListAdminPage.deleteItemInCustomDropdown(driver, "Registered");
         customerListAdminPage.selectCustomerRolesMultiSelectDropdown(roleNames);
+        customerListAdminPage.inputToEmailTextbox(email);
         customerListAdminPage.clickToSearchButton();
         customerListAdminPage.waitForAjaxLoadingIconAdminDisappeared(driver);
+        verifyEquals(customerListAdminPage.getNumberOfRowInList(), 1);
+        verifyFalse(customerListAdminPage.isEmptyDataTableMessageDisplayed());
+
     }
 
 
