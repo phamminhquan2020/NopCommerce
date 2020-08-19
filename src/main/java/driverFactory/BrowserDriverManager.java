@@ -14,7 +14,7 @@ public abstract class BrowserDriverManager {
         if (driver == null) {
             createDriver();
         }
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
         return driver;
     }
