@@ -58,6 +58,7 @@
             <scope>test</scope>
         </dependency>
 
+  <!--      parse data from json file-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -76,6 +77,7 @@
             <version>4.0.9</version>
         </dependency>
 
+       <!-- Joda-Time provides a quality replacement for the Java date and time classes.-->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -94,12 +96,14 @@
             <version>1.7.24</version>
         </dependency>
 
+        <!--apache velocity used to create template-->
         <dependency>
             <groupId>velocity</groupId>
             <artifactId>velocity-dep</artifactId>
             <version>1.4</version>
         </dependency>
 
+        <!--surefire plugin use google guice to generate report at /target/surefire-report/html/index.html -->
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
