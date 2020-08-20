@@ -9,7 +9,6 @@ public class ProductDetailUserPageUI {
     public static final String RAM_DROPDOWN = "//select[@id='product_attribute_2']";
     public static final String DYNAMIC_INPUT_OPTION = "//label[contains(text(),'%s')]";
     public static final String QTY_TEXTBOX = "//input[contains(@class,'qty-input')]";
-
     public static final String DYNAMIC_SOFTWARE_OPTION = "//label[contains(text(),'%s')]/preceding-sibling::input";
     public static final String UPDATE_BUTTON = "//input[@value='Update']";
 }

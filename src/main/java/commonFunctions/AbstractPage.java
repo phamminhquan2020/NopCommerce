@@ -141,7 +141,8 @@ public abstract class AbstractPage {
     public List<WebElement> finds(WebDriver driver, String xpathValue) {
         return driver.findElements(byXpath(xpathValue));
     }
-    public List<WebElement> finds(WebDriver driver, String xpathValue, String...values) {
+
+    public List<WebElement> finds(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         return driver.findElements(byXpath(xpathValue));
     }
@@ -174,8 +175,6 @@ public abstract class AbstractPage {
         element = find(driver, xpathValue);
         action = new Actions(driver);
         action.sendKeys(element, Keys.CONTROL, "a", text);
-//		element.clear();
-//		element.sendKeys(text);
     }
 
     public void sendkeyToElement(WebDriver driver, String xpathValue, String text) {
@@ -183,10 +182,6 @@ public abstract class AbstractPage {
         element.clear();
         element.sendKeys(text);
     }
-
-//	public void clearTextOfElement(WebDriver driver, String xpathValue) {
-//		action.sendKeys(find(driver, xpathValue), Keys.CONTROL, "a", Keys.DELETE);
-//	}
 
     public void sendkeyToElement(WebDriver driver, String xpathValue, String text, String... value) {
         xpathValue = castToRestParam(xpathValue, value);
@@ -221,26 +216,18 @@ public abstract class AbstractPage {
     public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childItemLocator, String expectedItem) {
         find(driver, parentLocator).click();
         sleepInSecond(1);
-
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
         explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(byXpath(childItemLocator)));
-
         elements = finds(driver, childItemLocator);
-
         for (WebElement item : elements) {
             if (item.getText().equals(expectedItem)) {
                 try {
                     item.click();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     jsExecutor = (JavascriptExecutor) driver;
                     jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
                     item.click();
                 }
-
-                sleepInSecond(1);
-
-
                 sleepInSecond(1);
                 break;
             }
@@ -259,7 +246,7 @@ public abstract class AbstractPage {
         return find(driver, xpathValue).getAttribute(attributeName);
     }
 
-    public String getElementAttributeValue(WebDriver driver, String xpathValue, String attributeName, String...values) {
+    public String getElementAttributeValue(WebDriver driver, String xpathValue, String attributeName, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         return find(driver, xpathValue).getAttribute(attributeName);
     }
@@ -276,11 +263,12 @@ public abstract class AbstractPage {
     public List<String> getElementsText(WebDriver driver, String xpathValue) {
         List<WebElement> elements = finds(driver, xpathValue);
         List<String> texts = new ArrayList<>();
-        for (WebElement element:elements) {
+        for (WebElement element : elements) {
             texts.add(element.getText());
         }
         return texts;
     }
+
     public String getElementText(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         return find(driver, xpathValue).getText();
@@ -337,7 +325,7 @@ public abstract class AbstractPage {
     public boolean isElementUnDisplayed(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIME_OUT);
-        List<WebElement> elements = finds(driver, xpathValue);
+        elements = finds(driver, xpathValue);
         if (elements.size() == 0) {
             System.out.println("Elements not in DOM");
             overrideGlobalTimeout(driver, GlobalConstants.LONG_TIME_OUT);
@@ -366,7 +354,8 @@ public abstract class AbstractPage {
     public boolean isElementSelected(WebDriver driver, String xpathValue) {
         return find(driver, xpathValue).isSelected();
     }
-    public boolean isElementSelected(WebDriver driver, String xpathValue, String...values) {
+
+    public boolean isElementSelected(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         return find(driver, xpathValue).isSelected();
     }
@@ -452,7 +441,8 @@ public abstract class AbstractPage {
         jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", find(driver, xpathValue));
     }
-    public void scrollToElement(WebDriver driver, String xpathValue, String...values) {
+
+    public void scrollToElement(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToRestParam(xpathValue, values);
         jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", find(driver, xpathValue));
@@ -483,6 +473,7 @@ public abstract class AbstractPage {
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(byXpath(xpathValue)));
     }
+
     public void waitAllElementsVisible(WebDriver driver, String xpathValue) {
         explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME_OUT);
         explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byXpath(xpathValue)));
@@ -642,16 +633,20 @@ public abstract class AbstractPage {
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_MY_ACCOUNT_MENU, menu);
     }
 
-    public  void clickToLogoutLink(WebDriver driver) {
+    public void clickToLogoutLink(WebDriver driver) {
         waitElementClickable(driver, UserAbstractPageUI.LOGOUT_LINK);
         clickToElement(driver, UserAbstractPageUI.LOGOUT_LINK);
 
-    };
+    }
+
+    ;
 
     public void clickToDynamicProductImageByTitle(WebDriver driver, String productTitle) {
         waitElementClickable(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_IMAGE_BY_TITLE, productTitle);
         clickToElement(driver, UserAbstractPageUI.DYNAMIC_PRODUCT_IMAGE_BY_TITLE, productTitle);
-    };
+    }
+
+    ;
 
     public void hoverToDynamicMenu(WebDriver driver, String menu) {
         waitElementVisible(driver, UserAbstractPageUI.DYNAMIC_MENU_BY_NAME, menu);
@@ -668,19 +663,19 @@ public abstract class AbstractPage {
     }
 
     public String getNotificationMsg(WebDriver driver) {
-       waitElementVisible(driver, UserAbstractPageUI.NOTIFICATION_MSG);
-       return getElementText(driver, UserAbstractPageUI.NOTIFICATION_MSG);
+        waitElementVisible(driver, UserAbstractPageUI.NOTIFICATION_MSG);
+        return getElementText(driver, UserAbstractPageUI.NOTIFICATION_MSG);
     }
 
     public void clickToWishListLink(WebDriver driver) {
         waitElementClickable(driver, UserAbstractPageUI.WISH_LIST_LINK);
         clickToElement(driver, UserAbstractPageUI.WISH_LIST_LINK);
-   //     clickToElementByJS(driver, UserAbstractPageUI.WISH_LIST_LINK);
+        //     clickToElementByJS(driver, UserAbstractPageUI.WISH_LIST_LINK);
     }
 
     public String getDataByColumnNameAndRow(WebDriver driver, String columnName, String rowNumber) {
         int index = finds(driver, "//th[text()='" + columnName + "']/preceding-sibling::*").size() + 1;
-        return  getElementText(driver, UserAbstractPageUI.DYNAMIC_DATA_CELL, rowNumber, Integer.toString(index));
+        return getElementText(driver, UserAbstractPageUI.DYNAMIC_DATA_CELL, rowNumber, Integer.toString(index));
 
     }
 
@@ -717,7 +712,7 @@ public abstract class AbstractPage {
 
     public Float getProductPriceInCart(WebDriver driver, String productName) {
         waitElementVisible(driver, UserAbstractPageUI.PRODUCT_PRICE_BY_NAME, productName);
-        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.PRODUCT_PRICE_BY_NAME, productName).replace("$", "").replace(",",""));
+        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.PRODUCT_PRICE_BY_NAME, productName).replace("$", "").replace(",", ""));
     }
 
     public String getProductAttributeInCart(WebDriver driver, String productName) {
@@ -732,7 +727,7 @@ public abstract class AbstractPage {
 
     public Float getSubTotalInCart(WebDriver driver) {
         waitElementVisible(driver, UserAbstractPageUI.SUB_TOTAL);
-        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.SUB_TOTAL).replace("$", "").replace(",",""));
+        return Float.parseFloat(getElementText(driver, UserAbstractPageUI.SUB_TOTAL).replace("$", "").replace(",", ""));
 
     }
 

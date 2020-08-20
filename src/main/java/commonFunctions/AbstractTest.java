@@ -36,7 +36,6 @@ public abstract class AbstractTest {
     private WebDriver driver;
     ChromeOptions option;
 
-
     public WebDriver getBrowserDriverFromFactory(String browser){
         driverManager = DriverFactoryManager.getDriverManager(browser);
         return driver = driverManager.getDriver();
@@ -212,6 +211,7 @@ public abstract class AbstractTest {
     public WebDriver getDriver(){
         return driver;
     }
+
     public static void sleepInSecond(long timeout) {
         try {
             Thread.sleep(timeout * 1000);

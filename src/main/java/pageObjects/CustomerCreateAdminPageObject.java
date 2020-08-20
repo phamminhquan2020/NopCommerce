@@ -4,14 +4,13 @@ import commonFunctions.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import pageUIs.CustomerCreateAdminPageUI;
 
-import java.util.List;
-
 public class CustomerCreateAdminPageObject extends AbstractPage {
     private WebDriver driver;
 
     public CustomerCreateAdminPageObject(WebDriver driver) {
         this.driver = driver;
     }
+
     public WebDriver getDriver() {
         return this.driver;
     }
