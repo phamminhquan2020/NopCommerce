@@ -701,6 +701,7 @@ public abstract class AbstractPage {
     }
 
     public void hoverToCartLink(WebDriver driver) {
+        scrollToElement(driver, UserAbstractPageUI.CART_LINK);
         waitElementVisible(driver, UserAbstractPageUI.CART_LINK);
         hoverToElement(driver, UserAbstractPageUI.CART_LINK);
     }
