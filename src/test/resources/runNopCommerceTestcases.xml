@@ -29,8 +29,8 @@
     <test name="Run on Firefox">
         <parameter name="browser" value="firefox"/>
         <classes>
-<!--            <class name="testcases.register.Register"/>
-            <class name="testcases.login.Login"/>
+            <class name="testcases.register.Register"/>
+<!--            <class name="testcases.login.Login"/>
             <class name="testcases.myAccount.MyAccount"/>
             <class name="testcases.search.Search"/>
             <class name="testcases.sortDisplayPaging.SortDisplayPaging"/>
