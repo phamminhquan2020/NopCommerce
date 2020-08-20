@@ -1,6 +1,7 @@
 package driverFactory;
 
 import commonFunctions.GlobalConstants;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +17,7 @@ public abstract class BrowserDriverManager {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
+        driver.manage().window().setPosition(new Point(4,4));
         return driver;
     }
     public WebDriver getDriverForWriteLog() {
