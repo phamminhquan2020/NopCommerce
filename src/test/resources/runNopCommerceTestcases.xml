@@ -10,7 +10,7 @@
         <listener class-name="reportConfig.ReportNGListener"/>
 
         <!--Retry Test Fail listener-->
-        <!--        <listener class-name="retryTestFail.RetryListener"/>-->
+        <listener class-name="retryTestFail.RetryListener"/>
     </listeners>
 
     <test name="Run on chrome">
