@@ -39,7 +39,7 @@ public abstract class AbstractTest {
     private WebDriver driver;
     ChromeOptions option;
 
-    public WebDriver getBrowserDriverFromFactory(String browser){
+    protected WebDriver getBrowserDriverFromFactory(String browser) {
         driverManager = DriverFactoryManager.getDriverManager(browser);
         return driver = driverManager.getDriver();
     }
@@ -65,7 +65,7 @@ public abstract class AbstractTest {
         return driver;
     }
 
-    public int randomNumber() {
+    protected int randomNumber() {
         Random rand = new Random();
         return rand.nextInt(99999);
     }
@@ -90,7 +90,7 @@ public abstract class AbstractTest {
         return pass;
     }
 
-    public boolean verifyTrue(boolean condition) {
+    protected boolean verifyTrue(boolean condition) {
         return checkTrue(condition);
     }
 
@@ -106,7 +106,7 @@ public abstract class AbstractTest {
         return pass;
     }
 
-    public boolean verifyFalse(boolean condition) {
+    protected boolean verifyFalse(boolean condition) {
         return checkFailed(condition);
     }
 
@@ -122,7 +122,7 @@ public abstract class AbstractTest {
         return pass;
     }
 
-    public boolean verifyEquals(Object actual, Object expected) {
+    protected boolean verifyEquals(Object actual, Object expected) {
         return checkEquals(actual, expected);
     }
 

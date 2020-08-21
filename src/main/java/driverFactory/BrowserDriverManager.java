@@ -33,7 +33,9 @@ public abstract class BrowserDriverManager extends AbstractTest {
     public void quitDriver() {
         if (threadLocalDriver.get() != null) {
             threadLocalDriver.get().quit();
+            threadLocalDriver.remove();
             threadLocalDriver.set(null);
+
         }
     }
 
