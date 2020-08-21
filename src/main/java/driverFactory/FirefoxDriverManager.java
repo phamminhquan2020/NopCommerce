@@ -33,7 +33,7 @@ Dimension dimension;
         if (System.getProperty("user.name").contains("LeoAzureVirtual")) {
             options.setHeadless(true);
         }
-        driver = new FirefoxDriver(options);
+        threadLocalDriver.set(new FirefoxDriver(options));
 
     }
 

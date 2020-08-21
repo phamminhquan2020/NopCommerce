@@ -3,21 +3,24 @@ package driverFactory;
 public class DriverFactoryManager {
     private static BrowserDriverManager driverManager;
 
+    public enum BrowserName {CHROME, FIREFOX, IE11, EDGE, SAFARI}
+
     public static BrowserDriverManager getDriverManager(String browserName) {
-        switch (browserName) {
-            case "chrome":
+        BrowserName browser = BrowserName.valueOf(browserName.toUpperCase());
+        switch (browser) {
+            case CHROME:
                 driverManager = new ChromeDriverManager();
                 break;
-            case "firefox":
+            case FIREFOX:
                 driverManager = new FirefoxDriverManager();
                 break;
-            case "ie11":
+            case IE11:
                 driverManager = new IE11DriverManager();
                 break;
-            case "edge":
+            case EDGE:
                 driverManager = new EdgeDriverManager();
                 break;
-            case "safari":
+            case SAFARI:
                 driverManager = new SafariDriverManager();
                 break;
             default:

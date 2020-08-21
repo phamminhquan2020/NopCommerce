@@ -41,7 +41,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
             options.addArguments("-headless");
         }
         System.out.println("Run by: " + System.getProperty("user.name"));
-        driver = new ChromeDriver(options);
+        threadLocalDriver.set(new ChromeDriver(options));
     }
 
 }

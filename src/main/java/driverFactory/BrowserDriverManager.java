@@ -10,29 +10,30 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BrowserDriverManager extends AbstractTest {
     protected WebDriver driver;
+    protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
 
     protected abstract void createDriver();
 
     public WebDriver getDriver() {
-        if (driver == null) {
+        if (threadLocalDriver.get() == null) {
             createDriver();
         }
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-        driver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
-        log.info("Set window size " + driver.manage().window().getSize());
-        log.info("Set window position " + driver.manage().window().getPosition());
-        return driver;
+        threadLocalDriver.get().manage().window().setSize(new Dimension(1920, 1080));
+        threadLocalDriver.get().manage().window().setPosition(new Point(0, 0));
+        threadLocalDriver.get().manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
+        log.info("Set window size " + threadLocalDriver.get().manage().window().getSize());
+        log.info("Set window position " + threadLocalDriver.get().manage().window().getPosition());
+        return threadLocalDriver.get();
     }
 
     public WebDriver getDriverForWriteLog() {
-        return driver;
+        return threadLocalDriver.get();
     }
 
     public void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (threadLocalDriver.get() != null) {
+            threadLocalDriver.get().quit();
+            threadLocalDriver.set(null);
         }
     }
 

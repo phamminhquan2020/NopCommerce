@@ -22,7 +22,10 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractTest {
@@ -131,7 +134,7 @@ public abstract class AbstractTest {
             String cmd = "";
             if (driver != null) {
                 driver.manage().deleteAllCookies();
-                driver.quit();
+                driverManager.quitDriver();
             }
 
             if (driver.toString().toLowerCase().contains("chrome")) {
@@ -188,7 +191,7 @@ public abstract class AbstractTest {
             File file = new File(pathFolderDownload);
             File[] listOfFiles = file.listFiles();
 
-            Calendar cal = Calendar.getInstance();;
+            Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DATE, -4);
             Date endDate = cal.getTime();
             System.out.println("DELETE SCREENSHOT BEFORE: " + endDate);
