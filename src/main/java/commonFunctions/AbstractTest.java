@@ -192,9 +192,9 @@ public abstract class AbstractTest {
             File[] listOfFiles = file.listFiles();
 
             Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DATE, -4);
+            cal.add(Calendar.DATE, -3);
             Date endDate = cal.getTime();
-            System.out.println("DELETE SCREENSHOT BEFORE: " + endDate);
+            log.info("DELETE SCREENSHOT BEFORE: " + endDate);
 
             for (int i = 0;i< listOfFiles.length;i++) {
                String fileName = listOfFiles[i].getName();

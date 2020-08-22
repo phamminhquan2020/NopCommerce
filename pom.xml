@@ -90,11 +90,11 @@
             <version>1.2.16</version>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.24</version>
-        </dependency>
+        </dependency>-->
 
         <!--apache velocity used to create template-->
         <dependency>
