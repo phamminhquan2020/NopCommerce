@@ -21,6 +21,7 @@ public class Admin extends AbstractTest {
     int stock01;
     String categoryOption02, categoryOption04, categoryOption05, manufacturer05;
     String email, password, firstName, lastName, dob, companyName, vendorName, adminComment, month, day, storeNames, roleNames;
+    String successAddedCustomer;
     DataHelper data;
     private WebDriver driver;
 
@@ -54,6 +55,8 @@ public class Admin extends AbstractTest {
         roleNames = "Guests";
         vendorName = "Vendor 1";
         adminComment = "New Customer";
+
+        successAddedCustomer = "The new customer has been added successfully.";
 
         driver = getBrowserDriverFromFactory(browser);
     }
@@ -206,7 +209,7 @@ public class Admin extends AbstractTest {
         customerCreateAdminPage.clickToSaveAndContinueEditButton();
 
         customerEditAdminPage = PageGeneratorManager.getCustomerEditAdminPage(driver);
-        verifyEquals(customerEditAdminPage.getNotificationMessageOfAdmin(driver), "The new customer has been added successfully.");
+        verifyEquals(customerEditAdminPage.getNotificationMessageOfAdmin(driver), successAddedCustomer);
         verifyEquals(customerEditAdminPage.getEmail(), email);
         verifyEquals(customerEditAdminPage.getFirstName(), firstName);
         verifyEquals(customerEditAdminPage.getLastName(), lastName);
