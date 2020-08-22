@@ -40,6 +40,7 @@ public class Order extends AbstractTest {
     List<String> billingAddressInfo, paymentMethodInfo, shippingAddressInfo, shippingMethodInfo;
     List<String> billingAddressInfoConfirmOrder, paymentMethodInfoConfirmOrder, shippingAddressInfoConfirmOrder, shippingMethodInfoConfirmOrder;
     String creditCartType, cartHolderName, cartNumber, month, year, code;
+    String successAddedShoppingCartMessage;
     int qty7;
     float totalPrice7;
     private WebDriver driver;
@@ -48,7 +49,7 @@ public class Order extends AbstractTest {
     @BeforeClass
     public void beforeClass(String browser) {
         data = DataHelper.getData();
-        userEmail = data.getUserEmail(browser);
+        userEmail = DataHelper.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
@@ -112,6 +113,8 @@ public class Order extends AbstractTest {
         qty7 = 10;
         totalPrice7 = 18010;
 
+        successAddedShoppingCartMessage = "The product has been added to your shopping cart";
+
     }
 
     @BeforeMethod
@@ -147,7 +150,7 @@ public class Order extends AbstractTest {
         price1 += softwareAddPrice1;
         productDetailUserPage.inputQuantity(Integer.toString(qty1));
         productDetailUserPage.clickAddToCartButton();
-        verifyEquals(productDetailUserPage.getNotificationMsg(driver), "The product has been added to your shopping cart");
+        verifyEquals(productDetailUserPage.getNotificationMsg(driver), successAddedShoppingCartMessage);
         productDetailUserPage.clickToCloseIcon(driver);
         verifyEquals(productDetailUserPage.getCartQuantity(driver), "(" + qty1 + ")");
         productDetailUserPage.hoverToCartLink(driver);
@@ -185,7 +188,7 @@ public class Order extends AbstractTest {
         price2 += softwareAddPrice2;
         productDetailUserPage.inputQuantity(Integer.toString(qty2));
         productDetailUserPage.clickToUpdateButton();
-        verifyEquals(productDetailUserPage.getNotificationMsg(driver), "The product has been added to your shopping cart");
+        verifyEquals(productDetailUserPage.getNotificationMsg(driver), successAddedShoppingCartMessage);
         productDetailUserPage.clickToCloseIcon(driver);
         verifyEquals(productDetailUserPage.getCartQuantity(driver), "(" + qty2 + ")");
         productDetailUserPage.hoverToCartLink(driver);

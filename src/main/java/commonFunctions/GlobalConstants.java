@@ -10,6 +10,7 @@ public class GlobalConstants {
     public static final String EXTENSION_FOLDER = System.getProperty("user.dir") + "/browserExtensions";
 
     public static final String USER_URL = "https://demo.nopcommerce.com/";
+    public static final String CART_URL = "https://demo.nopcommerce.com/cart";
     public static final String USER_EMAIL_CHROME = "leo2020chrome@gmail.com";
     public static final String USER_EMAIL_FIREFOX = "leo2020firefox@gmail.com";
     public static final String USER_PASSWORD = "12345678";
@@ -20,6 +21,5 @@ public class GlobalConstants {
     public static final String ADMIN_URL = "https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/";
     public static final String ADMIN_EMAIL = "admin@yourstore.com";
     public static final String ADMIN_PASSWORD = "admin";
-
 
 }

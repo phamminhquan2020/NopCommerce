@@ -22,12 +22,13 @@ public class MyAccount extends AbstractTest {
     String userEmail, userPassword;
     String firstname, lastname, day, month, year, company;
     String add_firstname, add_lastname, add_email, add_company, add_country, add_state, add_city, add_address1, add_address2, add_zipcode, add_phone, add_fax, addTitle;
-    String productTitle, reviewTitle, reviewText, ratingValue;
+    String productTitle, reviewTitle, reviewText, ratingValue, loginUnsuccessfulMessage, incorrectCredentialMessage, changePasswordSuccessMessage, successReviewMessage;
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
         data = DataHelper.getData();
-        userEmail = data.getUserEmail(browser);
+        userEmail = DataHelper.getUserEmail(browser);
         userPassword = GlobalConstants.USER_PASSWORD;
         firstname = "Automation";
         lastname = "FC";
@@ -54,7 +55,10 @@ public class MyAccount extends AbstractTest {
         reviewText = "It's have lots of valuable upgrades from previous version";
         ratingValue = "5";
 
-
+        loginUnsuccessfulMessage = "Login was unsuccessful. Please correct the errors and try again.";
+        incorrectCredentialMessage = "The credentials provided are incorrect";
+        changePasswordSuccessMessage = "Password was changed";
+        successReviewMessage = "Product review is successfully added.";
         driver = getBrowserDriverFromFactory(browser);
         homeUserPage = PageGeneratorManager.getHomeUserPage(driver);
 
@@ -143,13 +147,13 @@ public class MyAccount extends AbstractTest {
         changePasswordMyAccountUserPage.inputNewPassword(GlobalConstants.CHANGED_USER_PASSWORD);
         changePasswordMyAccountUserPage.inputConfirmNewPassword(GlobalConstants.CHANGED_USER_PASSWORD);
         changePasswordMyAccountUserPage.clickChangePasswordButton();
-        verifyEquals(changePasswordMyAccountUserPage.getResultMsg(), "Password was changed");
+        verifyEquals(changePasswordMyAccountUserPage.getResultMsg(), changePasswordSuccessMessage);
         changePasswordMyAccountUserPage.clickToLogoutLink(driver);
         changePasswordMyAccountUserPage.clickToLoginLink(driver);
         loginUserPage.inputToEmailTextBox(userEmail);
         loginUserPage.inputToPasswordTextBox(userPassword);
         loginUserPage.clickToLoginButton();
-        verifyTrue(loginUserPage.getLoginErrorMsg().contains("Login was unsuccessful. Please correct the errors and try again.") && loginUserPage.getLoginErrorMsg().contains("The credentials provided are incorrect"));
+        verifyTrue(loginUserPage.getLoginErrorMsg().contains(loginUnsuccessfulMessage) && loginUserPage.getLoginErrorMsg().contains(incorrectCredentialMessage));
         loginUserPage.inputToPasswordTextBox(GlobalConstants.CHANGED_USER_PASSWORD);
         loginUserPage.clickToLoginButton();
         verifyEquals(loginUserPage.getPageUrl(driver), GlobalConstants.USER_URL);
@@ -165,7 +169,7 @@ public class MyAccount extends AbstractTest {
         productReviewUserPage.inputReviewTextTextbox(reviewText);
         productReviewUserPage.clickToDynamicRatingOption(ratingValue);
         productReviewUserPage.clickSubmitReviewButton();
-        verifyEquals(productReviewUserPage.getResultReviewMsg(), "Product review is successfully added.");
+        verifyEquals(productReviewUserPage.getResultReviewMsg(), successReviewMessage);
         productReviewUserPage.clickToMyAccountLink(driver);
         customerInfoMyAccountUserPage = PageGeneratorManager.getCustomerInfoMyAccountUserPage(driver);
         customerInfoMyAccountUserPage.clickToDynamicMyAccountMenu(driver, "My product reviews");

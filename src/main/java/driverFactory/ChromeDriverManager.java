@@ -23,9 +23,10 @@ public class ChromeDriverManager extends BrowserDriverManager {
 
         args.add("--disable-notifications");
         args.add("--disable-geolocation");
-        //args.add("--disable-extensions");
+        args.add("--disable-extensions");
         args.add("-lang=vi");
         args.add("--no-sandbox");
+        args.add("disable-infobars");
         options.addArguments(args);
 
 
@@ -34,6 +35,7 @@ public class ChromeDriverManager extends BrowserDriverManager {
 
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
+
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         options.setExperimentalOption("prefs", prefs);
