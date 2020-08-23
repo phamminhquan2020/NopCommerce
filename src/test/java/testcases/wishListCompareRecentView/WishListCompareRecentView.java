@@ -140,7 +140,7 @@ public class WishListCompareRecentView extends AbstractTest {
         homeUserPage.clickToDynamicProductImageByTitle(driver, productTitle02);
         productDetailUserPage = PageGeneratorManager.getProductDetailUserPage(driver);
         productDetailUserPage.clickToAddToCompareButton();
-        verifyEquals(productDetailUserPage.getNotificationMsg(driver), successAddedWishListMessage);
+        verifyEquals(productDetailUserPage.getNotificationMsg(driver), successAddedComparisionMessage);
         productDetailUserPage.clickToCloseIcon(driver);
         productDetailUserPage.clickToDynamicFooterMenu(driver, "Compare products list");
         compareProductsPage = PageGeneratorManager.getCompareProductsPage(driver);
